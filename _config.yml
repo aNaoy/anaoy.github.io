@@ -7,11 +7,11 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "en-US"
+locale                   : "fr-FR"
 site_theme               : "default"
-title                    : "Les élucubrations"
+title                    : "Mes élucubrations"
 title_separator          : "-"
-name                     : &name "Yoan"
+name                     : &name "Yoan AGOSTINI"
 description              : &description "Plein de bonnes choses à lire..."
 url                      : https://anaoy.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,7 +26,7 @@ author:
   name             : "Yoan AGOSTINI"
   pronouns         : #   
   bio              : "1337 G33k"
-  location         : "Earth"
+  location         : "Nouvelle-Calédonie"
   employer         : "CAFAT"
   uri              : https://naoy.fr
   email            : "yoan@naoy.fr" 
@@ -296,8 +296,8 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-# paginate: 5 # amount of posts to show
-# paginate_path: /page:num/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
 timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 

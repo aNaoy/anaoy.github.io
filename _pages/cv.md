@@ -11,54 +11,32 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Master Systèmes, Réseaux & Sécurité @YNOV, 2014
+* Bachelor Réseaux & Sécurité @Infosup, 2011
+* DUT Réseaux & Télécommunications @IUT Mont de Marsan, 2008
 
-Work experience
+Expérience professionnelle
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* 2017 - Aujourd'hui : Architecte Sécurité
+  * CAFAT
+  * BUILD & RUN de la sécurité opérationnelle
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2014 - 2017 : Ingénieur Systèmes & Réseaux
+  * CCI-NC
+  * BUILD & RUN systèmes & réseaux
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* 2010 - 2014 : Consultant Réseaux & Sécurité
+  * Randco
+  * BUILD & AUDIT réseaux & sécurité
   
-Skills
+Savoirs
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Cybersécurité
+  * Red team
+  * Blue team
+* Réseaux
+  * Routing
+  * Switching
+* Systèmes
+  * Linux
+  * Windows
