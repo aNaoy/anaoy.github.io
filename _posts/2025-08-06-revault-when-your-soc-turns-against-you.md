@@ -1,4 +1,3 @@
-
 ---
 title: 'ReVault! When your SoC turns against you…'
 date: 2025-08-06
@@ -7,35 +6,37 @@ tags:
 - veille-cyber
 - zerodaysfans
 ---
-### Compromission du ControlVault Dell : Persistance et Contournement d'Authentification
+## ReVault : Des vulnérabilités dans le système de sécurité matériel de Dell
 
-Des vulnérabilités critiques ont été découvertes dans le firmware du Dell ControlVault3 (CV) et ses API Windows associées, baptisées "ReVault". Ces failles affectent plus de 100 modèles d'ordinateurs portables Dell, si elles ne sont pas corrigées. L'exploitation de ces failles permet à des attaquants de maintenir une présence persistante sur un système, même après une réinstallation de Windows, ou de contourner l'authentification Windows et d'obtenir des privilèges administrateur localement.
+Des vulnérabilités ont été découvertes dans le firmware ControlVault3 (CV) et ses API Windows associées de Dell, baptisées "ReVault". Ces failles affectent plus de 100 modèles d'ordinateurs portables Dell et peuvent permettre la persistance d'un attaquant même après une réinstallation de Windows, ainsi que le contournement de la connexion Windows ou l'obtention de privilèges administrateur via une attaque physique.
 
-Le Dell ControlVault est une solution de sécurité matérielle qui sécurise des informations sensibles comme les mots de passe et les données biométriques dans le firmware, hébergé sur une carte dédiée appelée Unified Security Hub (USH). Ces vulnérabilités touchent des appareils couramment utilisés dans des secteurs sensibles tels que la cybersécurité et les environnements gouvernementaux.
+Le ControlVault est une solution de sécurité matérielle conçue pour stocker de manière sécurisée des mots de passe, des données biométriques et des codes de sécurité dans le firmware. Il est implémenté sur une carte fille appelée Unified Security Hub (USH), qui sert de concentrateur pour les périphériques de sécurité tels que les lecteurs d'empreintes digitales, de cartes à puce et de NFC. Les versions ControlVault3 et ControlVault3+ sont présentes dans des modèles couramment utilisés dans des environnements sensibles comme la cybersécurité et les secteurs gouvernementaux.
 
-**Points Clés et Vulnérabilités Découvertes :**
+**Points Clés et Vulnérabilités :**
 
-*   **Cinq vulnérabilités** ont été signalées, affectant le firmware CV et les API Windows :
-    *   Plusieurs dépassements de tampon (out-of-bounds): CVE-2025-24311, CVE-2025-25050
-    *   Libération arbitraire de mémoire (arbitrary free): CVE-2025-25215
-    *   Dépassement de pile (stack-overflow): CVE-2025-24922
-    *   Désérialisation non sécurisée (unsafe-deserialization) affectant les API Windows : CVE-2025-24919
-
-*   **Scénarios d'Attaque Majeurs :**
-    *   **Pivot post-compromission :** Un utilisateur non-administrateur peut exécuter du code arbitraire sur le firmware CV, permettant de voler des clés de chiffrement et de modifier le firmware de manière permanente. Un implant pourrait ainsi persister sur la durée et être réutilisé par un attaquant.
-    *   **Attaque physique :** Un attaquant ayant un accès physique peut accéder à la carte USH via USB. Il peut alors exploiter les vulnérabilités sans avoir besoin de se connecter au système ou de connaître les mots de passe. Il est même possible de modifier le firmware pour accepter n'importe quelle empreinte digitale pour le déverrouillage.
+*   **Type de vulnérabilités :** Cinq vulnérabilités ont été identifiées dans le firmware CV, incluant des dépassements de tampon (out-of-bounds) et des débordements de pile (stack-overflow). Une sixième vulnérabilité d'unsafe-deserialization affecte les API Windows de ControlVault.
+*   **Impact des vulnérabilités :**
+    *   **Persistance post-compromission :** Un utilisateur sans privilèges peut déclencher une exécution de code arbitraire sur le firmware CV via les API Windows. Cela peut permettre de voler des clés de chiffrement et de modifier le firmware de manière permanente, créant un implant résistant aux réinstallations du système d'exploitation.
+    *   **Attaque physique :** Un attaquant avec un accès physique à l'ordinateur peut accéder directement à la carte USH via USB. Cela lui permet d'exploiter les vulnérabilités sans avoir à se connecter au système ni connaître les mots de passe. Il est possible de modifier le firmware pour accepter n'importe quelle empreinte digitale pour le déverrouillage.
+*   **CVE identifiées :**
+    *   CVE-2025-24311 (dépassement de tampon)
+    *   CVE-2025-25050 (dépassement de tampon)
+    *   CVE-2025-25215 (arbitrary free)
+    *   CVE-2025-24922 (stack-overflow)
+    *   CVE-2025-24919 (unsafe-deserialization)
 
 **Recommandations :**
 
-*   **Maintenir les systèmes à jour :** Installer les dernières mises à jour du firmware du ControlVault.
-*   **Désactiver les services si inutilisés :** Si les périphériques de sécurité comme le lecteur d'empreintes digitales ne sont pas utilisés, il est recommandé de désactiver les services CV via le Gestionnaire de Services et/ou l'appareil CV via le Gestionnaire de Périphériques.
-*   **Désactiver l'authentification par empreinte digitale :** Envisager de désactiver cette option dans les environnements à risque accru.
-*   **Activer la Sécurité de Connexion Améliorée (ESS) :** Sous Windows, l'ESS peut aider à atténuer certaines attaques physiques et à détecter une modification anormale du firmware CV.
+*   **Mises à jour :** Maintenir le système à jour pour installer le dernier firmware ControlVault, qui peut être déployé via Windows Update ou directement depuis le site de Dell.
+*   **Désactivation des services :** Si les périphériques de sécurité (lecteur d'empreintes digitales, lecteur de carte à puce, lecteur NFC) ne sont pas utilisés, il est possible de désactiver les services ControlVault via le gestionnaire de services ou le périphérique lui-même via le gestionnaire de périphériques.
+*   **Désactivation de la connexion par empreinte digitale :** Envisager de désactiver la connexion par empreinte digitale lorsque le risque est élevé (par exemple, laisser l'ordinateur portable sans surveillance). L'utilisation de la fonction "Enhanced Sign-in Security" (ESS) de Windows peut également aider à atténuer certaines attaques physiques et à détecter un firmware CV compromis.
 
 **Détection :**
 
-*   Activer la détection d'intrusion du châssis dans le BIOS.
-*   Surveiller les journaux Windows pour des plantages inattendus des services biométriques ou de gestion des identifiants.
-*   Les solutions de sécurité comme Cisco Secure Endpoint peuvent détecter des comportements suspects liés aux fichiers du ControlVault.
+*   **Chassis Intrusion Detection :** Activer la détection d'intrusion du châssis dans le BIOS, si disponible, pour signaler toute manipulation physique.
+*   **Journaux Windows :** Surveiller les plantages inattendus du service biométrique Windows ou des services Credential Vault, qui pourraient indiquer une compromission.
+*   **Outils de sécurité :** Les solutions comme Cisco Secure Endpoint peuvent détecter des activités suspectes avec des signatures spécifiques, comme "bcmbipdll.dll Loaded by Abnormal Process".
+
+Ces découvertes soulignent la nécessité d'évaluer la posture de sécurité de tous les composants matériels d'un appareil, et pas seulement du système d'exploitation. Une vigilance constante, la mise à jour des systèmes et l'évaluation proactive des risques sont essentielles pour se protéger contre les menaces évolutives.
 ---
 Source: https://blog.talosintelligence.com/revault-when-your-soc-turns-against-you/
