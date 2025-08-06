@@ -6,32 +6,40 @@ tags:
 - veille-cyber
 - zerodaysfans
 ---
-### ReVault : Quand le matériel se retourne contre l'utilisateur
+**ReVault : Menace sur la Sécurité Matérielle des PC Dell**
 
-Des vulnérabilités critiques ont été découvertes dans le firmware ControlVault3 et ses API Windows associées, baptisées "ReVault". Ces failles affectent plus de 100 modèles d'ordinateurs portables Dell et peuvent compromettre gravement la sécurité des appareils.
+Des vulnérabilités critiques, baptisées "ReVault", ont été découvertes dans le firmware du Dell ControlVault3 (CV) et ses API Windows associées, affectant plus de 100 modèles d'ordinateurs portables Dell. Ces failles permettent des attaques de persistance post-compromission, capables de survivre aux réinstallations de Windows, et peuvent être exploitées pour contourner la connexion Windows ou obtenir des privilèges administrateur via un accès physique.
 
-**Points clés :**
+**Points Clés :**
 
-*   **Persistance après compromission :** ReVault permet aux attaquants de maintenir une présence sur le système, même après une réinstallation de Windows.
-*   **Contournement de la sécurité :** Une attaque physique permet de contourner l'authentification Windows et d'obtenir des privilèges administrateur ou système.
-*   **Impact sur la biométrie :** Il est possible de modifier le firmware pour qu'il accepte n'importe quelle empreinte digitale, neutralisant ainsi la sécurité biométrique.
+*   **Produit Concerné :** Dell ControlVault3 et ControlVault3+ (une solution de sécurité matérielle stockant mots de passe et données biométriques).
+*   **Modèles Affectés :** Plus de 100 modèles de portables Dell, notamment les séries Latitude et Precision.
+*   **Impact Majeur :** Persistance post-compromission, contournement de la connexion, élévation de privilèges, compromission des données biométriques.
 
-**Vulnérabilités identifiées :**
+**Vulnérabilités Identifiées :**
 
-*   **CVE-2025-24311 :** Vulnérabilité de dépassement de tampon (Out-of-bounds vulnerability).
-*   **CVE-2025-25050 :** Vulnérabilité de dépassement de tampon (Out-of-bounds vulnerability).
-*   **CVE-2025-25215 :** Vulnérabilité de libération arbitraire de mémoire (Arbitrary free).
-*   **CVE-2025-24922 :** Vulnérabilité de dépassement de pile (Stack overflow).
-*   **CVE-2025-24919 :** Vulnérabilité de désérialisation non sécurisée (Unsafe deserialization) affectant les API Windows.
+*   **CVE-2025-24311** : Vulnérabilité hors limites affectant le firmware CV.
+*   **CVE-2025-25050** : Vulnérabilité hors limites affectant le firmware CV.
+*   **CVE-2025-25215** : Vulnérabilité d'allocation libre arbitraire affectant le firmware CV.
+*   **CVE-2025-24922** : Vulnérabilité de dépassement de pile affectant le firmware CV.
+*   **CVE-2025-24919** : Désérialisation non sécurisée affectant les API Windows du ControlVault.
+
+**Scénarios d'Attaque :**
+
+1.  **Pivot Post-Compromission :** Un utilisateur sans privilèges peut exécuter du code arbitraire sur le firmware CV via les API, permettant de voler des clés de chiffrement, de modifier le firmware et de créer un implant persistant.
+2.  **Attaque Physique :** Un attaquant ayant un accès physique peut se connecter directement à la carte Unified Security Hub (USH) via USB pour exploiter les vulnérabilités. Il est ainsi possible de modifier le firmware pour accepter n'importe quelle empreinte digitale pour le déverrouillage, même sans connaître le mot de passe de l'utilisateur.
 
 **Recommandations :**
 
-*   **Mise à jour du système :** Maintenez vos systèmes à jour pour installer le dernier firmware ControlVault.
-*   **Désactivation des services :** Si les périphériques de sécurité (lecteur d'empreintes digitales, lecteur de carte à puce, lecteur NFC) ne sont pas utilisés, désactivez les services ControlVault.
-*   **Désactivation de la connexion par empreinte digitale :** Envisagez de désactiver l'authentification par empreinte digitale dans des environnements à risque accru.
-*   **Sécurité de connexion renforcée :** Activez la fonctionnalité "Enhanced Sign-in Security" (ESS) de Windows pour atténuer certaines attaques physiques et détecter des firmwares ControlVault potentiellement compromis.
-*   **Détection d'intrusion :** Activez la détection d'intrusion physique dans le BIOS de l'ordinateur.
-*   **Surveillance des journaux :** Soyez attentif aux plantages inattendus des services biométriques ou des services de gestion des informations d'identification dans les journaux Windows.
+*   **Mises à Jour Régulières :** Maintenir le système à jour pour installer le dernier firmware ControlVault.
+*   **Désactivation :** Si les périphériques de sécurité (lecteur d'empreintes, lecteur de carte à puce, NFC) ne sont pas utilisés, envisager de désactiver les services ou le périphérique ControlVault.
+*   **Sécurisation du Connexion :** Désactiver la connexion par empreinte digitale lorsque le risque est élevé. Activer la sécurité de connexion renforcée (ESS) de Windows peut aider à atténuer certaines attaques physiques.
+
+**Détection :**
+
+*   **Intrusion Physique :** Activer la détection d'intrusion dans le BIOS pour signaler toute manipulation physique.
+*   **Journaux Windows :** Surveiller les plantages inattendus du service biométrique Windows ou des services de coffre-fort d'informations d'identification.
+*   **Solutions de Sécurité :** Utiliser des signatures spécifiques (par exemple, pour Cisco Secure Endpoint : "bcmbipdll.dll Loaded by Abnormal Process").
 
 ---
 [Source](https://blog.talosintelligence.com/revault-when-your-soc-turns-against-you/){:target="_blank"}
