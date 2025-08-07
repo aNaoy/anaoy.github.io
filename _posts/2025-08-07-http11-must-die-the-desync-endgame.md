@@ -6,42 +6,39 @@ tags:
 - veille-cyber
 - zerodaysfans
 ---
-### La Fin Inéluctable du Protocole HTTP/1.1 : Les Attaques par Désynchronisation
+## HTTP/1.1 : La Fin d'un Protocole Vulnérable
 
-Le protocole HTTP/1.1 présente une vulnérabilité fondamentale dans la manière dont il traite les limites entre les requêtes. Cette faille, exploitée via des attaques de désynchronisation de requêtes (request smuggling), permet à des attaquants de détourner des millions de sites web, y compris des infrastructures critiques comme celles d'Akamai, Cloudflare et Netlify. Malgré des tentatives d'atténuation au cours des six dernières années, le problème persiste, car les correctifs ciblent les symptômes plutôt que la cause profonde. Les nouvelles classes d'attaques présentées, notamment celles exploitant l'en-tête `Expect` et les vulnérabilités de type 0.CL, ont révélé des failles dans des systèmes apparemment sécurisés, démontrant que même des versions obsolètes de protocoles peuvent causer des compromissions massives.
+Le protocole HTTP/1.1, malgré sa présence généralisée, souffre d'une faille de conception fondamentale : la gestion floue des limites entre les requêtes. Cette faiblesse intrinsèque permet aux attaquants de créer des désynchronisations de requêtes (request smuggling), ouvrant la voie à des prises de contrôle de sites web, au vol d'informations d'identification et à d'autres attaques graves. Malgré des années de tentatives d'atténuation, le problème persiste, caché sous une illusion de sécurité.
 
-L'adoption généralisée d'HTTP/2 en amont (entre les serveurs) est présentée comme la seule solution durable. Ce protocole binaire élimine la plupart des ambiguïtés inhérentes à HTTP/1.1, rendant les attaques par désynchronisation beaucoup plus difficiles à réaliser.
+### Points Clés
 
-**Points Clés :**
+*   **Désynchronisation de Requêtes (Request Smuggling)** : Les différences dans la manière dont les serveurs frontaux et les serveurs back-end interprètent les longueurs des requêtes HTTP/1.1 créent une ambiguïté exploitable.
+*   **Complexité Accrue par les Proxys et la Migration H2** : L'utilisation de proxys inverses et la rétrogradation des requêtes HTTP/2 vers HTTP/1.1 pour la communication interne compliquent la gestion des requêtes et introduisent de nouvelles vecteurs d'attaque.
+*   **Attaques "0.CL" et "Expect"** : De nouvelles classes d'attaques basées sur la manipulation de l'en-tête `Content-Length` (0.CL) et de l'en-tête `Expect` ont été découvertes, permettant des compromissions étendues, y compris sur des infrastructures critiques.
+*   **Atténuations Inefficaces** : Les correctifs appliqués aux implémentations individuelles ne résolvent pas la faille fondamentale du protocole, se contentant de rendre les méthodes d'exploitation classiques plus difficiles.
 
-*   **Fragilité de HTTP/1.1 :** La concaténation des requêtes sur des sockets TCP sans délimiteurs clairs et les multiples méthodes de spécification de longueur créent des ambiguïtés exploitables.
-*   **Attaques par Désynchronisation :** Les attaquants peuvent manipuler la manière dont les requêtes sont interprétées par différents composants d'une chaîne de serveurs (par exemple, proxy et serveur d'origine), leur permettant d'insérer des données malveillantes dans les requêtes des utilisateurs légitimes.
-*   **Complexité des Mitigations :** Les tentatives de correction par le resserrement des analyseurs ou l'utilisation d'HTTP/2 côté client ne suffisent pas si la communication en amont reste en HTTP/1.1, surtout lorsque les proxys convertissent les requêtes HTTP/2 en HTTP/1.1.
-*   **Impact Massif :** Des vulnérabilités découvertes ont potentiellement exposé des dizaines de millions de sites web, incluant des infrastructures majeures comme Akamai et Cloudflare, avec des exemples de détournement de sites web touchant des millions d'utilisateurs.
-*   **Nouvelles Techniques :** L'article détaille de nouvelles classes d'attaques, notamment :
-    *   **0.CL Desync :** Exploite l'absence d'en-tête `Content-Length` pour créer une désynchronisation, nécessitant un "gadget" de réponse anticipée pour être exploitable.
-    *   **Expect-based Desync :** L'utilisation de l'en-tête `Expect`, même avec des formats standard ou légèrement obfusqués, peut révéler des désynchronisations, permettant par exemple des attaques de type 0.CL ou CL.0.
-*   **Outil de Détection :** Un nouvel outil open-source, "HTTP Request Smuggler v3.0", est introduit pour détecter systématiquement les divergences d'analyseurs.
-*   **Importance d'HTTP/2 :** La transition vers HTTP/2 en amont est fortement recommandée pour éliminer ce vecteur de menace.
+### Vulnérabilités Découvertes (Exemples)
 
-**Vulnérabilités et CVEs :**
+*   **Cloudflare (H2.0 desync)** : Une désynchronisation interne à l'infrastructure de Cloudflare, exploitant une rétrogradation de HTTP/2 à HTTP/1.1, a exposé plus de 24 millions de sites web à des prises de contrôle.
+*   **Akamai CDN (CL.0 desync via obfuscated Expect)** : Une vulnérabilité exploitant une désynchronisation CL.0 via un en-tête `Expect` obfusqué a permis de servir du contenu arbitraire sur `auth.lastpass.com`, et affectait potentiellement d'autres domaines majeurs comme `example.com`. Cette vulnérabilité a été identifiée sous la référence **CVE-2025-32094**.
+*   **GitLab (0.CL desync via obfuscated Expect)** : Une désynchronisation 0.CL via un en-tête `Expect` légèrement obfusqué a été trouvée sur `h1.sec.gitlab.net`, permettant des attaques de "Response Queue Poisoning" sur les rapports de bug bounty.
+*   **Netlify CDN (CL.0 RQP)** : Une vulnérabilité de "Response Queue Poisoning" a été découverte sur le CDN de Netlify, exposant des réponses de plusieurs sites hébergés sur la plateforme.
+*   **T-Mobile (0.CL desync via vanilla Expect)** : Une désynchronisation 0.CL via un en-tête `Expect` standard a été exploitée sur un domaine de staging de T-Mobile.
 
-*   Des vulnérabilités critiques ont été découvertes et corrigées chez **Akamai**, **Cloudflare** et **Netlify**, exposant des millions de sites web. L'une d'elles a été attribuée le **CVE-2025-32094**.
-*   Des failles ont été identifiées sur des systèmes utilisant **IIS derrière AWS Application Load Balancer (ALB)**, où AWS a choisi de ne pas patcher pour des raisons de compatibilité avec les clients HTTP/1.1 obsolètes.
-*   Des problèmes ont été relevés avec des implémentations de l'en-tête `Expect` sur diverses plateformes, y compris **T-Mobile**, **GitLab** et **Akamai CDN**.
+D'autres vulnérabilités ont été identifiées sur des infrastructures comme Akamai, Cloudflare, Netlify, ainsi que sur des systèmes utilisant IIS derrière AWS ALB, mettant en évidence la généralisation du problème.
 
-**Recommandations :**
+### Recommandations
 
-*   **Migration vers HTTP/2 :** Passer à HTTP/2 pour les connexions en amont (entre le front-end et le serveur d'origine).
-*   **Activation d'HTTP/2 sur les Proxies :** Les fournisseurs comme HAProxy, F5 Big-IP, Google Cloud, Imperva, Apache et Cloudflare permettent cette configuration. Les fournisseurs comme Nginx, Akamai, CloudFront et Fastly ne le supportent pas encore nativement en amont.
-*   **Pour les systèmes restant sur HTTP/1.1 :**
-    *   Activer toutes les options de normalisation et de validation sur les serveurs frontaux et d'origine.
-    *   Privilégier les serveurs web réputés comme Apache et Nginx.
-    *   Effectuer des analyses régulières avec des outils comme "HTTP Request Smuggler".
-    *   Désactiver la réutilisation des connexions en amont si possible (peut impacter les performances).
-    *   Rejeter les requêtes avec un corps pour les méthodes qui ne l'exigent pas (GET, HEAD, OPTIONS).
-    *   Se méfier des affirmations selon lesquelles les WAFs peuvent efficacement contrer les désynchronisations autant qu'HTTP/2.
-*   **Sensibilisation :** Partager les connaissances sur les dangers de HTTP/1.1 et encourager l'adoption de HTTP/2. Utiliser et contribuer à des outils comme "HTTP Request Smuggler".
+*   **Migration vers HTTP/2 (ou supérieur)** : La seule solution à long terme est de passer à des protocoles plus modernes comme HTTP/2, qui éliminent la problématique de la désynchronisation grâce à leur nature binaire et à une gestion claire de la longueur des messages.
+*   **Activer le HTTP/2 en amont (Upstream HTTP/2)** : Configurer les proxys et les équilibreurs de charge pour utiliser HTTP/2 pour la communication avec les serveurs back-end. Les fournisseurs comme Nginx, Akamai, et CloudFront doivent encore ajouter cette fonctionnalité.
+*   **Pour ceux bloqués avec HTTP/1.1** :
+    *   Activer toutes les options de normalisation et de validation sur les serveurs frontaux et back-end.
+    *   Privilégier des serveurs web courants comme Apache ou Nginx.
+    *   Effectuer des scans réguliers avec des outils dédiés comme "HTTP Request Smuggler".
+    *   Désactiver la réutilisation des connexions en amont si possible (impact potentiel sur les performances).
+    *   Rejeter les requêtes ayant un corps alors que la méthode ne le requiert pas (par ex. GET, HEAD).
+    *   Être sceptique quant aux affirmations des fournisseurs de WAFs sur leur capacité à contrer efficacement les désynchronisations de requêtes par rapport à HTTP/2.
+*   **Sensibilisation et Partage d'Informations** : Augmenter la prise de conscience sur les dangers de HTTP/1.1 et encourager le partage des découvertes et des méthodes d'exploitation pour accélérer la transition vers des protocoles plus sûrs.
 
 ---
 [Source](https://portswigger.net/research/http1-must-die){:target="_blank"}

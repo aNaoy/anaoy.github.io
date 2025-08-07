@@ -6,30 +6,35 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Microsoft Investit 17 Millions de Dollars dans la Sécurité via son Programme de Bug Bounty**
+**Microsoft Récompense les Chercheurs en Sécurité avec un Montant Record**
 
-Au cours de la dernière année, Microsoft a versé un montant record de 17 millions de dollars à 344 chercheurs en sécurité issus de 59 pays, dans le cadre de son programme de primes aux chercheurs de vulnérabilités. Ces récompenses, dont le montant individuel le plus élevé a atteint 200 000 dollars, ont permis de résoudre plus de 1 000 rapports de vulnérabilités qualifiées affectant divers produits et plateformes de l'entreprise tels qu'Azure, Microsoft 365, Windows et Xbox.
+Au cours des 12 derniers mois, Microsoft a versé la somme record de 17 millions de dollars à 344 chercheurs en sécurité issus de 59 pays via son programme de récompenses pour les vulnérabilités. Ces récompenses ont été attribuées pour 1 469 rapports de vulnérabilités qualifiées, le montant individuel le plus élevé atteignant 200 000 dollars. Ces contributions ont permis de corriger plus de 1 000 failles de sécurité potentielles dans divers produits et plateformes Microsoft, incluant Azure, Microsoft 365, Dynamics 365, Power Platform, Windows, Edge et Xbox.
 
-Le programme a également vu son périmètre s'élargir avec l'intégration de nouvelles catégories de récompenses, notamment pour les vulnérabilités liées à l'IA comme Copilot, ainsi que pour les produits Defender et les systèmes de gestion d'identité. Des augmentations de primes ont été annoncées pour certaines failles relatives à Copilot, aux technologies .NET et ASP.NET Core, ainsi qu'aux aspects IA de Power Platform et Dynamics 365. Par ailleurs, un concours de hacking, le "Zero Day Quest", proposera une cagnotte de 5 millions de dollars.
+L'entreprise a également élargi plusieurs de ses programmes de récompenses, notamment pour l'IA Copilot, les produits Defender et les systèmes de gestion d'identité. Des ajustements ont été faits pour inclure des vulnérabilités spécifiques à l'IA, des attaques par déni de service à distance, des évasions de bac à sable, ainsi que des API et domaines supplémentaires dans les programmes d'identité et de défense. Récemment, Microsoft a augmenté les primes pour les failles de sécurité de gravité modérée dans Microsoft Copilot et certaines vulnérabilités .NET et ASP.NET Core, ainsi que pour les failles d'IA dans Power Platform et Dynamics 365.
 
-**Points clés :**
+Par ailleurs, Microsoft a annoncé un concours de piratage, le "Zero Day Quest", offrant jusqu'à 5 millions de dollars en récompenses, présenté comme le plus grand événement de ce type jamais organisé.
 
-*   **Investissement record :** 17 millions de dollars distribués en primes aux chercheurs en sécurité.
-*   **Portée du programme :** 344 chercheurs dans 59 pays ont soumis 1 469 rapports de vulnérabilités.
-*   **Produits couverts :** Azure, Microsoft 365, Windows, Edge, Xbox, Dynamics 365, Power Platform et les produits Defender.
-*   **Expansion du programme :** Inclusion de l'IA (Copilot, Power Platform, Dynamics 365), des produits Defender et des systèmes d'identité.
-*   **Augmentation des primes :** Pour certaines vulnérabilités IA, .NET et ASP.NET Core.
-*   **Concours de hacking :** Lancement du "Zero Day Quest" avec une dotation de 5 millions de dollars.
+**Points Clés:**
 
-**Vulnérabilités signalées (non spécifiées dans l'article) :**
+*   **Montant Record :** 17 millions de dollars distribués en récompenses.
+*   **Participants :** 344 chercheurs en sécurité de 59 pays.
+*   **Rapports :** 1 469 rapports de vulnérabilités qualifiées soumis.
+*   **Produits Concernés :** Azure, Microsoft 365, Dynamics 365, Power Platform, Windows, Edge, Xbox, IA Copilot, produits Defender.
+*   **Expansion des Programmes :** Renforcement des récompenses et de la couverture pour l'IA, les systèmes d'identité et les produits de sécurité.
+*   **Concours Futur :** Annonce du concours "Zero Day Quest" avec un prix de 5 millions de dollars.
 
-*   L'article mentionne la résolution de "plus de 1 000 vulnérabilités potentielles", sans détailler les types ou les CVE associés.
+**Vulnérabilités et Recommandations:**
 
-**Recommandations :**
+L'article ne détaille pas de vulnérabilités spécifiques ni ne fournit de CVE. Cependant, les recommandations implicites sont :
 
-*   **Collaboration avec les chercheurs :** Microsoft continue de privilégier la collaboration avec les chercheurs en sécurité indépendants pour identifier et corriger les failles.
-*   **Incitation à la découverte :** Le programme de primes est un moyen d'inciter à la découverte de vulnérabilités, y compris dans des domaines émergents comme l'IA.
-*   **Divulgation coordonnée :** L'entreprise souligne l'importance de la "Coordinated Vulnerability Disclosure" pour renforcer la confiance des utilisateurs.
+*   **Pour les Chercheurs en Sécurité :** Participer activement aux programmes de récompenses de Microsoft pour identifier et signaler les vulnérabilités.
+*   **Pour Microsoft :** Continuer à soutenir et élargir ses programmes de récompenses pour anticiper les menaces émergentes et renforcer la confiance des utilisateurs.
+
+**Recommandations Générales Basées sur le Contenu :**
+
+*   **Veille Technologique Continue :** Rester informé des évolutions en matière de sécurité, notamment dans les domaines de l'IA.
+*   **Divulgation Coordonnée des Vulnérabilités :** Maintenir une approche de divulgation coordonnée pour corriger efficacement les failles découvertes.
+*   **Adaptation des Programmes de Récompenses :** Ajuster les programmes de récompenses pour couvrir de nouvelles technologies et types de menaces (ex: IA, attaques par déni de service, évasions de sandbox).
 
 ---
 [Source](https://www.bleepingcomputer.com/news/microsoft/microsoft-pays-record-17-million-in-bounties-over-the-last-12-months/){:target="_blank"}

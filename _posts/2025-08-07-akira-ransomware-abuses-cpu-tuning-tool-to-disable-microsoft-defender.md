@@ -6,28 +6,30 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### Exploitation d'un Pilote Intel par Akira pour Désactiver Microsoft Defender
+## Akira : Sabotage des défenses via un pilote système détourné
 
-Le groupe Akira utilise un pilote légitime d'Intel, `rwdrv.sys` (associé à ThrottleStop), pour obtenir un accès au niveau du noyau sur les systèmes ciblés. Ce pilote est enregistré comme service et utilisé pour charger un deuxième pilote malveillant, `hlpdrv.sys`. Ce dernier a pour fonction de désactiver les protections de Microsoft Defender en modifiant les paramètres de registre spécifiques (comme `DisableAntiSpyware`). Cette technique, connue sous le nom de "Bring Your Own Vulnerable Driver" (BYOVD), tire parti de failles ou de faiblesses dans des pilotes légitimes et signés pour obtenir une escalade de privilèges.
+Le groupe de rançongiciels Akira utilise une technique d'attaque dite "Bring Your Own Vulnerable Driver" (BYOVD) pour neutraliser Microsoft Defender sur les systèmes ciblés.
 
-**Points Clés :**
+### Points Clés :
 
-*   **Méthode :** Le groupe Akira exploite le pilote `rwdrv.sys` (Intel CPU tuning driver) pour masquer ses activités et désactiver la protection antivirus.
-*   **Technique :** Utilisation d'une attaque BYOVD (Bring Your Own Vulnerable Driver).
-*   **Pilotes impliqués :** `rwdrv.sys` (légitime, utilisé pour escalader les privilèges) et `hlpdrv.sys` (malveillant, désactive Microsoft Defender).
-*   **Objectif :** Désactivation de Microsoft Defender pour faciliter le déploiement du ransomware.
-*   **Observation :** Cette tactique est observée de manière récurrente dans les attaques Akira depuis mi-juillet 2025.
+*   **Détournement de pilote Intel :** Akira exploite le pilote 'rwdrv.sys', légitime mais vulnérable (associé à ThrottleStop), pour obtenir un accès au niveau du noyau.
+*   **Désactivation de Defender :** Ce pilote est utilisé pour charger un composant malveillant ('hlpdrv.sys') qui modifie les paramètres de Windows Defender pour désactiver ses protections, notamment la fonctionnalité anti-spyware.
+*   **Méthode d'exécution :** L'altération des paramètres se fait par l'exécution de `regedit.exe`.
+*   **Observed Attacks :** Cette tactique est observée dans les attaques d'Akira depuis juillet 2023.
+*   **Attaques sur SonicWall :** Akira a également été associé à des attaques visant les VPN SSLVPN de SonicWall, potentiellement via une faille inconnue.
+*   **Chaîne d'attaque :** D'autres vecteurs d'infection incluent l'utilisation du chargeur de malware Bumblebee, distribué via des installateurs MSI compromis de logiciels IT (par exemple, via le SEO poisoning), suivi par AdaptixC2 pour la persistance, l'exfiltration de données via FileZilla, et enfin le déploiement du rançongiciel Akira.
 
-**Vulnérabilités :**
+### Vulnérabilités :
 
-*   Aucune CVE spécifique n'est mentionnée dans l'article pour la vulnérabilité directe de `rwdrv.sys` elle-même. L'exploitation repose sur l'abus de ses fonctionnalités dans un contexte non prévu par l'éditeur pour l'escalade de privilèges.
+Bien qu'aucun CVE spécifique ne soit mentionné pour le pilote 'rwdrv.sys' dans cet article, la méthode d'attaque est classée comme BYOVD, indiquant l'exploitation de faiblesses connues ou de vulnérabilités dans des pilotes légitimes et signés.
 
-**Recommandations :**
+### Recommandations :
 
-*   **Détection :** Utiliser des règles YARA pour détecter `hlpdrv.sys` et surveiller les indicateurs de compromission (IoCs) liés à `rwdrv.sys` et `hlpdrv.sys`, y compris leurs noms de service et chemins de fichiers.
-*   **Sécurité VPN :** Dans le cas d'attaques récentes sur SonicWall SSLVPN, il est conseillé de désactiver ou restreindre l'accès SSLVPN, de renforcer l'authentification multifacteur (MFA), et d'activer la protection contre les botnets/Geo-IP.
-*   **Sources logicielles :** Télécharger les logiciels exclusivement depuis les sites officiels et les miroirs autorisés pour éviter les sites d'usurpation servant de vecteurs d'infection.
-*   **Surveillance :** Maintenir une vigilance accrue pour les activités liées à Akira et appliquer les blocages et filtres basés sur les informations de sécurité émergentes.
+*   **Surveillance accrue :** Les administrateurs système doivent surveiller toute activité liée à Akira.
+*   **Chasse aux menaces :** Utiliser des règles YARA (fournies par des chercheurs comme Guidepoint Security) pour détecter le pilote malveillant `hlpdrv.sys` et d'autres indicateurs de compromission (IoCs) associés aux pilotes utilisés par Akira.
+*   **Sécurisation des VPN :** Pour les VPN SonicWall, envisager de désactiver ou restreindre l'accès SSLVPN, d'imposer l'authentification multifacteur (MFA) et d'activer la protection Botnet/Geo-IP.
+*   **Sources logicielles sûres :** Télécharger les logiciels exclusivement à partir de sites officiels et de miroirs de confiance pour éviter les faux sites qui distribuent des malwares.
+*   **Filtrage et blocage :** Appliquer des filtres et des blocages basés sur les indicateurs de compromission dès qu'ils sont disponibles grâce à la recherche en cybersécurité.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/akira-ransomware-abuses-cpu-tuning-tool-to-disable-microsoft-defender/){:target="_blank"}

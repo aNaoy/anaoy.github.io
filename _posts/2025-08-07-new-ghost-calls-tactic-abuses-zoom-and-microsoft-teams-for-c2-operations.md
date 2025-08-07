@@ -6,31 +6,25 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### Contournement des Défenses : La Tactique "Ghost Calls"
+## Fantômes dans la machine : Détournement des plateformes de visioconférence pour le C2
 
-Une nouvelle méthode d'évasion post-exploitation, nommée "Ghost Calls", exploite les serveurs TURN des plateformes de visioconférence comme Zoom et Microsoft Teams. Elle permet aux attaquants de tunneler du trafic via l'infrastructure de ces services de confiance.
-
-Cette technique utilise des identifiants légitimes, WebRTC et des outils personnalisés pour contourner la plupart des défenses existantes, sans nécessiter d'exploit. Elle permet aux opérateurs de dissimuler des sessions de commande et contrôle (C2) dans le trafic normal des réunions en ligne.
-
-**Fonctionnement :**
-Les serveurs TURN (Traversal Using Relays around NAT) aident les applications comme Zoom et Teams à établir des communications lorsque les connexions directes ne sont pas possibles. "Ghost Calls" détourne les identifiants TURN temporaires attribués aux clients pour créer un tunnel WebRTC entre l'attaquant et la victime. Ce tunnel permet de masquer le trafic C2 comme du trafic de visioconférence légitime, traversant ainsi les pare-feux et autres inspections de sécurité. Le trafic WebRTC étant chiffré, il est difficile à détecter. Cette approche offre une connectivité performante et fiable, utilisant le protocole UDP et TCP sur le port 443.
-
-**Outil :**
-Le chercheur Adam Crosser a développé "TURNt", un utilitaire open-source pour réaliser ce type de tunneling. Il comprend un contrôleur côté attaquant et un relais déployé sur une machine compromise. TURNt peut effectuer du proxy SOCKS, du transfert de port local ou distant, de l'exfiltration de données et du tunneling VNC caché.
+Une nouvelle méthode post-exploitation, baptisée "Ghost Calls", exploite les serveurs TURN des plateformes de visioconférence comme Zoom et Microsoft Teams pour masquer le trafic de commande et contrôle (C2). Cette technique permet de détourner le trafic à travers des infrastructures légitimes, rendant la détection difficile.
 
 **Points Clés :**
 
-*   Utilise les serveurs TURN de Zoom et Teams pour le C2.
-*   Contourne les défenses sans exploit.
-*   Dissimule le trafic C2 dans le trafic de visioconférence légitime.
-*   Offre une connectivité performante et chiffrée.
-*   L'outil "TURNt" facilite le proxy, le transfert de port et le tunneling VNC.
+*   **Abus d'infrastructures fiables :** La méthode utilise les serveurs TURN, conçus pour la communication en temps réel, comme relais pour le trafic C2.
+*   **Dissimulation dans le trafic légitime :** Le trafic C2 est camouflé en réunions en ligne normales, rendant son identification complexe pour les défenses existantes.
+*   **Contournement des mesures de sécurité :** En passant par des domaines et adresses IP utilisés légitimement par Zoom ou Teams, le trafic malveillant peut éviter les pare-feu, proxys et inspections TLS.
+*   **Outil dédié :** Un utilitaire open-source nommé 'TURNt' a été développé pour faciliter la création de tunnels C2 via les serveurs TURN de ces plateformes.
+*   **Fonctionnalités de tunneling :** 'TURNt' permet le proxy SOCKS, le transfert de ports local et distant, l'exfiltration de données et le tunnelage du trafic VNC (Virtual Network Computing).
 
 **Vulnérabilités :**
-Aucune vulnérabilité spécifique aux applications Zoom ou Microsoft Teams n'est exploitée. La méthode abuse de la fonctionnalité légitime des serveurs TURN.
+
+Aucune vulnérabilité spécifique dans Zoom ou Microsoft Teams n'est exploitée par cette technique. L'attaque repose sur l'abus des fonctionnalités existantes des protocoles TURN et WebRTC.
 
 **Recommandations :**
-Il est conseillé aux entreprises de surveiller activement le trafic réseau pour identifier les comportements anormaux, même s'ils transitent par des canaux apparemment légitimes. Des mesures visant à restreindre l'utilisation des serveurs TURN à des fins non prévues ou à mettre en place des mécanismes d'authentification plus robustes pour ces serveurs pourraient être envisagées par les fournisseurs de services.
+
+Les éditeurs de plateformes de visioconférence comme Zoom et Microsoft Teams sont contactés pour évaluer et potentiellement renforcer leurs mesures de sécurité afin de limiter la faisabilité de cette tactique.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/new-ghost-calls-tactic-abuses-zoom-and-microsoft-teams-for-c2-operations/){:target="_blank"}

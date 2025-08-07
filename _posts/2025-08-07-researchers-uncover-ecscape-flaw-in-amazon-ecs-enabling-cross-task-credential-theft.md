@@ -6,32 +6,35 @@ tags:
 - veille-cyber
 - hackernews
 ---
-ECScape : Risque de vol d'identifiants dans Amazon ECS
+### Escalade de privilèges dans Amazon ECS : ECScape
 
-Une faille de sécurité, nommée ECScape, a été découverte dans Amazon Elastic Container Service (ECS). Elle permet à un conteneur malveillant disposant de privilèges limités de voler les identifiants AWS d'autres conteneurs sur la même instance EC2. Un attaquant peut ainsi usurper l'identité de conteneurs plus privilégiés, menant à une escalade de privilèges, à l'accès à des données sensibles et à la prise de contrôle de l'environnement cloud. L'attaque exploite un protocole interne non documenté de l'ECS et le service de métadonnées exposant les identifiants temporaires des tâches.
+Une nouvelle faille baptisée "ECScape" a été découverte dans Amazon Elastic Container Service (ECS), permettant à un attaquant d'obtenir les identifiants de sécurité d'autres tâches fonctionnant sur la même instance EC2. Cela ouvre la voie à un mouvement latéral, à l'accès à des données sensibles et à la prise de contrôle de l'environnement cloud.
 
-**Points clés :**
+L'exploitation repose sur l'abus d'un protocole interne non documenté d'ECS. Un conteneur malveillant, même avec des privilèges IAM restreints, peut ainsi usurper les autorisations d'un conteneur plus privilégié sur le même hôte en volant ses identifiants. Ceci est rendu possible par le service de métadonnées qui expose des identifiants temporaires pour le rôle IAM de la tâche. En imitant le comportement de l'agent ECS et en abusant du canal de communication, un attaquant peut collecter passivement les identifiants de tous les autres conteneurs sur l'instance et agir avec leurs privilèges.
 
-*   Un conteneur peu privilégié peut obtenir les permissions d'un conteneur plus privilégié sur la même instance EC2.
-*   L'exploitation d'un service de métadonnées interne à l'ECS (169.254.170.2) est au cœur de la vulnérabilité.
-*   L'attaquant peut usurper l'identité de l'agent ECS pour accéder aux identifiants de toutes les tâches sur l'instance.
-*   La technique reste furtive en mimant le comportement attendu de l'agent ECS.
-*   Les conséquences incluent l'escalade de privilèges inter-tâches, l'exposition de secrets et l'exfiltration de métadonnées.
+Les conséquences potentielles incluent l'escalade de privilèges inter-tâches, l'exposition de secrets et l'exfiltration de métadonnées, particulièrement critiques lorsque des tâches aux privilèges élevés et faibles coexistent sur des hôtes EC2 partagés.
+
+**Points Clés :**
+
+*   Une vulnérabilité dans Amazon ECS permet l'escalade de privilèges.
+*   Un conteneur malveillant peut voler les identifiants IAM d'autres tâches sur la même instance EC2.
+*   L'attaque est rendue possible par l'abus d'un protocole interne d'ECS et du service de métadonnées.
+*   L'usurpation de l'agent ECS est au cœur de cette technique.
 
 **Vulnérabilités :**
 
-*   Aucune CVE spécifique n'est mentionnée dans l'article. La vulnérabilité réside dans l'abus d'un protocole interne et du service de métadonnées ECS lorsque plusieurs tâches partagent une instance EC2.
+*   Aucune CVE spécifique n'est mentionnée pour cette vulnérabilité dans l'article.
 
 **Recommandations :**
 
-*   Adopter des modèles d'isolation plus stricts pour les tâches dans ECS.
-*   Éviter de déployer des tâches à privilèges élevés sur les mêmes instances EC2 que des tâches non fiables ou à faibles privilèges.
-*   Utiliser AWS Fargate pour une isolation complète.
+*   Adopter des modèles d'isolation plus robustes pour les tâches.
+*   Éviter de déployer des tâches à hauts privilèges aux côtés de tâches non fiables ou à bas privilèges sur la même instance.
+*   Utiliser AWS Fargate pour une isolation plus forte.
 *   Désactiver ou restreindre l'accès au service de métadonnées de l'instance (IMDS) pour les tâches.
 *   Limiter les permissions de l'agent ECS.
-*   Configurer des alertes CloudTrail pour détecter une utilisation anormale des rôles IAM.
-*   Appliquer le principe du moindre privilège pour tous les comptes de service (SA) dans l'environnement cloud.
-*   Maintenir à jour tous les services cloud et dépendances avec les derniers correctifs de sécurité.
+*   Mettre en place des alertes CloudTrail pour détecter une utilisation inhabituelle des rôles IAM.
+*   Appliquer le principe du moindre privilège pour tous les rôles et comptes de service (SA) dans l'environnement cloud.
+*   Maintenir à jour tous les services et dépendances cloud avec les derniers correctifs de sécurité.
 
 ---
 [Source](https://thehackernews.com/2025/08/researchers-uncover-ecscape-flaw-in.html){:target="_blank"}

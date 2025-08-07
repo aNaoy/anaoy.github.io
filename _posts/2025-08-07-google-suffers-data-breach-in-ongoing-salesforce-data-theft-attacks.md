@@ -6,36 +6,29 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Des Vagues de Vol de Données Ciblent les CRM d'Entreprise**
+**Vague des Attaques par Phishing Vocal et Vol de Données Salesforce**
 
-Une campagne de cyberattaques généralisée, orchestrée par le groupe ShinyHunters, cible les instances Salesforce de diverses entreprises dans le but d'exfiltrer des données clients. Google a récemment révélé avoir été victime de ces attaques en juin, subissant une brèche de l'une de ses instances Salesforce.
+Google a été victime d'une récente attaque de phishing vocal qui a permis à des cybercriminels de voler des données clients de ses instances Salesforce. Ce piratage s'inscrit dans une vague plus large d'attaques visant les systèmes Salesforce, attribuées au groupe malveillant ShinyHunters (également désigné sous les noms de UNC6040 ou UNC6240 par Google).
 
-Les acteurs de la menace, identifiés par Google sous les noms de code UNC6040 ou UNC6240, emploient des techniques d'ingénierie sociale, notamment le "vishing" (hameçonnage vocal), pour accéder aux systèmes CRM des entreprises. Une fois l'accès obtenu, ils téléchargent des données clients, puis tentent d'extorquer les entreprises en exigeant une rançon pour éviter la divulgation publique de ces informations.
-
-Les données dérobées lors de l'attaque contre Google se limitaient à des informations commerciales basiques et majoritairement publiques, telles que les noms d'entreprises et les coordonnées. Cependant, la portée de ces attaques est plus large, affectant de nombreuses autres organisations réputées.
+Les acteurs de la menace ciblent les employés d'entreprises par le biais d'appels téléphoniques frauduleux (vishing) afin d'obtenir un accès non autorisé aux environnements Salesforce. Une fois l'accès obtenu, ils exfiltrent des données clients, qui sont ensuite utilisées pour tenter d'extorquer les entreprises en exigeant une rançon pour empêcher la divulgation publique des informations volées.
 
 **Points Clés :**
 
-*   **Attaque Ciblée :** Les groupes ShinyHunters (également désignés UNC6040/UNC6240 par Google) ciblent spécifiquement les environnements Salesforce.
-*   **Méthode d'Attaque :** Utilisation du "vishing" pour mener des attaques d'ingénierie sociale et obtenir un accès non autorisé.
-*   **Objectif :** Vol de données clients stockées dans les CRM pour pratiquer l'extorsion.
-*   **Impact sur Google :** Une instance Salesforce a été compromise, entraînant le vol d'informations de contact d'entreprises et de notes associées.
-*   **Tactique d'Extorsion :** Les attaquants exigent une rançon sous peine de divulguer ou de vendre les données volées sur des forums clandestins.
-*   **Amplitude des Attaques :** Plusieurs grandes entreprises ont été touchées, y compris Adidas, Qantas, Allianz Life, Cisco, ainsi que des filiales de LVMH comme Louis Vuitton, Dior et Tiffany & Co.
+*   Le groupe ShinyHunters est responsable d'une série d'attaques contre des instances Salesforce.
+*   La méthode d'attaque implique des campagnes de phishing vocal (vishing) visant les employés.
+*   Les données volées concernent des informations de contact et des notes relatives aux entreprises clientes.
+*   Les données dérobées sont qualifiées de "basiques et largement publiques", incluant des noms d'entreprises et des coordonnées.
+*   Les entreprises sont ensuite victimes de tentatives d'extorsion.
+*   Plusieurs grandes entreprises, notamment Adidas, Qantas, Allianz Life, Cisco, Louis Vuitton, Dior et Tiffany & Co., ont été touchées par des attaques similaires.
 
 **Vulnérabilités :**
 
-L'article ne mentionne pas de CVE spécifiques liées à ces attaques. L'exploitation repose sur des vulnérabilités dans les processus d'authentification, potentiellement liées à des informations d'identification compromises ou à des vecteurs d'ingénierie sociale réussis.
+Bien qu'aucun CVE spécifique ne soit mentionné dans l'article pour cette campagne particulière, l'article souligne la vulnérabilité des entreprises aux attaques de phishing vocal ciblées, exploitant potentiellement des failles dans les protocoles de sécurité et de vérification d'identité des employés. L'accès non autorisé aux instances Salesforce constitue la vulnérabilité exploitée.
 
 **Recommandations :**
 
-Bien que l'article ne détaille pas explicitement les recommandations pour les victimes, les pratiques générales de cybersécurité impliquent :
-
-*   **Renforcement des Mesures de Sécurité Salesforce :** Vérifier et renforcer les contrôles d'accès, l'authentification multifacteur (MFA) et les autorisations des utilisateurs au sein de l'environnement Salesforce.
-*   **Sensibilisation et Formation des Employés :** Éduquer le personnel sur les risques du phishing, du vishing et des autres techniques d'ingénierie sociale.
-*   **Surveillance et Détection :** Mettre en place une surveillance continue des activités suspectes au sein des systèmes CRM.
-*   **Réponse aux Incidents :** Disposer d'un plan de réponse aux incidents de sécurité bien défini pour contenir et gérer rapidement les brèches de données.
-*   **Gestion des Identifiants :** Promouvoir des pratiques robustes de gestion des mots de passe et envisager des solutions de gestion des identités et des accès (IAM).
+*   **Pour les entreprises :** Mettre en place des mesures de sécurité robustes pour les instances CRM, y compris des authentifications fortes. Former les employés à reconnaître et signaler les tentatives de phishing, y compris le phishing vocal. Effectuer des analyses d'impact et des mitigations rapides en cas d'incident.
+*   **Pour les employés :** Faire preuve de prudence face aux appels téléphoniques non sollicités, vérifier l'identité des appelants par des canaux de communication alternatifs et ne jamais partager d'informations sensibles par téléphone si l'identité de l'interlocuteur n'est pas formellement établie.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/google-suffers-data-breach-in-ongoing-salesforce-data-theft-attacks/){:target="_blank"}

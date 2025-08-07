@@ -6,26 +6,27 @@ tags:
 - veille-cyber
 - sans-isc
 ---
-### Persistance des escroqueries par sextorsion : une analyse
+**La Persistance des Arnaques par Sextorsion**
 
-Malgré leur nature bien connue, les escroqueries par e-mails de sextorsion continuent d'être une menace pertinente. Une analyse de 21 messages reçus sur 12 mois a révélé que sur 15 adresses de cryptomonnaie distinctes (principalement Bitcoin), 9 ont reçu des paiements allant de 945 $ à 10 715 $. Les montants demandés variaient entre 750 $ et 1 550 $.
+Les courriels de sextorsion, bien que connus du grand public, continuent de représenter une menace significative en 2025. Une analyse de 21 messages reçus sur des comptes spam et personnels, impliquant 15 adresses de cryptomonnaies distinctes (principalement Bitcoin), révèle que neuf de ces adresses ont effectivement reçu des paiements.
 
-Bien que les paiements individuels ne soient pas exclusivement attribuables à la sextorsion, la présence de transactions vers ces adresses suggère une efficacité persistante de ces stratagèmes. Cela justifie leur inclusion dans les programmes de sensibilisation à la sécurité.
+Les montants demandés variaient entre 750 $ et 1 550 $, pour une moyenne de 1 203 $. Les neuf adresses ayant reçu des fonds ont cumulé entre 945 $ et 10 715 $, avec une moyenne de 1 836 $. Bien que tous les paiements ne soient pas exclusivement liés à la sextorsion, la majorité des fonds reçus suggère que cette tactique d'arnaque reste efficace.
 
-**Points clés :**
+**Points Clés:**
 
-*   Les escroqueries par sextorsion, bien que connues, génèrent encore des revenus.
-*   Les montants demandés varient et des paiements sont effectivement reçus.
-*   La sensibilisation continue est nécessaire pour contrer cette menace.
+*   Les arnaques par sextorsion continuent d'être efficaces en 2025.
+*   Les paiements sont souvent exigés en cryptomonnaies.
+*   Une partie des adresses utilisées par les escrocs reçoit des fonds.
 
-**Vulnérabilités identifiées :**
+**Vulnérabilités :**
 
-*   Aucune vulnérabilité spécifique (avec CVE) n'est mentionnée dans cet article. L'article se concentre sur le comportement des victimes plutôt que sur des failles techniques exploitées.
+*   L'exploitation de la peur et de la honte des victimes.
+*   Le manque de sensibilisation accrue face à cette menace persistante.
 
 **Recommandations :**
 
-*   Maintenir la sextorsion comme sujet pertinent dans les programmes de formation à la sécurité.
-*   Sensibiliser le public à la persistance et à l'efficacité potentielle de ces escroqueries.
+*   Maintenir la sensibilisation des utilisateurs aux arnaques par sextorsion dans le cadre des formations de sécurité.
+*   Ne pas négliger cette menace en raison de sa notoriété.
 
 ---
 [Source](https://isc.sans.edu/diary/rss/32178){:target="_blank"}
