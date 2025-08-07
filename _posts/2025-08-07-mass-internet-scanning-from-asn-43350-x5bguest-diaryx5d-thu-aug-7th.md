@@ -6,31 +6,37 @@ tags:
 - veille-cyber
 - sans-isc
 ---
-**Anomalie de Trafic Scanné depuis Panama**
+### Anomalie de Trafic Internet Massif Identifiée
 
-Une analyse des données collectées par un capteur DShield durant trois mois a révélé une concentration de trafic de scan et d'attaques anormalement élevée provenant du Panama. Plus de 65% du trafic total a été attribué à cette localisation, surpassant la somme de toutes les autres régions combinées. Des pics de trafic massifs ont été identifiés, principalement causés par des adresses IP uniques au cours de journées spécifiques.
+Une analyse des données d'un capteur DShield déployé sur AWS a révélé une activité de scan Internet massive provenant d'un fournisseur unique. Sur les trois derniers mois, une seule localisation, le Panama, a représenté plus de 65% du trafic total dirigé vers le capteur. Cette concentration de trafic est inhabituelle, dépassant le volume combiné de toutes les autres origines.
+
+Des pics de trafic significatifs ont été observés certains jours, chacun étant attribué à une adresse IP différente. Cependant, une tendance plus large s'est dégagée : six des dix adresses IP les plus actives provenaient d'un même sous-réseau (/24), spécifiquement 141.98.80.0/24, responsable de près de 60% des logs collectés. De plus, neuf des dix principales adresses IP appartenaient au même fournisseur d'accès Internet (FAI), NForce Entertainment B.V.
+
+L'étude a ensuite identifié que le numéro de système autonome (ASN) 43350, appartenant à NForce Entertainment, était à l'origine de 71,6% des logs du capteur. NForce Entertainment louerait son espace IP à des fournisseurs de VPN et de proxy, notamment Flyservers S.A. basée au Panama, que Scamalytics catégorise comme un FAI à "risque de fraude potentiellement très élevé". Cette activité est souvent associée à du phishing, des malwares et des scans. L'article suggère que le manque de surveillance réglementaire stricte aux Pays-Bas, pays d'origine de NForce Entertainment, permettrait à ces activités de persister.
 
 **Points Clés :**
 
-*   Le Panama a représenté plus de 65% du trafic analysé ciblant le capteur DShield.
-*   Une grande partie de cette activité provenait d'un sous-réseau (/24) spécifique (141.98.80.0/24), responsable de 59,4% des logs.
-*   L'Autonomous System Number (ASN) 43350, identifié comme appartenant à NForce Entertainment B.V., a été la source de 71,6% du trafic total.
-*   NForce Entertainment est suspecté de louer son espace IP à des fournisseurs de VPN et de proxy, dont Flyservers S.A. au Panama, classé comme un ISP à "risque de fraude potentiellement très élevé".
-*   L'activité de NForce Entertainment est fréquemment associée au phishing, aux malwares et aux scans.
+*   Anomalie de trafic Internet massif provenant du Panama.
+*   Concentration de l'activité sur un ASN spécifique (43350) et un FAI (NForce Entertainment B.V.).
+*   Association de cette activité à des pratiques malveillantes comme le phishing, les malwares et le scanning.
+*   Implication potentielle de fournisseurs de VPN/proxy (Flyservers S.A.).
+*   Facteurs atténuants potentiels liés à la réglementation aux Pays-Bas.
 
-**Vulnérabilités / Risques identifiés :**
+**Vulnérabilités / Menaces Identifiées :**
 
-*   L'utilisation d'espace IP loué à des fournisseurs de services à haut risque de fraude par des acteurs malveillants.
-*   L'opacité et le manque de régulation stricte pour certains fournisseurs d'accès à Internet (ISP) dans leur pays d'origine (Pays-Bas pour NForce Entertainment).
-*   L'exposition potentielle via des services comme le Bureau à distance (RDP).
+L'article ne mentionne pas de vulnérabilités spécifiques avec des identifiants CVE. Cependant, les comportements observés indiquent une menace liée à :
+
+*   **Scanning de masse :** Exploitation des réseaux pour identifier des cibles potentielles.
+*   **Tentatives d'intrusion :** Utilisation d'adresses IP à haut risque pour mener des attaques.
+*   **Activités de malwares et de phishing :** Utilisation d'infrastructures compromises pour distribuer des malwares ou des campagnes de phishing.
 
 **Recommandations :**
 
-*   Marquer le trafic provenant de NForce Entertainment et de l'ASN 43350.
-*   Bloquer l'accès à distance au Bureau (RDP) depuis Internet.
-*   Surveiller l'activité SSH provenant de l'ASN 43350 et privilégier l'authentification par clé.
-*   Mettre en place un pare-feu d'applications Web (WAF) pour toutes les applications web et surveiller les requêtes suspectes.
-*   Configurer des alertes WAF pour un trafic élevé provenant d'une seule source.
+*   Marquer le trafic provenant de NForce Entertainment, et en particulier de l'ASN 43350.
+*   Bloquer l'accès à la RDP (Remote Desktop Protocol) depuis Internet.
+*   Surveiller l'activité SSH provenant de l'ASN 43350 et configurer l'authentification par clés SSH.
+*   Mettre en place un pare-feu d'application web (WAF) pour toutes les applications web et surveiller les requêtes suspectes.
+*   Établir un seuil d'alerte WAF pour un trafic élevé provenant d'une source unique.
 
 ---
 [Source](https://isc.sans.edu/diary/rss/32180){:target="_blank"}

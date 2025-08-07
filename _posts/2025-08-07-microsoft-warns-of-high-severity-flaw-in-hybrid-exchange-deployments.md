@@ -6,31 +6,32 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-## Escalade de privilèges dans les environnements Exchange hybrides
+### Escalade de Privilèges dans les Déploiements Hybrides Exchange
 
-Une faille de sécurité critique a été identifiée dans les déploiements Exchange hybrides, permettant potentiellement à des attaquants de gagner des privilèges élevés dans les environnements cloud Exchange Online sans être détectés. Cette vulnérabilité exploite le partage d'une identité de service commune entre les serveurs Exchange locaux et Exchange Online. En contrôlant un serveur Exchange local, un attaquant peut falsifier des jetons ou des appels d'API que le cloud acceptera comme légitimes, car il fait implicitement confiance à l'environnement sur site. De plus, les actions provenant de l'infrastructure locale ne génèrent pas toujours de journaux traçables pour les activités malveillantes dans Microsoft 365, ce qui rend les audits basés sur le cloud potentiellement inefficaces pour détecter de telles intrusions.
+Un défaut critique affectant les environnements Exchange hybrides permet à des attaquants ayant compromis un serveur Exchange local d'escalader leurs privilèges dans les environnements cloud connectés, tels qu'Exchange Online. Cette vulnérabilité exploite une identité de service partagée, permettant la falsification de jetons ou d'appels API acceptés comme légitimes par le cloud. De plus, les actions malveillantes provenant des serveurs locaux peuvent ne pas être enregistrées dans les journaux de sécurité du cloud, rendant leur détection plus complexe.
 
-### Points clés :
+**Points Clés:**
 
-*   Une vulnérabilité d'escalade de privilèges de haute gravité affecte les déploiements Exchange hybrides.
-*   Elle permet aux attaquants ayant accès à un serveur Exchange local de compromettre l'environnement cloud connecté.
-*   Le manque de journaux d'audit facilement détectables dans le cloud complique la détection des attaques.
-*   Une exploitation réussie pourrait mener à une compromission totale du domaine hybride.
+*   **Nature de la Vulnérabilité:** Escalade de privilèges dans les déploiements hybrides Exchange.
+*   **Mécanisme:** Exploitation d'une identité de service partagée entre les serveurs Exchange sur site et Exchange Online.
+*   **Conséquences:** Possibilité de manipuler des jetons ou des appels API pour accéder au cloud, potentiellement sans laisser de traces audibles dans les journaux cloud.
+*   **Gravité:** Haute sévérité, avec un risque de compromission totale du domaine hybride.
+*   **Produits Affectés:** Exchange Server 2016, Exchange Server 2019, et Microsoft Exchange Server Subscription Edition.
+*   **Exploitation:** Bien qu'aucune exploitation en conditions réelles n'ait été observée, le code d'exploitation est considéré comme facile à développer ("Exploitation More Likely").
 
-### Vulnérabilités :
+**Vulnérabilité:**
 
-*   **CVE-2025-53786** : Vulnérabilité d'escalade de privilèges dans les déploiements Exchange hybrides.
-    *   Affecte : Exchange Server 2016, Exchange Server 2019, Microsoft Exchange Server Subscription Edition.
+*   **CVE:** CVE-2025-53786
 
-### Recommandations :
+**Recommandations:**
 
-*   Installer les **mises à jour correctives d'avril 2025 pour Exchange Server** sur les serveurs Exchange locaux.
-*   Suivre les instructions de Microsoft pour le **déploiement d'une application hybride dédiée** (Deploy dedicated Exchange hybrid app).
-*   Pour les organisations utilisant ou ayant utilisé des configurations hybrides, réinitialiser les `keyCredentials` du principal de service en suivant le guide du **Mode Nettoyage du Principal de Service** (Service Principal Clean-Up Mode).
-*   Exécuter le **Microsoft Exchange Health Checker** après les modifications pour vérifier si des étapes supplémentaires sont nécessaires.
-*   Déconnecter les serveurs publics exécutant des versions obsolètes (fin de vie ou fin de service) d'Exchange Server ou SharePoint Server d'Internet.
-*   Maintenir les serveurs Exchange locaux à jour avec les derniers Cumulative Updates (CU) disponibles.
-*   Envisager la migration vers Exchange Online ou la mise à niveau vers Exchange Server Subscription Edition pour les versions arrivant en fin de support.
+*   Installer les **Mises à Jour Correctives d'Avril 2025 pour Exchange Server** sur les serveurs Exchange sur site.
+*   Suivre les instructions de **déploiement d'une application hybride dédiée Exchange**.
+*   Pour les organisations utilisant ou ayant utilisé la configuration hybride, **réinitialiser les clés de sécurité du principal de service** en utilisant le mode de nettoyage du principal de service.
+*   Exécuter l'outil **Microsoft Exchange Health Checker** après les corrections pour vérifier si des étapes supplémentaires sont nécessaires.
+*   **Déconnecter d'Internet** les serveurs exposés publiquement exécutant des versions obsolètes (fin de vie ou fin de support) d'Exchange Server ou de SharePoint Server.
+*   Maintenir les serveurs Exchange sur site à jour avec le dernier **Cumulative Update (CU)**.
+*   Migrer vers **Exchange Online** ou mettre à niveau vers **Exchange Server Subscription Edition** pour les versions arrivant en fin de support.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/microsoft/microsoft-warns-of-high-severity-flaw-in-hybrid-exchange-deployments/){:target="_blank"}

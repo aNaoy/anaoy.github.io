@@ -6,31 +6,39 @@ tags:
 - veille-cyber
 - zerodaysfans
 ---
-## La Fin Inévitable du Protocole HTTP/1.1
+### La fin de HTTP/1.1 : Le dernier acte de la désynchronisation
 
-Le protocole HTTP/1.1 souffre d'une faille fondamentale qui rend les sites web vulnérables à des détournements de site à grande échelle, exposant des millions d'utilisateurs à la compromission de leurs identifiants. Malgré six années d'efforts d'atténuation, le problème persiste, dissimulé plutôt que résolu.
+Le protocole HTTP/1.1 présente une faille de sécurité fondamentale qui expose des millions de sites web à des prises de contrôle malveillantes. Malgré plusieurs années de tentatives d'atténuation, le problème persiste. De nouvelles classes d'attaques de désynchronisation HTTP ont été découvertes, permettant des compromissions massives d'informations d'identification utilisateur. Ces techniques ont été exploitées pour découvrir des vulnérabilités critiques dans des infrastructures majeures telles qu'Akamai, Cloudflare et Netlify, affectant des dizaines de millions de sites web.
 
-### Points Clés et Vulnérabilités
+Un nouvel outil open-source a été développé pour faciliter la détection systématique des divergences entre les analyseurs de requêtes et des points faibles spécifiques aux cibles. L'utilisation combinée de ces techniques et de cet outil a permis de générer plus de 200 000 dollars en récompenses de bug bounty en deux semaines.
 
-*   **Faille Intrinsèque :** HTTP/1.1 manque de délimiteurs de requêtes clairs sur les connexions TCP/TLS sous-jacentes. La présence de multiples méthodes pour spécifier la longueur des requêtes crée une ambiguïté exploitable, permettant à des attaquants de segmenter les requêtes de manière malveillante.
-*   **Complexité Cachée :** L'utilisation de proxys inverses et de CDNs, qui redirigent souvent les requêtes HTTP/2 vers HTTP/1.1 en interne, aggrave le problème. Cette transition introduit des complexités supplémentaires et des surfaces d'attaque, comme illustré par une vulnérabilité affectant Cloudflare, qui a involontairement exposé 24 millions de sites.
-*   **Nouvelles Classes d'Attaques :** Des techniques inédites de "desync" HTTP, notamment celles basées sur l'en-tête `Expect`, permettent de contourner les défenses existantes. Elles exploitent les divergences dans l'interprétation des longueurs de requête, y compris les scénarios `0.CL` (Content-Length implicite zéro) et `CL.0` (Content-Length à zéro).
-*   **Exemples d'Exposition :**
-    *   Une vulnérabilité dans l'infrastructure de Cloudflare a involontairement exposé **24 millions de sites** à des détournements de site. (Pas de CVE spécifique mentionné pour cette vulnérabilité Cloudflare).
-    *   Des vulnérabilités basées sur l'en-tête `Expect` ont affecté des entreprises comme T-Mobile, GitLab, Netlify et Akamai.
-    *   Une vulnérabilité affectant Akamai et liée à l'en-tête `Expect` a été identifiée comme **CVE-2025-32094**. Elle a permis de servir du contenu arbitraire sur `auth.lastpass.com`.
+L'auteur soutient que la désynchronisation des requêtes HTTP doit être reconnue comme un défaut intrinsèque du protocole. Les solutions individuelles aux problèmes d'implémentation se sont avérées insuffisantes, laissant les sites web vulnérables à de futures variantes. Ces problèmes découlent d'une faille fatale dans HTTP/1.1, où des erreurs d'implémentation mineures peuvent entraîner des conséquences de sécurité graves. Le passage à HTTP/2 et aux versions ultérieures résout cette menace, et l'abandon de HTTP/1.1 est présenté comme la voie vers un web plus sécurisé.
 
-### Recommandations et Stratégies
+**Points Clés :**
 
-*   **Abandon de HTTP/1.1 :** La solution à long terme consiste à migrer vers des protocoles plus modernes comme HTTP/2 ou HTTP/3. Ces protocoles, étant binaires et plus stricts dans la gestion des requêtes, éliminent la majorité des vulnérabilités de "desync".
-*   **Activer HTTP/2 en Amont :** Pour les proxys et les CDNs, il est crucial d'activer le support HTTP/2 pour les connexions en amont vers les serveurs d'origine.
-*   **Mitigation pour HTTP/1.1 :** En attendant la migration complète, les organisations doivent :
-    *   Activer toutes les options de normalisation et de validation sur les serveurs frontaux et arrière.
-    *   Éviter les serveurs web de niche et privilégier des serveurs éprouvés comme Apache et Nginx.
+*   **Failles Fondamentales de HTTP/1.1 :** Le protocole souffre d'une mauvaise gestion des délimitations de requêtes et de multiples méthodes pour spécifier leur longueur, créant une ambiguïté exploitable.
+*   **Atténuations Illusoires :** Les mesures de sécurité actuelles, comme la simplification des analyseurs ou la rétrogradation de HTTP/2 vers HTTP/1.1, masquent le problème sans le résoudre.
+*   **Complexité Cachée :** Contrairement à la perception courante, la gestion de HTTP/1.1 devient complexe lorsqu'il est proxyfié, menant à des "pièges" dans la spécification et à des interactions imprévues.
+*   **Nouvelles Techniques d'Attaque :** Des méthodes avancées comme les attaques 0.CL (basées sur une Content-Length vide) et celles exploitant l'en-tête `Expect` permettent de contourner les défenses existantes.
+*   **Impact Massif :** Des vulnérabilités ont affecté des millions de sites web, démontrant la portée systémique de la faiblesse de HTTP/1.1.
+
+**Vulnérabilités (avec CVE si possible) :**
+
+*   Diverses vulnérabilités de désynchronisation de requêtes (Request Smuggling) exploitant des divergences entre analyseurs (ex: CL.TE, TE.CL, H2.0, 0.CL, TE.0, TE.TE).
+*   Des vulnérabilités spécifiques ont été identifiées chez Akamai, Cloudflare et Netlify.
+*   CVE-2025-32094 : Une vulnérabilité CL.0 via un en-tête `Expect` obfusqué sur Akamai CDN.
+
+**Recommandations :**
+
+*   **Adopter HTTP/2 :** Migrer vers HTTP/2 pour les connexions en amont des proxys afin de bénéficier d'une meilleure gestion des requêtes et de réduire considérablement le risque de désynchronisation.
+*   **Activer le Support HTTP/2 en Amont :** S'assurer que les proxys et les équilibreurs de charge utilisent HTTP/2 pour communiquer avec les serveurs d'origine.
+*   **Pour ceux qui sont bloqués sur HTTP/1.1 :**
+    *   Activer toutes les options de normalisation et de validation sur les serveurs front-end et back-end.
+    *   Privilégier des serveurs web courants comme Apache et Nginx.
     *   Effectuer des scans réguliers avec des outils comme "HTTP Request Smuggler".
-    *   Envisager de désactiver la réutilisation des connexions en amont si les performances le permettent.
-    *   Rejeter les requêtes ayant un corps lorsque la méthode HTTP ne le requiert pas (ex: GET, HEAD).
-*   **Sensibilisation :** Une meilleure compréhension de la dangerosité de HTTP/1.1 est essentielle pour encourager son abandon. La publication des découvertes et le partage des techniques sont des étapes importantes.
+    *   Envisager de désactiver la réutilisation des connexions en amont (avec un impact potentiel sur les performances).
+    *   Rejeter les requêtes ayant un corps lorsqu'il n'est pas nécessaire (ex: pour les méthodes GET/HEAD/OPTIONS).
+*   **Sensibilisation :** Informer sur la dangerosité de HTTP/1.1 et partager les découvertes pour encourager la migration.
 
 ---
 [Source](https://portswigger.net/research/http1-must-die){:target="_blank"}

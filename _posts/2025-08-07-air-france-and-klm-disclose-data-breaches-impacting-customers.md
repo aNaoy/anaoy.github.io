@@ -6,30 +6,31 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### Breche de Données chez Air France et KLM
+**Fuite de données chez Air France et KLM : Détails et recommandations**
 
-Des acteurs malveillants ont accédé à une plateforme de service client utilisée par Air France et KLM, entraînant le vol de données clients. Les compagnies aériennes ont rapidement coupé l'accès des attaquants et affirmé que leurs propres réseaux n'ont pas été compromis. Les informations financières et personnelles des clients ne seraient pas affectées.
+Air France et KLM ont récemment subi une compromission de leurs données clients via une plateforme de service client externe. L'accès non autorisé a permis le vol d'informations personnelles sur un nombre non divulgué de clients. Les réseaux internes d'Air France et KLM ainsi que les données financières et personnelles sensibles n'auraient pas été affectés.
 
-Les autorités françaises (CNIL) et néerlandaises (Autorité néerlandaise de protection des données) ont été informées. Les clients potentiellement touchés sont contactés et invités à faire preuve de vigilance face aux communications suspectes.
+Les compagnies aériennes ont pris des mesures immédiates pour bloquer l'accès des attaquants et mettent en place des précautions pour prévenir de futurs incidents. Les autorités de protection des données françaises (CNIL) et néerlandaises (DPA) ont été informées. Les clients potentiellement concernés sont alertés et invités à redoubler de vigilance face à d'éventuels courriels ou appels suspects.
 
-Cet incident s'inscrit dans une série d'attaques visant le secteur de l'aviation, attribuées au groupe Scattered Spider, qui a également ciblé WestJet et Hawaiian Airlines. D'autres grandes entreprises dans divers secteurs (luxe, assurance, retail) ont également subi des brèches de données, souvent liées à des compromissions de plateformes comme Salesforce.
+Cet incident s'inscrit dans un contexte plus large de cyberattaques visant le secteur de l'aviation et du transport, notamment attribuées au groupe Scattered Spider, qui a également ciblé des compagnies comme WestJet et Hawaiian Airlines.
 
-**Points Clés :**
+**Points clés :**
 
-*   Compromission d'une plateforme de service client externe utilisée par Air France et KLM.
-*   Vol de données clients, mais pas d'informations financières ou personnelles sensibles.
-*   Réseaux internes d'Air France et KLM non affectés.
-*   Informations aux autorités de protection des données et aux clients concernés.
-*   Contexte d'attaques ciblées sur le secteur aérien par le groupe Scattered Spider.
+*   **Nature de la violation :** Accès non autorisé à une plateforme de service client externe.
+*   **Données compromises :** Informations clients (nombre non spécifié).
+*   **Données non compromises :** Réseaux internes d'Air France/KLM, informations financières et personnelles sensibles des clients.
+*   **Actions immédiates :** Blocage de l'accès des attaquants, mise en place de mesures préventives.
+*   **Notifications :** Autorités de protection des données (CNIL, DPA néerlandaise) et clients concernés.
+*   **Contexte :** Vague d'attaques sur le secteur de l'aviation, potentiellement liée au groupe Scattered Spider.
 
 **Vulnérabilités :**
 
-*   Non spécifiées dans l'article, mais une plateforme de service client externe a été exploitée.
+L'article ne mentionne pas de vulnérabilités spécifiques avec des identifiants CVE. Il est fait référence à un "accès non autorisé à une plateforme externe" utilisée pour le service client.
 
 **Recommandations :**
 
-*   Les clients concernés doivent rester vigilants face aux emails et appels téléphoniques suspects.
-*   Mise en place de mesures de prévention de récurrence par les compagnies aériennes.
+*   Les clients concernés doivent faire preuve d'une vigilance accrue concernant les communications électroniques et téléphoniques potentiellement frauduleuses.
+*   Les entreprises du secteur de l'aviation et du transport doivent renforcer la sécurité de leurs plateformes externes de service client et être conscientes des menaces émergentes comme celles du groupe Scattered Spider.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/air-france-and-klm-disclose-data-breaches-impacting-customers/){:target="_blank"}
