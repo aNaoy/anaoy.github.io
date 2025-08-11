@@ -40,3 +40,5 @@ Savoirs
 * Systèmes
   * Linux
   * Windows
+* Dev
+  * Python
