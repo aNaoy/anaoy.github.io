@@ -6,42 +6,34 @@ tags:
 - veille-cyber
 - schneier
 ---
-## La Dégradation de l'Intelligence et des Décisions Stratégiques
+**La Dégradation du Savoir et de la Prise de Décision dans la Sphère Publique**
 
-Les discussions récentes soulignent une tendance préoccupante à l'ignorance historique et à la négligence des faits, favorisant une idéologie où l'opinion prime sur la preuve. Ce phénomène, qualifié de "Tragédie des Communs Sociaux", conduit à une simplification excessive de sujets complexes et affaiblit la capacité du public à identifier les vrais enjeux.
+L'article, et particulièrement les commentaires, met en lumière une préoccupation croissante concernant la dégradation du savoir, l'ignorance politique et la prise de décision erronée au sein des institutions publiques. Un des commentateurs, "ResearcherZero", déplore une tendance où l'opinion prime sur les faits avérés, rappelant des erreurs militaires historiques pour illustrer les dangers de décisions malavisées et d'une planification stratégique déficiente.
 
-La politicisation des questions techniques et stratégiques, couplée à la dépréciation des connaissances et de l'expertise, entraîne des conséquences néfastes. Cela se manifeste par une nomination de dirigeants inexpérimentés dans des postes clés, affectant la prise de décision dans des domaines cruciaux tels que la sécurité nationale et la coopération internationale. Cette dynamique crée un risque accru pour le bien-être individuel et collectif.
+Cette situation est aggravée par le démantèlement d'agences indépendantes et la nomination de personnel inexpérimenté à des postes de direction clés. Ces "débutants" à la tête de départements cruciaux influencent des décisions qui affectent non seulement les citoyens, mais aussi les relations internationales et le partage d'informations. Cette "Tragédie des Communs Sociaux" est caractérisée par la politisation de sujets complexes, qui simplifie à l'excès les débats publics et affaiblit la capacité à identifier les véritables préoccupations et à y répondre de manière éclairée.
 
-Un commentaire évoque la "malveillance" dans un article sur les VPN, suggérant que cela rend la discussion inutile et déplace l'attention, limitant ainsi la capacité à contester ou à débattre des changements proposés.
+Il en résulte une compromission du bien-être individuel et collectif, amplifiée par une focalisation sur des sujets détournés ou des intentions parfois malveillantes (mentionnées dans un commentaire lié à un article sur les VPN). L'échange d'idées et la remise en question des changements suggérés deviennent alors quasi impossibles.
 
-### Points Clés :
+**Points Clés :**
 
-*   Ignorance historique et rejet des faits.
-*   Prévalence de l'opinion sur la preuve.
-*   Simplification excessive des sujets complexes.
-*   Dénigrement de l'expertise et des connaissances.
-*   Nomination de leaders inexpérimentés ("noobs") dans des rôles critiques.
-*   Conséquences négatives sur la sécurité nationale et la coopération internationale.
-*   Risque accru pour le bien-être individuel et collectif.
-*   Préoccupation concernant la "malveillance" dans certains articles techniques (VPN).
+*   Détérioration de la prise de décision basée sur les faits, au profit de l'opinion.
+*   Nomination de personnel inexpérimenté à des postes de direction stratégiques.
+*   Affaiblissement du débat public par la simplification excessive et la politisation.
+*   Conséquences néfastes sur le bien-être individuel et collectif, ainsi que sur la coopération internationale.
 
-### Vulnérabilités :
+**Vulnérabilités :**
 
-Bien que l'article ne mentionne pas de vulnérabilités techniques spécifiques avec des identifiants CVE, les points soulevés peuvent être interprétés comme des vulnérabilités organisationnelles et décisionnelles :
+Aucune vulnérabilité technique spécifique (identifiée par CVE) n'est mentionnée dans cet extrait. La discussion porte sur des faiblesses systémiques et politiques.
 
-*   **Vulnérabilité à la mauvaise prise de décision :** Due au manque d'expertise et à l'ignorance des précédents historiques.
-*   **Vulnérabilité à la désinformation :** Causée par la simplification excessive et la privilégiation de l'opinion.
-*   **Vulnérabilité à la dégradation de la sécurité :** Résultant de la nomination de personnel non qualifié dans des rôles de sécurité.
+**Recommandations :**
 
-### Recommandations :
+Les recommandations implicites tournent autour de la nécessité de :
 
-Les recommandations implicites ou suggérées par le contenu sont :
-
-*   **Valoriser et s'appuyer sur l'histoire et les faits** pour éclairer la prise de décision.
-*   **Promouvoir une compréhension approfondie** des sujets complexes plutôt que des simplifications.
-*   **Soutenir et exiger l'expertise** dans les postes de responsabilité.
-*   **Être vigilant face à la "malveillance" potentielle** dans les informations techniques.
-*   **Encourager une discussion publique rigoureuse** basée sur des preuves et une analyse réfléchie.
+*   Valoriser et baser les décisions sur des faits et des preuves.
+*   Assurer la nomination de personnel qualifié et expérimenté aux postes de responsabilité.
+*   Promouvoir un débat public informé et nuancé sur les sujets complexes.
+*   Résister à la politisation excessive des questions techniques et sociétales.
+*   Encourager la pensée critique et la recherche d'une compréhension approfondie.
 
 ---
 [Source](https://www.schneier.com/blog/archives/2025/08/friday-squid-blogging-bobtail-squid.html){:target="_blank"}
