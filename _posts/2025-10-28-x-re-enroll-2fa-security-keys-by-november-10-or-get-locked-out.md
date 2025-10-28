@@ -6,28 +6,29 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Mise à jour de la sécurité des clés sur X**
+### X Exige Réinscription des Clés de Sécurité 2FA Avant le 10 Novembre
 
-Les utilisateurs de X qui ont configuré des clés de sécurité ou des passkeys pour l'authentification à deux facteurs (2FA) doivent les réenregistrer avant le 10 novembre. Passé cette date, ces clés ne seront plus valides et les comptes qui n'auront pas été mis à jour seront verrouillés.
+La plateforme X impose aux utilisateurs de réenregistrer leurs clés de sécurité ou passkeys pour l'authentification à deux facteurs (2FA) avant le 10 novembre. Passé cette date, les comptes utilisant ces méthodes seront verrouillés jusqu'à ce que la procédure soit effectuée ou qu'une autre méthode d'authentification soit choisie.
 
-Ce changement est lié à la migration du domaine twitter.com vers x.com. Les clés de sécurité actuelles étant associées à l'ancien domaine, elles cesseront de fonctionner. L'opération est nécessaire pour que les clés soient associées au nouveau domaine x.com.
+Ce changement, qui ne concerne que les utilisateurs de clés de sécurité matérielles ou de passkeys, est motivé par la migration du domaine twitter.com vers x.com. Les clés actuelles étant liées à l'ancien domaine, elles cesseront de fonctionner.
 
-**Points clés :**
+**Points Clés :**
 
-*   Les utilisateurs de clés de sécurité physiques (comme les YubiKeys) et de passkeys doivent réenregistrer leurs identifiants.
-*   La date limite est le 10 novembre.
-*   Après cette date, les comptes utilisant des clés de sécurité non réenregistrées seront bloqués.
+*   La date limite pour la réinscription est le 10 novembre.
+*   Seuls les utilisateurs de clés de sécurité (matérielles ou passkeys) sont concernés.
+*   La procédure vise à adapter les clés au nouveau domaine x.com.
+*   Un compte verrouillé pourra être récupéré en réinscrivant une clé, en choisissant une autre méthode 2FA, ou en désactivant la 2FA (déconseillé).
 
-**Vulnérabilités :**
+**Vulnérabilités/Risques identifiés :**
 
-Aucune vulnérabilité spécifique (avec CVE) n'est mentionnée dans l'article. Le problème décrit est une conséquence technique d'une migration de domaine, et non une faille de sécurité exploitée.
+*   Bien qu'aucun incident de sécurité spécifique ne soit mentionné, l'absence de réinscription entraînera un verrouillage des comptes, rendant l'accès impossible.
 
 **Recommandations :**
 
-*   **Réenregistrer les clés de sécurité/passkeys :** Les utilisateurs concernés doivent se rendre dans les paramètres de sécurité de leur compte X et suivre la procédure pour désactiver leurs clés existantes et en enregistrer de nouvelles (ou réenregistrer les mêmes).
-*   **Choisir une méthode alternative de 2FA :** Si les utilisateurs ne souhaitent pas ou ne peuvent pas réenregistrer leurs clés, ils peuvent opter pour une autre méthode de 2FA, comme une application d'authentification.
-*   **Ne pas désactiver la 2FA :** X déconseille fortement de désactiver complètement l'authentification à deux facteurs.
-*   **Vérifier la compatibilité des nouvelles clés :** Lors du réenregistrement d'une nouvelle clé, les anciennes clés enregistrées cesseront de fonctionner, sauf si elles sont également réenregistrées.
+*   Réenregistrer les clés de sécurité ou passkeys existantes ou en enrollant de nouvelles avant le 10 novembre via les paramètres de sécurité du compte.
+*   Pour les utilisateurs qui enrollent une nouvelle clé, toutes les autres clés précédemment enregistrées deviendront invalides sauf si elles sont également réenregistrées.
+*   Envisager une méthode d'authentification alternative (comme une application d'authentification) si la réinscription d'une clé n'est pas possible ou souhaitée.
+*   Maintenir l'utilisation de la 2FA pour une sécurité optimale du compte.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/x-re-enroll-2fa-security-keys-by-november-10-or-get-locked-out/){:target="_blank"}

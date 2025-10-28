@@ -6,31 +6,31 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Les Fausses Alarmes de Fuites de Données Gmail**
+**Désinformation sur une faille Gmail massive**
 
-Google a démenti des affirmations sensationnalistes selon lesquelles 183 millions de comptes Gmail auraient été compromis. Ces allégations proviennent d'une compilation de près de 183 millions d'identifiants volés au fil du temps par divers moyens, notamment des logiciels malveillants voleurs d'informations, des violations de données, du bourrage d'identifiants et du phishing. Ces identifiants concernent une multitude de sites web, et non une seule plateforme.
+Une nouvelle alarmiste circulant dans les médias et sur les réseaux sociaux, affirmant qu'une faille majeure aurait exposé 183 millions de comptes Gmail, a été fermement démentie par Google. L'entreprise clarifie que les identifiants compromis ne proviennent pas d'une attaque directe contre Gmail, mais d'une compilation d'informations volées au fil du temps par des malwares voleurs d'informations et d'autres cyberattaques à travers le web.
 
-La société a précisé que ses défenses sont robustes et que les utilisateurs restent protégés. Le créateur de Have I Been Pwned (HIBP), Troy Hunt, a ajouté une importante collection d'identifiants compromis à sa plateforme, mais a constaté que 91% de ces identifiants avaient déjà été signalés dans de précédentes fuites, soulignant ainsi leur circulation ancienne.
+Ces données agrégées, ajoutées à la plateforme Have I Been Pwned par Troy Hunt, créateur du site, incluent des identifiants issus de multiples sources et non d'une seule brèche. La majorité de ces identifiants (91%) avaient déjà été repérés dans des fuites antérieures, soulignant la circulation continue de données volées.
 
-**Points Clés :**
+Bien que Gmail ne soit pas directement visé, Google indique prendre des mesures lorsqu'il détecte de grandes quantités d'identifiants exposés pour aider les utilisateurs à sécuriser leurs comptes. L'article rappelle l'importance de ces identifiants compromis, souvent utilisés dans des attaques plus larges, comme l'illustre l'attaque sur Change Healthcare.
 
-*   Des médias ont diffusé des informations erronées sur une fuite massive de comptes Gmail.
-*   Google a officiellement démenti ces affirmations, expliquant qu'il s'agissait d'une compilation d'identifiants volés sur le web.
-*   Ces identifiants proviennent de diverses sources, pas d'une seule violation de Gmail.
-*   La majorité des identifiants signalés étaient déjà connus.
-*   Google prend des mesures pour protéger les utilisateurs dont les identifiants sont exposés, notamment en forçant des réinitialisations de mots de passe.
-*   Bien que la fuite de Gmail soit fausse, les identifiants exposés restent une menace sérieuse.
+**Points clés :**
+
+*   Les informations concernant une faille de 183 millions de comptes Gmail sont fausses.
+*   Les identifiants compromis proviennent de diverses sources (malware, autres brèches, phishing) et non d'une seule attaque contre Gmail.
+*   La majorité des identifiants avaient déjà été repérés dans des fuites antérieures.
+*   Google prend des mesures pour protéger les utilisateurs face à la détection de lots importants d'identifiants exposés.
 
 **Vulnérabilités :**
 
-*   Aucune vulnérabilité spécifique liée à Gmail n'est mentionnée dans cette affaire. La préoccupation réside dans la **réutilisation d'identifiants** et le **vol d'informations** via des logiciels malveillants, le phishing et d'autres attaques visant l'ensemble du web. Les conséquences de l'exploitation de ces identifiants exposés sont illustrées par l'attaque par rançongiciel sur Change Healthcare, causée par des identifiants Citrix exposés.
+*   L'article ne mentionne pas de vulnérabilités spécifiques avec des identifiants CVE. Les menaces citées sont les malwares voleurs d'informations, les brèches de données, l'attaque par bourrage d'identifiants (credential stuffing) et le phishing.
 
 **Recommandations :**
 
-*   Les utilisateurs préoccupés par leurs identifiants peuvent vérifier leur présence dans les "Stealer Logs" sur **Have I Been Pwned**.
-*   Si des comptes sont signalés comme compromis, il est recommandé d'effectuer un **scan antivirus** sur son appareil.
-*   Il est crucial de **changer immédiatement les mots de passe** de tous les comptes concernés.
-*   La **vigilance face aux fausses informations** concernant des violations de données est essentielle pour éviter le stress inutile et la désinformation.
+*   Les utilisateurs préoccupés par leurs identifiants peuvent vérifier s'ils ont été compromis via la section "Stealer Logs" sur Have I Been Pwned.
+*   En cas de compromission détectée :
+    *   Effectuer une analyse antivirus de son ordinateur.
+    *   Changer immédiatement les mots de passe de tous les comptes concernés.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/google-disputes-false-claims-of-massive-gmail-data-breach/){:target="_blank"}

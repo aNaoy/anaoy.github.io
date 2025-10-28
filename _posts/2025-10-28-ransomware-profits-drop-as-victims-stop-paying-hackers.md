@@ -6,35 +6,33 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Baisse des profits du rançongiciel : les victimes paient moins**
+**Baisse des profits du rançongiciel : les victimes refusent de payer**
 
-Les attaques par rançongiciel entraînent une diminution significative des paiements de rançon de la part des entreprises. En Q3 2025, seulement 23% des entreprises compromises ont cédé aux demandes des cybercriminels, marquant un plus bas historique. Cette tendance, observée depuis six ans, s'explique par le renforcement des mesures de sécurité et la pression accrue des autorités contre le paiement des rançons.
+Les paiements de rançons par les entreprises victimes d'attaques par rançongiciel ont atteint un niveau historiquement bas. Seulement 23% des sociétés compromises ont cédé aux exigences des attaquants au troisième trimestre 2025, une tendance à la baisse observée sur les six dernières années. Cette diminution s'explique par le renforcement des mesures de cybersécurité par les organisations et par la pression accrue des autorités pour ne pas payer les criminels.
 
-Les groupes de rançongiciels ont évolué, passant d'attaques de chiffrement pur à des doubles extorsions incluant l'exfiltration et la menace de publication de données. En Q3 2025, plus de 76% des attaques observées par Coveware impliquaient l'exfiltration de données, devenant l'objectif principal. Lorsque le chiffrement n'est pas utilisé, le taux de paiement tombe à 19%. Les paiements moyens et médians ont également diminué, atteignant respectivement 377 000 $ et 140 000 $.
+Les groupes de rançongiciels ont évolué, passant d'un simple chiffrement à une double extorsion incluant le vol de données et la menace de diffusion publique. Actuellement, plus de 76% des attaques analysées impliquent l'exfiltration de données, devenant l'objectif principal. Les paiements moyens et médians ont également chuté.
 
-Les grandes entreprises ayant renforcé leurs défenses, les acteurs malveillants ciblent désormais davantage les PME, plus susceptibles de payer. Les vecteurs d'accès initiaux les plus courants sont la compromission de l'accès à distance et l'exploitation de vulnérabilités logicielles. À mesure que leurs marges bénéficiaires diminuent, les groupes de rançongiciels pourraient se concentrer sur des attaques plus ciblées, recourir à l'ingénierie sociale ou recruter des initiés via des pots-de-vin importants pour obtenir un accès initial.
+Cette situation semble inciter les groupes de rançongiciels à cibler de manière plus précise les moyennes entreprises, plus susceptibles de payer. Les grandes entreprises, ayant renforcé leurs défenses, deviennent des cibles moins rentables. Les vecteurs d'attaque privilégiés incluent désormais l'accès à distance compromis et l'exploitation de vulnérabilités logicielles. Face à la diminution de leurs profits, les attaquants pourraient recourir davantage à l'ingénierie sociale et au recrutement d'initiés via des pots-de-vin.
 
 **Points clés :**
 
-*   Taux de paiement des rançons en baisse significative, atteignant un plus bas historique de 23% en Q3 2025.
-*   L'exfiltration de données est devenue l'objectif principal des groupes de rançongiciels (plus de 76% des attaques en Q3 2025).
-*   Les attaques sans chiffrement mais avec exfiltration de données ont un taux de paiement de 19%.
-*   Les paiements moyens (377 000 $) et médians (140 000 $) ont diminué en Q3 2025.
-*   Les groupes de rançongiciels comme Akira et Qilin ciblent davantage les PME.
-*   La compromission de l'accès à distance et l'exploitation de vulnérabilités logicielles sont les vecteurs d'accès initiaux majeurs.
-*   Les acteurs malveillants pourraient se tourner vers l'ingénierie sociale et le recrutement d'initiés.
+*   Le taux de paiement des rançons par les entreprises victimes est tombé à 23% au T3 2025.
+*   L'exfiltration de données, avec une menace de fuite, est devenue la principale tactique (plus de 76% des attaques).
+*   Les paiements moyens et médians ont diminué.
+*   Les grandes entreprises ont renforcé leurs défenses, poussant les attaquants à cibler les moyennes entreprises.
+*   Les vecteurs d'accès initiaux privilégiés sont l'accès à distance compromis et l'exploitation de vulnérabilités logicielles.
+*   Les attaquants se tourneraient vers l'ingénierie sociale et le recrutement d'initiés pour contourner les défenses.
 
 **Vulnérabilités :**
 
-*   Exploitation de **vulnérabilités logicielles** (sans CVE spécifiques mentionnés dans l'article).
+*   L'article mentionne une "utilisation significative des vulnérabilités logicielles" comme vecteur d'attaque, mais ne détaille pas de CVE spécifiques.
 
-**Recommandations :**
+**Recommandations (implicites) :**
 
-*   Renforcer les défenses contre les attaques par rançongiciel.
-*   Prioriser les investissements dans la sécurité pour prévenir les attaques et minimiser leur impact.
-*   Ne pas céder aux demandes de rançon, ce qui réduit les profits des cyberattaquants.
-*   Mettre en place des mesures pour contrer l'exfiltration de données.
-*   Être vigilant face aux techniques d'ingénierie sociale et aux risques d'initiés.
+*   Continuer à renforcer les défenses contre le rançongiciel.
+*   Ne pas payer les rançons pour priver les attaquants de leurs revenus.
+*   Mettre l'accent sur la prévention des accès à distance compromis et la sécurisation contre les vulnérabilités logicielles.
+*   Se préparer aux tactiques d'ingénierie sociale et à la menace d'initiés.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/ransomware-profits-drop-as-victims-stop-paying-hackers/){:target="_blank"}
