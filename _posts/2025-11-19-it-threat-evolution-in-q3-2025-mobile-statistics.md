@@ -6,60 +6,43 @@ tags:
 - veille-cyber
 - securelist
 ---
-## Évolution des menaces mobiles au T3 2025
+## Évolution des menaces mobiles au troisième trimestre 2025
 
-Au troisième trimestre 2025, les solutions Kaspersky ont neutralisé 47 millions d'attaques impliquant des malwares, des adwares ou des logiciels indésirables sur mobile. Cette période a vu une modification de la méthodologie de calcul des indicateurs statistiques de Kaspersky Security Network (KSN), impactant la plupart des données rapportées.
+Le troisième trimestre 2025 a vu une modification de la méthodologie de calcul des statistiques de sécurité mobile de Kaspersky, impactant les données présentées par rapport aux périodes précédentes.
 
-Les chevaux de Troie représentent la menace mobile la plus répandue, affectant 15,78 % des utilisateurs attaqués. Plus de 197 000 paquets d'installation malveillants ont été détectés, dont 52 723 liés à des chevaux de Troie bancaires et 1 564 à des ransomwares. Les attaques globales, selon les nouvelles règles, s'élèvent à 3,47 millions, une légère baisse par rapport au trimestre précédent.
+**Statistiques clés :**
 
-Des cas notables incluent une nouvelle version du backdoor BADBOX, préchargé sur des appareils, et le Trojan-Downloader.AndroidOS.Agent.no utilisé pour télécharger un Trojan-Clicker.AndroidOS.Agent.bl, qui exploitait l'apprentissage automatique pour gonfler artificiellement les vues publicitaires.
+*   47 millions d'attaques de logiciels malveillants, publiciels ou logiciels indésirables sur mobile ont été neutralisées.
+*   Les chevaux de Troie représentent la menace la plus courante, touchant 15,78% des utilisateurs concernés.
+*   Plus de 197 000 paquets d'installation malveillants ont été découverts, dont 52 723 liés à des chevaux de Troie bancaires et 1564 à des chevaux de Troie de rançongiciels.
+*   Le nombre total d'attaques sur appareils mobiles s'est élevé à 3,47 millions, une légère baisse par rapport au trimestre précédent.
 
-### Points clés
+**Points saillants et vulnérabilités :**
 
-*   **Augmentation des paquets malveillants:** 197 738 échantillons de logiciels malveillants et indésirables détectés, soit 55 000 de plus que le trimestre précédent.
-*   **Domination des Trojans:** Ils constituent la principale menace en termes de victimes.
-*   **Adware en tête pour le nombre d'utilisateurs attaqués:** HiddenAd et MobiDash sont les types les plus fréquents.
-*   **Essor des RiskTool:** Principalement dû au module Revpn monétisant l'accès internet des utilisateurs.
-*   **Activités régionales notables:**
-    *   Turquie : Forte présence de chevaux de Troie bancaires (Coper) et de logiciels malveillants.
-    *   Inde : Distribution de chevaux de Troie bancaires comme Rewardsteal.
-    *   Iran : Déploiement de backdoors Teledoor via de faux clients Telegram.
-    *   Allemagne : Hausse significative des attaques de ransomwares Rkor.
+*   Détection d'une nouvelle version du **BADBOX backdoor**, un chargeur multi-niveaux pré-installé sur des appareils, s'infiltrant dans tous les processus système. (Aucun CVE spécifique mentionné pour cette menace dans l'article).
+*   Un **Trojan-Downloader.AndroidOS.Agent.no** intégré dans des modifications d'applications de messagerie téléchargeait un **Trojan-Clicker.AndroidOS.Agent.bl**. Ce dernier utilisait des algorithmes d'apprentissage automatique pour générer de fausses vues publicitaires de manière invisible. (Aucun CVE spécifique mentionné).
+*   Le nombre de paquets d'installation malveillants et indésirables détectés pour Android a augmenté de 55 000 par rapport au trimestre précédent.
+*   Les **publiciels** dominent en termes de nombre d'utilisateurs attaqués, avec **HiddenAd** (56,3%) et **MobiDash** (27,4%) en tête.
+*   Les applications indésirables de type **RiskTool** sont en hausse, principalement à cause du module **Revpn** qui monétise l'accès internet des utilisateurs en transformant leur appareil en point de sortie VPN.
+*   Les chevaux de Troie les plus populaires restent **Triada** (55,8%) et **Fakemoney** (24,6%).
+*   Parmi les malwares les plus fréquemment détectés (hors logiciels à risque et potentiellement indésirables), on retrouve plusieurs variantes de **Trojan.AndroidOS.Triada** et **Trojan.AndroidOS.Fakemoney**. De nouvelles menaces comme **Trojan.AndroidOS.Triada.ii** et **Trojan.AndroidOS.Triada.if** font leur apparition.
+*   Des menaces spécifiques par région ont été observées :
+    *   **Turquie** : Fortes activités des chevaux de Troie bancaires comme **Coper** et des droppers tels que **Trojan-Dropper.AndroidOS.Hqwar.bj**.
+    *   **Inde** : Prolifération de chevaux de Troie bancaires comme **Rewardsteal** et divers droppers.
+    *   **Iran** : Déploiement de backdoors **Teledoor** via de faux clients Telegram.
+    *   **Allemagne** : Augmentation notable des attaques de rançongiciels **Trojan-Ransom.AndroidOS.Rkor.ii**.
+*   Les **chevaux de Troie bancaires** ont vu 52 723 paquets d'installation détectés, soit 10 000 de plus qu'au trimestre précédent. Le Trojan **Mamont** domine en termes de parts dans les installations, tandis que **Coper** mène en termes d'utilisateurs attaqués pour une même modification.
+*   Les **rançongiciels mobiles** ont connu une activité accrue, le nombre de paquets d'installation plus que doublant pour atteindre 1564. Les variantes de **Rkor** et **Congur** sont particulièrement actives.
 
-### Vulnérabilités et types de malwares
+**Recommandations générales :**
 
-L'article ne mentionne pas de CVE spécifiques. Cependant, les catégories de menaces les plus détectées incluent :
+Bien que l'article ne fournisse pas de section de recommandations explicite, l'analyse des menaces suggère implicitement la nécessité de :
 
-*   **Chevaux de Troie (Général):**
-    *   Trojan.AndroidOS.Triada (différentes variantes) dominant le classement.
-    *   Trojan.AndroidOS.Fakemoney (collecte de données personnelles).
-*   **Chevaux de Troie Bancaires:**
-    *   Mamont (famille la plus touchée globalement).
-    *   Coper (leader en termes d'utilisateurs attaqués par une seule modification).
-    *   Rewardsteal.
-*   **Ransomwares:**
-    *   Rkor (forte augmentation en Allemagne).
-    *   Congur.
-    *   Svpeng.
-*   **Backdoors:**
-    *   BADBOX (nouvelle version préchargée).
-    *   Triada.z (pré-installé).
-    *   Teledoor (en Iran).
-*   **Adware:**
-    *   HiddenAd.
-    *   MobiDash.
-*   **RiskTool:**
-    *   Revpn module.
-
-### Recommandations
-
-Bien que l'article ne contienne pas de section explicite de recommandations, il met en évidence la nature et l'évolution des menaces, suggérant implicitement :
-
-*   **Vigilance accrue face aux applications inconnues :** Les malwares sont souvent intégrés dans des mods d'applications de messagerie ou d'autres applications populaires.
-*   **Attention aux adwares et logiciels indésirables :** Ils sont très répandus et peuvent avoir des fonctionnalités malveillantes cachées.
-*   **Protection contre les ransomwares :** Une attention particulière est nécessaire suite à l'augmentation des attaques de Rkor.
-*   **Méfiance envers les applications provenant de sources non officielles :** Les malwares sont souvent distribués via des canaux non contrôlés.
-*   **Renforcement de la sécurité mobile :** L'utilisation de solutions de sécurité reconnues comme celles de Kaspersky est essentielle pour la détection et la prévention.
+*   Maintenir les solutions de sécurité mobile à jour.
+*   Être vigilant quant aux applications téléchargées, en particulier celles provenant de sources non officielles ou offrant des fonctionnalités suspectes.
+*   Prêter attention aux autorisations demandées par les applications.
+*   Se méfier des messages ou liens suspects qui pourraient mener à des téléchargements malveillants.
+*   Comprendre que les fraudes publicitaires peuvent utiliser des méthodes sophistiquées pour exploiter les appareils des utilisateurs.
 
 ---
 [Source](https://securelist.com/malware-report-q3-2025-mobile-statistics/118013/){:target="_blank"}

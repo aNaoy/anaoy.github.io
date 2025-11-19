@@ -6,36 +6,33 @@ tags:
 - veille-cyber
 - hackernews
 ---
-### Injection de Prompts Secondaires dans ServiceNow Now Assist
+### Exploitation des Agents IA de ServiceNow par Injection de Prompt Secondaire
 
-Des acteurs malveillants peuvent exploiter les configurations par défaut de la plateforme d'IA générative ServiceNow Now Assist pour mener des attaques par injection de prompts. Ces attaques dites de "second ordre" tirent parti de la capacité des agents à se découvrir mutuellement pour exécuter des actions non autorisées.
+Des acteurs malveillants peuvent manipuler les agents d'intelligence artificielle de la plateforme ServiceNow, spécifiquement Now Assist, par le biais d'attaques d'injection de prompt de second ordre. Cette vulnérabilité exploite la fonctionnalité de découverte et de collaboration entre agents, permettant potentiellement l'exfiltration de données sensibles, la modification d'enregistrements et l'escalade de privilèges. L'attaque ne dépend pas d'un bug logiciel mais de configurations par défaut des agents IA.
 
-**Points Clés :**
+#### Points Clés :
 
-*   L'attaque ne résulte pas d'un bug mais d'un comportement attendu lié à certaines options de configuration par défaut.
-*   Elle permet aux attaquants de copier et d'exfiltrer des données d'entreprise sensibles, de modifier des enregistrements et d'escalader des privilèges.
-*   Les actions se déroulent de manière discrète, à l'insu des organisations victimes.
-*   Les agents Now Assist exécutent les actions avec les privilèges de l'utilisateur qui a initié l'interaction, et non ceux de l'attaquant.
+*   **Mécanisme d'Attaque :** Les attaquants insèrent des instructions malveillantes dans le contenu auquel un agent IA a accès. Cet agent, en interagissant avec d'autres agents via la fonction de découverte activée par défaut, peut être amené à exécuter des actions non autorisées, sans que l'utilisateur initiateur de la tâche initiale ne s'en aperçoive.
+*   **Impact :** Possibilité de voler des données d'entreprise confidentielles, de modifier des informations critiques, ou d'obtenir des accès plus larges aux systèmes internes.
+*   **Nature de la Vulnérabilité :** Il s'agit d'un comportement attendu lié à la conception et aux configurations par défaut permettant aux agents de collaborer.
 
-**Vulnérabilités (sans CVE spécifique mentionnée dans l'article) :**
+#### Vulnérabilités :
 
-*   **Injection de Prompts Secondaires :** Permet à un attaquant de détourner une tâche bénigne assignée à un agent vers une action malveillante en utilisant les fonctionnalités d'autres agents de son équipe.
+L'article ne mentionne pas de CVE spécifiques, mais la faille réside dans la configuration par défaut des fonctionnalités suivantes :
 
-**Facteurs Habilitants la Vulnérabilité :**
+*   **Découverte d'Agents IA :** Les agents sont capables de se trouver mutuellement.
+*   **Collaboration Agent-à-Agent :** Les agents peuvent être regroupés par défaut dans la même équipe, facilitant leur invocation mutuelle.
+*   **Publication par Défaut des Agents :** Les agents sont marqués comme découvrables par défaut lorsqu'ils sont publiés.
+*   **Modèles de Langage (LLM) :** Support de la découverte d'agents par les LLM sous-jacents (comme Azure OpenAI LLM et Now LLM).
+*   **Exécution avec Privilèges Utilisateur :** Les agents IA s'exécutent souvent avec les privilèges de l'utilisateur qui a initié l'interaction, et non ceux de l'attaquant qui a inséré le prompt malveillant.
 
-*   Le modèle de langage sous-jacent (LLM) supporte la découverte d'agents (Azure OpenAI LLM et Now LLM).
-*   Les agents Now Assist sont regroupés par défaut dans la même équipe pour s'invoquer mutuellement.
-*   Un agent est marqué comme découvrable par défaut lors de sa publication.
-*   L'architecture est susceptible aux injections de prompts lorsqu'un agent dont la tâche principale est de lire des données non saisies par l'utilisateur est ciblé.
+#### Recommandations :
 
-**Recommandations :**
-
-*   Configurer le mode d'exécution supervisée pour les agents privilégiés.
-*   Désactiver la propriété de substitution autonome ("sn_aia.enable_usecase_tool_execution_mode_override").
-*   Segmenter les missions des agents par équipe.
-*   Surveiller les agents IA pour tout comportement suspect.
-
-Il est crucial que les organisations utilisant les agents IA de Now Assist examinent attentivement leurs configurations, car des paramètres par défaut potentiellement risqués peuvent les exposer.
+*   **Mode d'Exécution Supervisée :** Configurer un mode d'exécution supervisée pour les agents ayant des privilèges élevés.
+*   **Désactiver le Dépassement Autonome :** Désactiver la propriété `sn_aia.enable_usecase_tool_execution_mode_override`.
+*   **Segmentation des Agents :** Séparer les rôles et responsabilités des agents par équipe.
+*   **Surveillance Active :** Surveiller attentivement le comportement des agents IA pour détecter toute activité suspecte.
+*   **Audit des Configurations :** Examiner minutieusement les configurations des agents IA, car des paramètres par défaut mal compris peuvent exposer les organisations à des risques.
 
 ---
 [Source](https://thehackernews.com/2025/11/servicenow-ai-agents-can-be-tricked.html){:target="_blank"}

@@ -6,34 +6,32 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-## Man pleads guilty to laundering crypto stolen in major heist
+## L'Escroquerie aux Cryptomonnaies de 230 Millions de Dollars et le Blanchiment d'Argent
 
-Un résident de Californie a plaidé coupable de blanchiment d'au moins 25 millions de dollars dérobés lors d'un vol massif de cryptomonnaies estimé à 230 millions de dollars. Kunal Mehta, également connu sous divers pseudonymes, est le huitième accusé à reconnaître sa participation à ce stratagème, qui a impliqué un groupe, dont de nombreux jeunes, ayant utilisé l'ingénierie sociale pour accéder aux comptes de cryptomonnaies des victimes entre octobre 2023 et mars 2025. Les fonds volés étaient ensuite transférés vers des portefeuilles sous le contrôle des pirates.
+Un homme de 45 ans de Californie a plaidé coupable pour avoir blanchi au moins 25 millions de dollars issus d'un vol massif de cryptomonnaies estimé à 230 millions de dollars. Kunal Mehta, également connu sous divers pseudonymes, est le huitième prévenu à admettre sa participation à ce schéma. Le groupe criminel, composé de jeunes individus issus de diverses localités américaines et même de l'étranger, a utilisé des techniques d'ingénierie sociale pour accéder aux comptes de cryptomonnaies des victimes entre octobre 2023 et mars 2025, transférant les fonds vers des portefeuilles sous leur contrôle.
 
-Mehta agissait comme blanchisseur d'argent pour le groupe, qui comprenait des membres de divers États américains et de l'étranger, et dont les liens s'étaient forgés en jouant à des jeux en ligne. Le vol principal, d'une valeur de plus de 230 millions de dollars (plus de 384,5 millions à l'heure actuelle), aurait été réalisé en août 2024. Les criminels ont utilisé des mélangeurs de cryptomonnaies, des plateformes d'échange, des chaînes de transfert de fonds ("peel chains"), des portefeuilles intermédiaires et des réseaux privés virtuels (VPN) pour dissimuler leur identité et leur localisation.
+Mehta agissait en tant que blanchisseur d'argent pour le groupe, tandis que d'autres membres étaient impliqués dans l'organisation, l'identification des cibles, le piratage, les appels frauduleux et le vol de portefeuilles matériels de cryptomonnaies. Au total, quatorze suspects ont été inculpés. L'un des vols majeurs, impliquant plus de 4 100 Bitcoins d'une valeur de plus de 230 millions de dollars à l'époque, a été réalisé en août. Les auteurs ont tenté de dissimuler les fonds volés grâce à des mixeurs de cryptomonnaies, des plateformes d'échange, des chaînes de transfert ("peel chains"), des portefeuilles intermédiaires et des réseaux privés virtuels (VPN).
 
-Malgré les tentatives de dissimulation, notamment par la conversion en Monero, des erreurs ont été commises, permettant aux enquêteurs de relier les fonds blanchis aux sommes d'origine. Mehta créait des sociétés écrans pour légitimer le blanchiment via des comptes bancaires, recevant des cryptomonnaies volées qu'il transfèrait ensuite à des complices pour un blanchiment plus poussé via des techniques sophistiquées sur la blockchain. Les fonds retrouvaient finalement les comptes bancaires des sociétés écrans de Mehta via des virements. Il percevait environ 10 % de commission pour ses services.
+Malgré la conversion d'une partie des fonds en Monero pour brouiller les pistes, des erreurs ont été commises, permettant de relier les fonds blanchis aux montants originaux. Mehta a créé des sociétés écrans pour légitimer le blanchiment de fonds via des comptes bancaires. Il facturait généralement 10% pour ses services, qui comprenaient la conversion de cryptomonnaies volées en espèces et l'exécution de virements. Les fonds dérobés ont financé un style de vie extravagant, incluant la location de jets privés, l'achat de véhicules de luxe, de sacs à main de marque, de montres haut de gamme, et des voyages.
 
-Les fonds dérobés ont servi à financer un style de vie luxueux, incluant des locations de jets privés, l'achat de véhicules de luxe, des gardes de sécurité, des articles de mode de marque, des montres haut de gamme, des sorties en boîte de nuit et des voyages internationaux. Au total, quatorze suspects ont été inculpés pour leur implication présumée dans ce vol et ce blanchiment.
+**Points clés :**
 
-### Points Clés :
+*   Un individu a plaidé coupable pour blanchiment d'argent lié à un vol de cryptomonnaies de 230 millions de dollars.
+*   Le groupe utilisait l'ingénierie sociale pour accéder aux comptes de victimes.
+*   Les jeunes membres du groupe se sont rencontrés via des jeux en ligne.
+*   Les fonds volés ont été blanchis via diverses méthodes complexes et ont financé un style de vie luxueux.
 
-*   Un individu plaide coupable pour avoir blanchi 25 millions de dollars provenant d'un vol de cryptomonnaies de 230 millions de dollars.
-*   Le groupe criminel utilisait l'ingénierie sociale et les jeux en ligne pour recruter et opérer.
-*   Les méthodes de blanchiment comprenaient des sociétés écrans, des mélangeurs de cryptomonnaies, et des techniques sophistiquées sur la blockchain.
-*   Les fonds volés ont financé un train de vie luxueux pour les membres du groupe.
-*   Huit accusés ont déjà plaidé coupable, et quatorze suspects au total sont impliqués.
+**Vulnérabilités exploitées (pas de CVE spécifique mentionné dans l'article) :**
 
-### Vulnérabilités :
+*   **Ingénierie sociale :** Manipulation des victimes pour obtenir un accès à leurs comptes de cryptomonnaies.
+*   **Faiblesses des protocoles de sécurité des cryptomonnaies :** Exploitation des méthodes de transfert et de stockage pour dissimuler les fonds.
+*   **Erreurs de procédure des criminels :** Laisser des traces permettant de relier les fonds blanchis aux fonds volés.
 
-*   **Ingénierie sociale :** Permet aux attaquants d'obtenir un accès non autorisé aux comptes de cryptomonnaies des victimes.
-*   **Manque de vigilance des utilisateurs :** Incite à la divulgation d'informations personnelles ou de mots de passe qui peuvent être exploités.
+**Recommandations :**
 
-### Recommandations :
-
-*   **Prudence face aux sollicitations en ligne :** Ne pas répondre aux appels, e-mails ou SMS demandant des informations personnelles, des mots de passe, des PIN ou des codes à usage unique.
-*   **Sécurisation des comptes de cryptomonnaies :** Utiliser des méthodes d'authentification forte et être vigilant quant aux demandes d'informations sensibles.
-*   **Utilisation de l'authentification multi-facteurs (MFA) :** Renforce la sécurité des comptes en ligne.
+*   **Prudence face aux sollicitations en ligne :** Ne pas répondre aux appels, e-mails ou SMS demandant des informations personnelles sensibles comme les mots de passe, les codes PIN ou les mots de passe à usage unique.
+*   **Sécurisation des comptes de cryptomonnaies :** Utiliser des mesures de sécurité robustes (authentification à deux facteurs, portefeuilles matériels sécurisés).
+*   **Vigilance accrue :** Se méfier des offres ou demandes suspectes, même si elles proviennent de sources apparemment légitimes.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/california-man-admits-to-laundering-crypto-stolen-in-230m-heist/){:target="_blank"}

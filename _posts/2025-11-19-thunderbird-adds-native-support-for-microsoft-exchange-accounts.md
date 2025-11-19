@@ -6,32 +6,36 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Thunderbird Intègre le Support Natif pour Microsoft Exchange**
+**Thunderbird intègre le support natif de Microsoft Exchange**
 
-La dernière version de Thunderbird (145) offre désormais une prise en charge native du protocole Exchange Web Services (EWS), simplifiant la connexion aux environnements Microsoft Exchange (comme Microsoft 365) sans nécessiter d'extensions tierces. Cette intégration permet une synchronisation des messages et une gestion des dossiers plus fluides entre le client de messagerie et le serveur, tant localement que sur le cloud.
+La dernière version de Thunderbird, la 145, offre désormais une prise en charge native du protocole Exchange Web Services (EWS) de Microsoft. Cette intégration permet aux utilisateurs d'environnements Exchange (comme Microsoft 365) de synchroniser leurs e-mails et de gérer leurs dossiers sans recourir à des extensions tierces. La migration depuis Outlook vers Thunderbird est également simplifiée, l'application détectant automatiquement les paramètres et utilisant le protocole OAuth2 de Microsoft pour l'authentification.
 
-La migration depuis Outlook vers Thunderbird est également facilitée, l'application détectant automatiquement les paramètres et utilisant le protocole d'autorisation OAuth2 de Microsoft. Les fonctionnalités actuelles incluent la configuration des comptes Exchange, la gestion des emails et pièces jointes, ainsi que la recherche et le filtrage rapide des messages. La prise en charge de domaines Microsoft 365 via OAuth2 standard est également opérationnelle.
+**Points clés :**
 
-Le développement prévoit l'ajout futur de la synchronisation des calendriers, des carnets d'adresses, et une meilleure gestion des filtres nécessitant le contenu complet des messages. L'intégration de Microsoft Graph, l'interface privilégiée par Microsoft pour ses services cloud, est également envisagée, bien que le protocole EWS reste une priorité pour l'heure afin de satisfaire une large base d'utilisateurs. Microsoft s'est engagé à maintenir le support d'EWS dans le futur prévisible.
+*   **Support natif EWS :** Thunderbird peut désormais se connecter directement aux serveurs Exchange.
+*   **Simplification pour les utilisateurs :** Plus besoin d'extensions tierces pour les environnements Microsoft Exchange.
+*   **Synchronisation et gestion améliorées :** Synchronisation des messages, gestion des dossiers (localement et côté serveur), traitement des pièces jointes.
+*   **Migration facilitée :** Détection automatique des paramètres et utilisation d'OAuth2 pour la connexion.
 
-**Points Clés :**
+**Fonctionnalités actuellement supportées :**
 
-*   Intégration native de Microsoft Exchange via EWS dans Thunderbird 145.
-*   Suppression de la dépendance aux add-ons tiers pour les utilisateurs d'Exchange.
-*   Synchronisation améliorée des emails et gestion des dossiers.
-*   Facilité de migration depuis Outlook.
-*   Support de l'authentification OAuth2 pour Microsoft 365.
+*   Configuration du compte Exchange et accès aux dossiers.
+*   Visualisation, envoi, réponse/transfert, déplacement/copie/suppression de messages.
+*   Gestion des pièces jointes (sauvegarde, affichage, suppression).
+*   Recherche (sujet, corps) et filtrage rapide.
+*   Domaines Microsoft 365 avec OAuth2 standard.
+*   Serveurs Exchange locaux avec authentification par mot de passe basique.
 
-**Vulnérabilités :**
+**Fonctionnalités futures prévues :**
 
-Aucune vulnérabilité spécifique (avec CVE) n'est mentionnée dans cet article. L'accent est mis sur l'ajout d'une fonctionnalité et l'amélioration de la sécurité par l'utilisation de protocoles d'authentification modernes (OAuth2).
+*   Synchronisation des calendriers.
+*   Synchronisation des carnets d'adresses/contacts.
+*   Actions de filtre nécessitant le contenu complet des messages.
+*   Domaines Microsoft 365 nécessitant des IDs d'application/tenant OAuth2 personnalisés.
+*   Authentification NTLM et OAuth2 pour les serveurs locaux.
+*   Intégration avec Microsoft Graph.
 
-**Recommandations :**
-
-*   Mettre à jour Thunderbird vers la version 145 ou supérieure pour bénéficier du support natif d'Exchange.
-*   Configurer les comptes Exchange via l'option "Exchange/Exchange Web Services" dans la configuration du compte.
-*   Se référer à la page wiki de Mozilla pour plus de détails sur la configuration et la migration.
-*   Être attentif aux futures mises à jour qui ajouteront la prise en charge des calendriers, des contacts et d'autres fonctionnalités avancées.
+Bien que Microsoft oriente ses services vers l'API Microsoft Graph, EWS reste une priorité pour Thunderbird afin de répondre aux besoins d'une large base d'utilisateurs.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/software/thunderbird-adds-native-support-for-microsoft-exchange-accounts/){:target="_blank"}
