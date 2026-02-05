@@ -6,30 +6,36 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Campagne de détournement de trafic via des serveurs NGINX compromis**
+### Compromission de serveurs NGINX pour le détournement de trafic
 
-Une campagne de cyberattaques active vise des serveurs utilisant NGINX et le panneau de gestion d'hébergement Baota. Les attaquants modifient les fichiers de configuration NGINX pour intercepter le trafic des utilisateurs et le rediriger vers leur propre infrastructure, imitant ainsi les fonctionnalités légitimes de routage du trafic.
+Une campagne malveillante détourne le trafic des utilisateurs en modifiant les configurations de serveurs NGINX, les redirigeant vers une infrastructure contrôlée par les attaquants. Cette menace cible particulièrement les installations NGINX utilisées avec les panneaux de gestion d'hébergement Baota, notamment sur les sites ayant des domaines de premier niveau asiatiques (.in, .id, .pe, .bd, .th) ainsi que des sites gouvernementaux et éducatifs (.edu, .gov).
 
-**Points clés :**
+Les attaquants injectent des blocs de configuration NGINX malveillants qui interceptent les requêtes entrantes sur des chemins d'URL spécifiques. Ces requêtes sont ensuite modifiées pour inclure l'URL d'origine complète et transmises via la directive `proxy_pass` à des domaines sous le contrôle des cybercriminels. Les en-têtes de requêtes légitimes sont préservés pour masquer l'activité frauduleuse.
 
-*   Les attaquants injectent des blocs de configuration `location` malveillants dans les fichiers de configuration NGINX.
-*   Ces blocs capturent les requêtes entrantes sur des chemins d'URL spécifiques choisis par l'attaquant.
-*   Les requêtes sont ensuite réécrites pour inclure l'URL d'origine complète et transmises à des domaines contrôlés par les attaquants via la directive `proxy_pass`.
-*   Les en-têtes de requête tels que `Host`, `X-Real-IP`, `User-Agent` et `Referer` sont conservés pour masquer l'activité malveillante.
-*   L'attaque utilise un kit d'outils en cinq étapes (`zx.sh`, `bt.sh`, `4zdh.sh`, `zdh.sh`, `ok.sh`) pour automatiser le processus d'injection et d'exfiltration des données.
-*   Les cibles privilégiées semblent être les sites utilisant des domaines de premier niveau asiatiques (.in, .id, .pe, .bd, .th) ainsi que les sites gouvernementaux et éducatifs (.edu, .gov).
-*   La difficulté de détection réside dans le fait que l'attaque ne repose pas sur une vulnérabilité NGINX exploitée, mais sur la modification des fichiers de configuration, qui sont rarement examinés de près. De plus, le trafic atteint toujours la destination prévue, rendant le passage par l'infrastructure de l'attaquant difficile à remarquer sans une surveillance spécifique.
+L'attaque repose sur un kit d'outils scripté en cinq étapes :
+1.  **zx.sh** : Orchestre le téléchargement et l'exécution des autres étapes.
+2.  **bt.sh** : Modifie les configurations NGINX gérées par le panel Baota.
+3.  **4zdh.sh** : Cherche les emplacements de configuration NGINX courants, valide les modifications et recharge NGINX.
+4.  **zdh.sh** : Ciblage plus précis, notamment pour les domaines .in et .id, avec un processus similaire de validation et de rechargement.
+5.  **ok.sh** : Rassemble les informations sur les domaines détournés et les cibles de proxy pour les exfiltrer vers un serveur de commande et contrôle.
+
+La discrétion de cette menace réside dans le fait qu'elle n'exploite pas de vulnérabilité logicielle directe mais dissimule des instructions malveillantes dans les fichiers de configuration, rarement audités. De plus, le trafic atteint sa destination finale, rendant le passage par l'infrastructure de l'attaquant difficile à détecter sans surveillance spécifique.
+
+**Points Clés :**
+*   Détournement de trafic utilisateur via la modification de configurations NGINX.
+*   Ciblage des panneaux d'hébergement Baota sur des domaines asiatiques, gouvernementaux et éducatifs.
+*   Utilisation de la directive `proxy_pass` pour rediriger le trafic de manière transparente.
+*   Mécanisme d'attaque en cinq étapes pour automatiser la compromission et l'exfiltration.
+*   Difficulté de détection due à l'absence d'exploitation de vulnérabilité directe et à la préservation de l'apparence légitime du trafic.
 
 **Vulnérabilités :**
-
-*   Aucune vulnérabilité NGINX spécifique (CVE) n'est mentionnée dans l'article. L'attaque exploite la modification des fichiers de configuration.
+*   Aucune vulnérabilité logicielle NGINX spécifique n'est mentionnée dans l'article. L'attaque exploite l'accès et la modification des fichiers de configuration.
 
 **Recommandations :**
-
-*   Surveiller attentivement les fichiers de configuration NGINX pour détecter toute modification suspecte ou injection de blocs `location` non autorisés.
-*   Mettre en place des mécanismes de détection d'altération des fichiers de configuration critiques.
-*   Examiner régulièrement les journaux de NGINX pour identifier des schémas de trafic inhabituels ou des redirections inattendues, bien que l'attaque soit conçue pour minimiser la détection.
-*   Sécuriser l'accès aux panneaux de gestion d'hébergement tels que Baota, qui peuvent servir de point d'entrée initial ou de levier pour la modification des configurations.
+*   Surveiller attentivement les fichiers de configuration NGINX pour toute modification suspecte ou injection de blocs malveillants.
+*   Auditer régulièrement les configurations NGINX, particulièrement celles gérées par des panels d'hébergement.
+*   Mettre en place une surveillance réseau poussée pour détecter les flux de trafic anormaux ou les redirections inattendues.
+*   Sécuriser l'accès aux panneaux de gestion d'hébergement et aux configurations serveur.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/hackers-compromise-nginx-servers-to-redirect-user-traffic/){:target="_blank"}
