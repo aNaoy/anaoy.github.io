@@ -6,43 +6,37 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-## Les Voleurs d'Informations : De la Créneau Volée à l'Identité Réelle
+**La Transformation des Identifiants Volés en Identités Réelles par les Infostealers**
 
-Les logiciels malveillants de type "infostealer" modernes vont bien au-delà du simple vol de noms d'utilisateur et de mots de passe. Ils collectent désormais des données étendues telles que les cookies de navigateur, l'historique de navigation et des informations système. Ces ensembles de données sont ensuite agrégés et vendus, permettant aux attaquants de lier des informations techniques à des individus réels, leurs comportements et leurs affiliations professionnelles.
+Les programmes malveillants de vol d'informations (infostealers) ont considérablement élargi leur portée au-delà de la simple collecte de noms d'utilisateur et de mots de passe. Ils ciblent désormais aussi bien les employés en entreprise que les utilisateurs sur leurs appareils personnels. L'analyse de plus de 90 000 lots de données volées par ces logiciels, représentant plus de 800 millions d'entrées, révèle comment ces informations sont agrégées et vendues pour être réutilisées dans diverses attaques. Ces données incluent non seulement les identifiants, mais aussi les cookies de navigateur, l'historique de navigation et des fichiers système locaux, permettant aux attaquants d'associer des données techniques à des utilisateurs réels, à leurs comportements et à leurs organisations.
 
-Une analyse de plus de 90 000 fuites provenant d'infostealers a révélé que ces informations, une fois combinées, permettent aux cybercriminels de passer d'une simple credential compromise à l'identification d'une personne, de son employeur et potentiellement de son rôle au sein d'une organisation. Cette convergence brouille la distinction entre identité personnelle et professionnelle, transformant une compromission sur un appareil personnel en un risque pour l'entreprise.
+Le risque majeur réside dans la facilité avec laquelle ces données permettent de relier plusieurs comptes et activités à une seule personne. La réutilisation des identifiants sur différents services, combinée aux noms d'utilisateur Windows et aux données d'activité, permet aux cybercriminels de passer d'une simple information d'identification compromise à l'identification complète d'un individu, de son employeur et potentiellement de son rôle. Cette convergence brouille la distinction entre identité personnelle et professionnelle, transformant une compromission sur un appareil personnel en un risque d'entreprise sérieux.
 
-Les infostealers exploitent des données provenant d'une large gamme de services :
+Les infostealers collectent des données provenant d'un large éventail de services, incluant des plateformes professionnelles (LinkedIn, GitHub, Microsoft Teams, Outlook, domaines d'entreprise) et personnelles (YouTube, Facebook). Ils accèdent également à des services sensibles comme des domaines gouvernementaux (IRS, Canada Revenue Agency) et des plateformes pour adultes, dont les données peuvent être utilisées à des fins d'extorsion. Paradoxalement, même les utilisateurs ayant une certaine connaissance de la sécurité, comme ceux accédant à des domaines tels que Shodan ou mil.gov, ne sont pas à l'abri.
 
-*   **Services professionnels et d'entreprise :** LinkedIn, GitHub, Microsoft Teams, Outlook et des domaines d'entreprise sont fréquemment ciblés. Cela facilite le phishing ciblé, l'ingénierie sociale et la priorisation des accès aux environnements d'entreprise, surtout en cas de réutilisation de mots de passe.
-*   **Plateformes personnelles et sociales :** YouTube, Facebook et d'autres réseaux sociaux contiennent des informations qui facilitent la validation d'identité et le lien entre différents comptes.
-*   **Services sensibles :** Des domaines gouvernementaux (comme l'IRS, la Canada Revenue Agency) et des plateformes pour adultes ont été trouvés. Les données issues de ces derniers peuvent être utilisées pour des campagnes d'extorsion.
+L'efficacité persistante des infostealers s'explique par la combinaison de comportements courants à grande échelle : installation d'applications illicites, réutilisation de mots de passe entre comptes personnels et professionnels, et stockage des identifiants dans les navigateurs. Ces derniers fournissent un accès immédiat à des informations de grande valeur.
 
-L'efficacité persistante des infostealers s'explique par des comportements courants : installation d'applications illicites, réutilisation de mots de passe entre comptes personnels et professionnels, et stockage de credentials dans les navigateurs.
+La mitigation de l'impact post-vol d'informations est cruciale. Une fois les données diffusées, il est essentiel de neutraliser leur réutilisation. La réutilisation des mots de passe est le principal levier d'exploitation. Des politiques de mots de passe plus robustes, favorisant des phrases de passe plus longues et une application continue, transforment la sécurité des mots de passe d'une configuration statique en une mesure de confinement active. Réduire la réutilisation et l'impact en aval des identifiants compromis est le moyen le plus efficace de briser les chaînes d'attaque initiées par les infostealers.
 
-Pour atténuer l'impact de ces attaques, il est crucial de considérer que des identifiants sont déjà exposés. La réutilisation des mots de passe est un vecteur majeur d'exploitation.
+**Points Clés:**
 
-### Points Clés
+*   Les infostealers ne se contentent plus de voler des identifiants, ils collectent des données permettant de reconstituer une identité complète.
+*   La réutilisation des mots de passe est le principal facteur permettant aux attaquants d'exploiter les données volées sur des environnements professionnels.
+*   Les données volées proviennent d'une multitude de services, allant des plateformes professionnelles aux sites gouvernementaux, augmentant ainsi le risque.
+*   Même les comportements conscients en matière de sécurité ne protègent pas contre l'exposition, surtout lorsque les pratiques professionnelles ne sont pas étendues aux appareils personnels.
+*   La neutralisation de la réutilisation des identifiants compromis est essentielle pour limiter l'impact des attaques par infostealers.
 
-*   Les infostealers collectent désormais des données étendues au-delà des identifiants de connexion.
-*   Ces données agrégées permettent d'établir un lien entre les identifiants volés et l'identité réelle d'un individu, son emploi et ses comportements.
-*   La réutilisation des mots de passe est un facteur clé de succès pour les attaquants exploitant les données d'infostealers.
-*   Une compromission sur un appareil personnel peut rapidement engendrer un risque pour l'entreprise en raison de la réutilisation des identifiants.
+**Vulnérabilités:**
 
-### Vulnérabilités
+*   La réutilisation des mots de passe entre services personnels et professionnels est une vulnérabilité critique exploitée par les infostealers.
+*   Le stockage des identifiants et des données de paiement dans les navigateurs constitue une cible de grande valeur.
 
-Bien que l'article ne mentionne pas de CVE spécifiques, il met en évidence les vulnérabilités intrinsèques liées à :
+**Recommandations:**
 
-*   La **réutilisation des mots de passe** sur différents services, personnels et professionnels.
-*   Le **stockage non sécurisé des identifiants** (dans les navigateurs, ou via des pratiques peu sûres).
-*   L'absence d'une **surveillance continue des identifiants compromis** dans les environnements d'entreprise.
-
-### Recommandations
-
-*   **Mettre en place des politiques de mots de passe robustes** qui encouragent l'utilisation de phrases de passe longues.
-*   **Scanner activement Active Directory** contre une base de données d'identifiants compromis connus pour bloquer la réutilisation.
-*   **Éduquer les utilisateurs** sur les risques liés à la réutilisation des mots de passe et aux sources non fiables pour les téléchargements.
-*   **Adopter une approche de sécurité continue** qui traite la sécurité des mots de passe comme une mesure de confinement active plutôt qu'une configuration statique.
+*   Mettre en place des politiques de mots de passe robustes, encourageant l'utilisation de phrases de passe longues.
+*   Scanner continuellement les identifiants actifs (par exemple, dans Active Directory) par rapport aux bases de données de mots de passe compromis connus.
+*   Bloquer l'utilisation ou la réutilisation des identifiants déjà exposés, même s'ils respectent techniquement les politiques de complexité.
+*   Promouvoir l'adoption de pratiques de sécurité cohérentes entre les environnements personnels et professionnels.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/how-infostealers-turn-stolen-credentials-into-real-identities/){:target="_blank"}

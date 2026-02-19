@@ -6,55 +6,50 @@ tags:
 - veille-cyber
 - securelist
 ---
-## Arkanix Stealer : Une Menace Polymorphe et Modulaire
+**Arkanix Stealer : Une menace sophistiquée en version C++ et Python**
 
-Arkanix Stealer est un logiciel malveillant de type "infostealer" apparu en octobre 2025, proposé sous un modèle de "malware-as-a-service" (MaaS). Il est disponible en versions C++ et Python, offrant une large gamme de fonctionnalités pour voler des informations sensibles. Sa promotion sur des forums spécialisés, l'utilisation de Discord pour la communication et l'intégration de fonctionnalités telles qu'un programme de parrainage le distinguent des malwares plus discrets.
+Un nouveau logiciel malveillant, baptisé "Arkanix Stealer", a été identifié en octobre 2025. Opérant selon un modèle de "malware-as-a-service" (MaaS), il propose aux utilisateurs non seulement l'implant, mais aussi un panneau de contrôle pour gérer les charges utiles et consulter les statistiques. Les auteurs auraient potentiellement utilisé des outils d'IA pour le développement.
 
-### Points Clés
+**Points clés :**
 
-*   **Modèle MaaS :** Arkanix Stealer était proposé en tant que service, incluant l'implant, un panneau de contrôle configurable et des statistiques.
-*   **Implants doubles :** L'offre comprenait une version C++ native et une version Python, chacune avec des spécificités.
-*   **ChromElevator inclus :** La version C++ intégrait l'outil d'exploitation post-infection de navigateur "ChromElevator".
-*   **Développement potentiellement assisté par IA :** Des indices dans le code suggèrent l'utilisation d'outils d'aide au développement, réduisant potentiellement le temps et les coûts de création.
-*   **Campagne limitée :** L'infrastructure et le programme d'affiliation semblent avoir été rapidement désactivés après leur lancement, suggérant une campagne axée sur des gains rapides.
-*   **Ciblage varié :** Le malware cible des informations relatives aux cryptomonnaies, aux jeux vidéo, à la navigation web, aux messageries et aux données système.
+*   **Modèle MaaS :** Offre un implant et un panneau de contrôle aux clients.
+*   **Double implémentation :** Existe en versions C++ (native) et Python.
+*   **Distribution :** Le vecteur d'infection initial est probablement le phishing, basé sur les noms de fichiers des scripts de chargement observés.
+*   **Campagne de courte durée :** Le programme d'affiliation semble avoir été rapidement démantelé.
+*   **Ciblage :** S'attaque aux données sensibles des utilisateurs, y compris les cryptomonnaies, les jeux et les informations bancaires.
 
-### Vulnérabilités et Points d'Intérêt
+**Vulnérabilités et Capacités :**
 
-Bien que l'article ne détaille pas de vulnérabilités spécifiques exploitées par Arkanix Stealer lui-même, sa nature de "stealer" repose sur l'exploitation des données stockées légitimement par les applications et les systèmes d'exploitation. Les points d'intérêt technologiques incluent :
+Arkanix Stealer collecte une vaste gamme d'informations :
 
-*   **Version Python :**
-    *   Utilisation du module `subprocess` pour installer des dépendances (`requests`, `pycryptodome`, `psutil`, `pywin32`).
-    *   Exécution dynamique de la configuration depuis le serveur de commande et contrôle (C2).
-    *   Récupération d'informations système (OS, CPU, GPU, RAM, résolution d'écran, disposition clavier, fuseau horaire, logiciels installés, antivirus, VPN).
-    *   Extraction de données de 22 navigateurs, y compris l'historique, l'autocomplétion, les mots de passe enregistrés et les cookies.
-    *   Collecte de données Telegram (dossier `tdata`).
-    *   Vol d'identifiants Discord et auto-propagation via l'API Discord.
-    *   Recherche de logiciels VPN connus pour voler des identifiants.
-    *   Exfiltration de fichiers basés sur des chemins prédéfinis et des extensions spécifiques (documents, médias), incluant des termes français.
-    *   Téléchargement et exécution de modules additionnels : Chrome grabber, Wallet patcher (pour Exodus et Atomic), Extra collector (incluant la collecte de fichiers FileZilla, données VPN, Steam, captures d'écran), et HVNC.
-    *   Déchiffrement des modules additionnels via AES-GCM et PBKDF2.
-*   **Version C++ :**
-    *   Utilisation de VMProtect et de contre-mesures anti-analyse (anti-VM, anti-debug).
-    *   Patching de `AmsiScanBuffer` et `EtwEventWrite` pour contourner les protections système.
-    *   Collecte d'informations sur les connexions RDP.
-    *   Vol d'identifiants de plateformes de jeux populaires (Steam, Epic Games, Riot, etc.).
-    *   Capture de captures d'écran.
-    *   Exécution de ChromElevator à partir des ressources, avec injection directe dans les processus de navigateur via des syscalls.
-    *   Chiffrement des communications avec le C2 via AES-GCM et PBKDF2.
+*   **Informations système :** Version de l'OS, détails CPU/GPU, taille de la RAM, résolution d'écran, disposition du clavier, fuseau horaire, logiciels installés, antivirus, VPN.
+*   **Données de navigation :** Historique, auto-remplissage (e-mails, numéros de téléphone, adresses, cartes de paiement), mots de passe enregistrés, cookies pour 22 navigateurs différents.
+*   **Données Telegram :** Collecte du répertoire `tdata` (complet ou partiel selon la configuration).
+*   **Informations Discord :** Vol d'identifiants et auto-propagation via l'API Discord.
+*   **Identifiants VPN :** Cible des logiciels VPN populaires comme Mullvad, NordVPN, ExpressVPN, ProtonVPN.
+*   **Fichiers divers :** Recherche et exfiltration de documents et de médias à partir de chemins prédéfinis et d'une liste de noms de fichiers spécifiques.
+*   **Informations RDP :** Collecte des détails des connexions RDP connues (adresse serveur, mot de passe, nom d'utilisateur, port).
+*   **Données de jeux :** Vol d'identifiants pour des plateformes comme Steam, Epic Games Launcher, Riot, Origin, etc.
+*   **Captures d'écran :** La version native peut capturer des captures d'écran.
+*   **Modules additionnels :** Télécharge potentiellement des modules tels qu'un "Chrome grabber", un "Wallet patcher" (ciblant Exodus et Atomic wallets), un "Extra collector" (incluant FileZilla, Steam, captures d'écran) et un composant HVNC (High-performance Virtual Network Computing).
 
-Il n'y a pas de CVEs spécifiques mentionnés dans l'article pour des vulnérabilités exploitées par Arkanix Stealer lui-même.
+**Vulnérabilités spécifiques exploitées (non directement liées à CVE pour le stealer lui-même, mais à ses capacités) :**
 
-### Recommandations
+*   Les capacités de vol de mots de passe de navigateur et d'informations d'authentification sont rendues possibles par l'accès aux fichiers de stockage sécurisés des navigateurs et des applications, souvent protégés par des mécanismes comme DPAPI sur Windows.
+*   Le vol d'informations Telegram exploite la manière dont l'application stocke ses données de session.
+*   La fonction d'auto-propagation Discord tire parti des fonctionnalités de l'API Discord pour envoyer des messages à des contacts.
+*   La version C++ intègre l'outil "ChromElevator", qui exploite des mécanismes d'injection de code et de syscalls pour accéder aux données des navigateurs.
 
-Les recommandations générales pour se prémunir contre ce type de menace incluent :
+**Recommandations :**
 
-*   **Sensibilisation au phishing :** Être vigilant face aux courriels, messages et liens suspects qui pourraient être des vectimes d'infection.
-*   **Mises à jour régulières :** Maintenir le système d'exploitation, les navigateurs et les logiciels de sécurité à jour pour bénéficier des derniers correctifs de sécurité.
-*   **Logiciels de sécurité robustes :** Utiliser et maintenir à jour des solutions antivirus et anti-malware fiables. Les produits Kaspersky détectent cette menace sous les noms : `Trojan-PSW.Win64.Coins.*`, `HEUR:Trojan-PSW.Multi.Disco.gen`, `Trojan.Python.Agent.*`.
-*   **Gestion prudente des identifiants :** Utiliser des mots de passe forts et uniques pour chaque compte, et envisager l'utilisation d'un gestionnaire de mots de passe. Activer l'authentification à deux facteurs lorsque cela est possible.
-*   **Prudence avec les sources non fiables :** Éviter de télécharger et d'exécuter des logiciels ou des scripts provenant de sources non vérifiées.
-*   **Sauvegardes régulières :** Effectuer des sauvegardes régulières des données importantes pour pouvoir les restaurer en cas de compromission.
+Bien que l'article ne contienne pas de section dédiée aux recommandations, les pratiques de sécurité standard s'appliquent :
+
+*   **Prudence face au phishing :** Ne pas cliquer sur des liens suspects ou télécharger des pièces jointes provenant de sources non fiables.
+*   **Mises à jour régulières :** Maintenir le système d'exploitation, les navigateurs et les logiciels de sécurité à jour pour corriger les vulnérabilités connues.
+*   **Utilisation d'un antivirus/antimalware fiable :** S'assurer que le logiciel de sécurité est activé et mis à jour.
+*   **Authentification multifacteur (MFA) :** Activer la MFA partout où c'est possible, en particulier pour les comptes sensibles (e-mail, réseaux sociaux, plateformes de cryptomonnaies).
+*   **Sauvegardes régulières :** Effectuer des sauvegardes régulières des données importantes pour pouvoir les récupérer en cas d'incident.
+*   **Surveillance du trafic réseau :** Les entreprises peuvent envisager de surveiller le trafic réseau à la recherche de communications suspectes vers les domaines identifiés (arkanix[.]pw, arkanix[.]ru).
 
 ---
 [Source](https://securelist.com/arkanix-stealer/119006/){:target="_blank"}

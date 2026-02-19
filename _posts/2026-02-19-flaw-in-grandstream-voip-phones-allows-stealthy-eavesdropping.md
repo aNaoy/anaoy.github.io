@@ -6,30 +6,34 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Sécurité des téléphones VoIP Grandstream compromise**
+### Accès non authentifié aux téléphones VoIP Grandstream pour écoute clandestine
 
-Une faille critique affecte les téléphones VoIP de la série GXP1600 de Grandstream, permettant à un attaquant distant non authentifié d'obtenir des privilèges root et d'écouter discrètement les communications. Cette vulnérabilité, identifiée sous le nom de CVE-2026-2329 avec une note de sévérité de 9.3, concerne six modèles spécifiques : GXP1610, GXP1615, GXP1620, GXP1625, GXP1628 et GXP1630, tant que leur version de firmware est antérieure à 1.0.7.81.
+Une vulnérabilité critique dans la série de téléphones VoIP Grandstream GXP1600 permet à un attaquant distant non authentifié de prendre le contrôle total de l'appareil. Cette faille, identifiée comme CVE-2026-2329, octroie des privilèges root et permet l'écoute clandestine des communications sans laisser de trace. Les entreprises utilisant ces appareils, notamment pour les communications internes, sont particulièrement exposées.
 
-**Points Clés :**
+#### Points Clés:
 
-*   **Accès non authentifié :** La faille réside dans le service d'API web (/cgi-bin/api.values.get) qui, par défaut, ne requiert aucune authentification.
-*   **Dépassement de tampon sur la pile :** L'exploitation se produit lorsqu'une entrée excessivement longue est fournie au paramètre 'request' de l'API. Ceci provoque un dépassement de tampon sur la pile, permettant à l'attaquant de réécrire la mémoire adjacente et de prendre le contrôle des registres du processeur.
-*   **Exécution silencieuse :** L'exploitation est silencieuse et n'entraîne aucun comportement anormal du téléphone.
-*   **Pivotement possible :** Même si le téléphone n'est pas directement accessible depuis Internet, un attaquant peut l'atteindre via un autre appareil compromis sur le même réseau.
+*   **Impact:** Prise de contrôle à distance, écoute clandestine des appels, vol d'identifiants.
+*   **Mode d'exploitation:** Silencieux, ne perturbant pas le fonctionnement normal de l'appareil.
+*   **Ciblage:** L'attaquant peut atteindre les appareils même s'ils ne sont pas directement exposés sur Internet, en pivotant depuis un autre appareil sur le réseau local.
 
-**Vulnérabilités :**
+#### Vulnérabilités:
 
-*   **CVE-2026-2329 :** Dépassement de tampon sur la pile (Stack buffer overflow) permettant l'exécution de code à distance.
+*   **CVE-2026-2329:** Une vulnérabilité de débordement de tampon sur la pile (stack buffer overflow) dans le service API web de l'appareil (/cgi-bin/api.values.get). L'API accepte un paramètre `request` qui est copié dans un tampon sans vérification de longueur suffisante, permettant à un attaquant de provoquer un débordement et d'écraser la mémoire adjacente pour exécuter du code arbitraire. La difficulté d'exploitation est atténuée par une technique permettant d'écrire plusieurs octets nuls pour construire une chaîne d'exécution de code.
 
-**Conséquences de l'exploitation :**
+#### Appareils Affectés:
 
-*   Exécution de commandes arbitraires sur le système d'exploitation.
-*   Extraction des identifiants des utilisateurs locaux et des comptes SIP.
-*   Reconfiguration du téléphone pour utiliser un proxy SIP malveillant, permettant l'écoute clandestine des appels.
+La vulnérabilité affecte les modèles suivants de la série GXP1600 utilisant une version de firmware antérieure à 1.0.7.81 :
+*   GXP1610
+*   GXP1615
+*   GXP1620
+*   GXP1625
+*   GXP1628
+*   GXP1630
 
-**Recommandations :**
+#### Recommandations:
 
-*   **Mise à jour du firmware :** Il est fortement recommandé aux utilisateurs des produits Grandstream concernés d'appliquer immédiatement les mises à jour de sécurité disponibles, notamment le firmware version 1.0.7.81 ou ultérieure.
+*   **Mise à jour du firmware:** Appliquer la version de firmware 1.0.7.81 ou une version ultérieure sur tous les appareils Grandstream GXP1600 concernés.
+*   **Sécurisation du réseau:** Mettre en œuvre des mesures de sécurité réseau pour limiter l'accès aux appareils VoIP et empêcher les mouvements latéraux d'attaquants.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/flaw-in-grandstream-voip-phones-allows-stealthy-eavesdropping/){:target="_blank"}
