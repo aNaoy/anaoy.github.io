@@ -6,40 +6,32 @@ tags:
 - veille-cyber
 - sans-isc
 ---
-**Analyse du Malware Destructeur DynoWiper**
+**Analyse de DynoWiper : un destructeur de données ciblant les entreprises d'énergie**
 
-Une analyse technique du malware destructeur (wiper) DynoWiper, actif fin décembre 2025 et ciblant des entreprises du secteur énergétique polonais, révèle ses mécanismes d'action. Les investigations d'ESET Research et CERT Polska suggèrent un lien avec des acteurs étatiques russes, potentiellement le groupe APT Sandworm, connu pour ses cyberattaques contre l'Ukraine.
+Ce rapport détaille le fonctionnement de DynoWiper, un logiciel malveillant de type "wiper" utilisé lors d'attaques contre des entreprises d'énergie polonaises fin décembre 2025. L'analyse technique pointe vers des acteurs étatiques russes, potentiellement liés au groupe APT Sandworm, connu pour ses actions passées contre des infrastructures critiques.
 
 **Points Clés :**
 
-*   **Détection et Initialisation :** Le malware, une version A de DynoWiper (SHA-256: 835b0d87ed2d49899ab6f9479cddb8b4e03f5aeb2365c50a51f9088dcede68d5), n'utilise pas d'obfuscation ou de packing sophistiqué. Il initialise un générateur de nombres pseudo-aléatoires Mersenne Twister (MT19937).
-*   **Corruption de Données :** Le malware parcourt récursivement les disques logiques (fixes et amovibles) pour identifier et corrompre des fichiers. Il évite certains répertoires système critiques tels que "system32", "windows", "program files", "recycle.bin", "boot", "perflogs", "appdata" et "documents and settings". Pour chaque fichier ciblé, il efface ses attributs, écrit un bloc de données aléatoires de 16 octets au début, puis de manière pseudo-aléatoire à d'autres emplacements du fichier (jusqu'à 4096 fois pour les fichiers volumineux).
-*   **Suppression de Données :** Après la phase de corruption, DynoWiper procède à la suppression effective des fichiers ciblés en utilisant la fonction `DeleteFileW()`.
-*   **Clôture du Système :** Enfin, le malware obtient les privilèges nécessaires (`SeShutdownPrivilege`) pour forcer un redémarrage du système via `ExitWindowsEx()`.
+*   **Fonctionnement :** DynoWiper corrompt les données en écrivant des blocs de données aléatoires à des endroits spécifiques des fichiers et supprime ensuite ces fichiers.
+*   **Initialisation :** Le malware initialise un générateur de nombres pseudo-aléatoires Mersenne Twister (MT19937) avec une valeur de départ fixe, puis le réinitialise avec une valeur aléatoire.
+*   **Corruption des données :** Le logiciel parcourt récursivement les lecteurs logiques (fixes et amovibles), identifie les fichiers cibles (en excluant certains répertoires système critiques comme `system32`, `windows`, `program files`) et modifie leurs attributs. Pour chaque fichier, il écrit 16 octets de données aléatoires au début, puis, si le fichier est plus grand, il écrit à des emplacements pseudo-aléatoires jusqu'à 4096 fois.
+*   **Suppression des données :** Après la corruption, DynoWiper supprime directement les fichiers ciblés.
+*   **Finalisation :** Le malware obtient son propre jeton de processus, active le privilège `SeShutdownPrivilege` et déclenche un redémarrage du système pour masquer ses traces et potentiellement perturber davantage l'environnement.
+*   **Liens MITRE ATT&CK :** L'activité de DynoWiper correspond à plusieurs tactiques et techniques, notamment la découverte locale (T1680, T1083), l'évasion de défense via la modification des permissions de fichiers (T1222) et la manipulation des jetons d'accès (T1134), l'escalade de privilèges (T1134) et l'impact par la destruction de données (T1485) et l'arrêt du système (T1529).
 
-**Vulnérabilités / Techniques Utilisées (Mapping MITRE ATT&CK) :**
+**Vulnérabilités :**
 
-*   **Discovery (TA0007) :**
-    *   T1680: Local Storage Discovery
-    *   T1083: File and Directory Discovery
-*   **Defense Evasion (TA0005) :**
-    *   T1222: File and Directory Permissions Modification (T1222.001: Windows File and Directory Permissions Modification)
-    *   T1134: Access Token Manipulation
-*   **Privilege Escalation (TA0004) :**
-    *   T1134: Access Token Manipulation
-*   **Impact (TA0040) :**
-    *   T1485: Data Destruction
-    *   T1529: System Shutdown/Reboot
+Aucune vulnérabilité spécifique (CVE) n'est mentionnée dans l'article concernant DynoWiper lui-même. Le logiciel exploite les fonctionnalités légitimes du système d'exploitation pour atteindre ses objectifs destructeurs.
 
-**Recommandations (Implicites basées sur l'analyse) :**
+**Recommandations :**
 
-Bien que l'article se concentre sur l'analyse technique, les informations fournies impliquent la nécessité des mesures de cybersécurité suivantes :
+Bien que l'article se concentre sur l'analyse technique, les informations fournies impliquent des recommandations générales pour la sécurité :
 
-*   **Détection et Blocage des Malwares :** Utilisation de solutions antivirus et de systèmes de détection d'intrusion à jour pour identifier et bloquer des malwares comme DynoWiper.
-*   **Surveillance des Activités Suspectes :** Mise en place d'une surveillance réseau et système pour détecter des comportements anormaux, tels que des accès massifs à des fichiers, des modifications de permissions non autorisées, ou des tentatives de privilèges élevés.
-*   **Sauvegardes Régulières et Isolées :** Maintenir des sauvegardes de données fiables et isolées pour pouvoir restaurer les systèmes affectés par des attaques de destruction de données.
-*   **Gestion des Vulnérabilités et Patch Management :** S'assurer que les systèmes sont à jour avec les derniers correctifs de sécurité pour réduire la surface d'attaque potentielle des acteurs malveillants.
-*   **Formation et Sensibilisation :** Former le personnel aux bonnes pratiques de cybersécurité pour éviter les compromissions initiales.
+*   **Détection et réponse :** Mettre en place des mécanismes de détection robustes pour identifier les comportements suspects tels que la corruption de fichiers à grande échelle et les modifications de privilèges de processus.
+*   **Sauvegardes :** Maintenir des sauvegardes régulières et testées hors ligne des données critiques.
+*   **Gestion des accès :** Appliquer le principe du moindre privilège pour limiter les dommages potentiels en cas d'infection.
+*   **Surveillance :** Surveiller activement les journaux système et réseau pour détecter toute activité inhabituelle.
+*   **Intelligence sur les menaces :** Se tenir informé des dernières menaces et des tactiques utilisées par les groupes d'attaquants connus.
 
 ---
 [Source](https://isc.sans.edu/diary/rss/32730){:target="_blank"}
