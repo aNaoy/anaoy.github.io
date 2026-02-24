@@ -6,30 +6,37 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Démantèlement d'un groupe hacktiviste en Espagne**
+**Opération Anti-Hacktivisme en Espagne**
 
-Les autorités espagnoles ont arrêté quatre individus soupçonnés d'appartenir au groupe hacktiviste "Anonymous Fénix". Ce groupe aurait mené des cyberattaques, notamment des attaques par déni de service distribué (DDoS), contre des sites web de ministères, de partis politiques et d'autres institutions publiques en Espagne et en Amérique du Sud.
+Les autorités espagnoles ont appréhendé quatre individus présumés membres du groupe hacktiviste "Anonymous Fénix". Ce collectif est accusé d'avoir mené des attaques par déni de service distribué (DDoS) contre des sites gouvernementaux, des partis politiques et des institutions publiques en Espagne et en Amérique du Sud.
 
-Les attaques ont débuté en avril 2023 et ont atteint leur apogée après les inondations de Valencia fin octobre 2024. Anonymous Fénix a justifié ses actions en accusant les autorités espagnoles d'être responsables de la tragédie. Le groupe utilisait également X (anciennement Twitter) et Telegram pour diffuser des messages anti-gouvernementaux et recruter des volontaires.
+Les cyberattaques ont débuté en avril 2023 et ont connu un pic après les inondations dévastatrices à Valence fin octobre 2024. Le groupe justifiait ses actions en accusant les autorités espagnoles de la tragédie. Anonymous Fénix utilisait également les plateformes X et Telegram pour diffuser des messages anti-gouvernementaux et recruter des complices.
 
-Ces arrestations s'inscrivent dans un contexte plus large d'actions anti-cybercriminalité menées par l'Espagne, incluant la capture d'un adolescent pour piratage d'entreprises, le démantèlement d'une plateforme de cybercriminalité, et l'arrestation de 34 suspects liés à un réseau de fraude en ligne.
+L'enquête a conduit à l'arrestation de l'administrateur et du modérateur du groupe en mai 2025, suivie de l'identification et de l'arrestation de deux autres membres actifs ce mois-ci. Suite à ces arrestations, les comptes X et YouTube du groupe ont été saisis et leur canal Telegram fermé.
 
-**Points clés :**
+Parallèlement, l'Espagne a récemment procédé à d'autres arrestations liées à la cybercriminalité, notamment celle d'un adolescent suspecté d'avoir compromis neuf entreprises, le démantèlement d'une plateforme de cybercriminalité "GXC Team" et l'arrestation de 34 individus liés à un réseau de fraude cybernétique potentiellement connecté au groupe "Black Axe".
+
+**Points Clés :**
 
 *   Arrestation de quatre membres présumés du groupe hacktiviste "Anonymous Fénix".
-*   Attaques DDoS contre des cibles gouvernementales et politiques.
-*   Utilisation de réseaux sociaux pour la propagande et le recrutement.
-*   Justification des attaques par des événements politiques et naturels.
-*   Saisie des comptes X et YouTube du groupe et fermeture de son canal Telegram.
+*   Attaques DDoS visant des entités gouvernementales et politiques.
+*   Exploitation d'événements tragiques (inondations de Valence) pour justifier les attaques.
+*   Utilisation des réseaux sociaux pour la propagande et le recrutement.
+*   Saisies et fermetures de comptes et canaux de communication du groupe.
+*   Contexte d'une intensification des actions de lutte contre la cybercriminalité en Espagne.
 
 **Vulnérabilités :**
 
-*   Attaques par déni de service distribué (DDoS) ciblant des sites web d'organismes publics.
+L'article ne mentionne pas de vulnérabilités spécifiques exploitées ni de CVE. L'action du groupe "Anonymous Fénix" se concentrait sur des attaques de déni de service distribué (DDoS), dont le but est de rendre des services indisponibles plutôt que d'exploiter des failles logicielles spécifiques.
 
 **Recommandations :**
 
-*   Les détails sur les accusations spécifiques et les peines potentielles n'ont pas été communiqués.
-*   Les autorités continuent de renforcer leurs actions contre la cybercriminalité.
+Bien qu'aucune recommandation directe ne soit formulée dans l'article, les actions des autorités espagnoles suggèrent l'importance de :
+
+*   La surveillance active des groupes hacktivistes et de leurs activités en ligne.
+*   La collaboration entre les forces de l'ordre pour identifier et appréhender les cybercriminels.
+*   La prise de mesures judiciaires pour perturber les opérations des groupes malveillants (saisie de comptes, fermeture de canaux).
+*   La sensibilisation aux risques liés au recrutement en ligne par des groupes extrémistes ou criminels.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/spain-arrests-suspected-anonymous-fenix-hacktivists-for-ddosing-govt-sites/){:target="_blank"}

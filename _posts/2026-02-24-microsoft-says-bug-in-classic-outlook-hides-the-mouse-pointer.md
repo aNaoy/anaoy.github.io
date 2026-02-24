@@ -8,29 +8,22 @@ tags:
 ---
 **Disparition du curseur de la souris dans Outlook classique**
 
-Microsoft enquête sur un problème affectant le client de messagerie de bureau Outlook classique, où le curseur de la souris peut disparaître de manière inattendue lors de son utilisation. Ce bug, signalé il y a près de deux mois, rend l'application difficilement utilisable pour les personnes concernées. Le problème n'est pas exclusif à Outlook, étant également observé, dans une moindre mesure, dans d'autres applications Microsoft 365 comme OneNote.
+Microsoft enquête sur un problème affectant la version classique du logiciel de messagerie Outlook, où le curseur de la souris peut disparaître subitement lors de la navigation dans l'interface. Ce dysfonctionnement rend l'application inutilisable pour certains utilisateurs, les empêchant d'interagir avec les emails ou de copier-coller. Le problème a également été signalé dans une moindre mesure sur d'autres applications Microsoft 365, comme OneNote.
 
-**Points clés :**
-
-*   Le curseur de la souris disparaît lors de la navigation dans l'interface d'Outlook classique.
-*   Malgré la disparition du curseur, les éléments survolés, comme les e-mails dans la liste des messages, changent de couleur, indiquant que le logiciel enregistre toujours l'interaction.
-*   Le problème a été observé dans d'autres applications Microsoft 365, mais il est le plus préoccupant dans Outlook.
+**Points Clés :**
+*   Le curseur de la souris devient invisible dans l'interface d'Outlook classique.
+*   Le problème affecte également d'autres applications Microsoft 365.
+*   Microsoft est en train d'enquêter et n'a pas encore de date pour un correctif permanent.
 
 **Vulnérabilités :**
-
-Aucun identifiant CVE spécifique n'est mentionné dans l'article pour ce bug.
+Aucune vulnérabilité spécifique (CVE) n'est mentionnée dans l'article. Il s'agit d'un bug fonctionnel.
 
 **Recommandations :**
-
-*   **Pour les utilisateurs affectés :**
-    *   Cliquer sur un e-mail dans la liste des messages peut parfois faire réapparaître le curseur.
-    *   Passer à une autre application (comme PowerPoint), cliquer dans une zone modifiable, puis revenir à Outlook peut également restaurer le curseur.
-    *   Redémarrer l'ordinateur peut résoudre temporairement le problème.
-*   **Pour les administrateurs Microsoft 365 :**
-    *   Ouvrir un dossier de support auprès de l'équipe de support Outlook.
-    *   Soumettre des fichiers journaux de diagnostic pour aider à l'analyse du problème.
-
-Microsoft travaille à la résolution de ce problème et fournira des mises à jour dès que des informations supplémentaires seront disponibles.
+*   **Signalement :** Les administrateurs Microsoft 365 doivent ouvrir un ticket de support auprès de l'équipe Outlook et soumettre des fichiers journaux de diagnostic pour aider à l'analyse.
+*   **Solutions de contournement temporaires :**
+    *   Cliquer sur un email dans la liste des messages peut parfois faire réapparaître le curseur.
+    *   Basculer vers une autre application (comme PowerPoint), cliquer dans une zone modifiable, puis revenir à Outlook peut également fonctionner.
+    *   Redémarrer l'ordinateur est une solution temporaire.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/microsoft/microsoft-says-bug-in-classic-outlook-hides-the-mouse-pointer/){:target="_blank"}

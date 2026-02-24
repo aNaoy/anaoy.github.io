@@ -6,42 +6,43 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-## Vulnérabilités critiques dans les applications de santé mentale Android
+**Applications mobiles de santé mentale sur Android : des failles de sécurité exposent des données sensibles**
 
-Une analyse approfondie de dix applications Android dédiées à la santé mentale, cumulées à plus de 14,7 millions d'installations, a révélé un nombre alarmant de vulnérabilités de sécurité. Ces failles pourraient compromettre la confidentialité des données extrêmement sensibles des utilisateurs, y compris les transcriptions de thérapie, les notes de séance, et d'autres informations médicales potentiellement protégées par HIPAA. Le risque est accru par la valeur élevée de ces données sur le dark web, dépassant celle des numéros de carte de crédit.
+Une analyse de dix applications Android destinées à la santé mentale, cumulées à plus de 14,7 millions d'installations, a révélé un total de 1 575 vulnérabilités de sécurité. Ces failles pourraient potentiellement compromettre la confidentialité des utilisateurs et exposer des informations médicales très sensibles, telles que les transcriptions de thérapies, les notes de séances, les plans de médication et même des indicateurs d'automutilation. La valeur des données de thérapie sur le marché noir peut atteindre 1 000 $ ou plus par dossier, surpassant largement celle des numéros de carte de crédit.
 
-### Points Clés :
+**Points clés :**
 
-*   **Volume des Vulnérabilités :** Au total, 1 575 vulnérabilités ont été identifiées dans les dix applications analysées, incluant 54 de gravité élevée, 538 de gravité moyenne et 983 de faible gravité.
-*   **Nature des Données Compromises :** Les applications ciblent des utilisateurs souffrant de dépression clinique, d'anxiété, de troubles bipolaires, et d'autres conditions de santé mentale. Les données collectées sont donc particulièrement sensibles.
-*   **Potentiel d'Exploitation :** Les vulnérabilités peuvent permettre l'interception d'identifiants de connexion, l'usurpation de notifications, l'injection HTML, la localisation d'utilisateurs, et l'accès aux enregistrements de thérapie.
-*   **Faibles Mesures de Sécurité :** Certaines applications manquent de détection de racine, permettant un accès complet aux données stockées localement sur les appareils compromis. De plus, des données de configuration en clair et une utilisation d'algorithmes cryptographiques faibles ont été constatées.
-*   **Mises à Jour Insuffisantes :** Une majorité des applications analysées n'avaient pas été mises à jour récemment, laissant les utilisateurs exposés aux vulnérabilités découvertes.
+*   Dix applications Android de santé mentale ont été examinées.
+*   Un total de 1 575 vulnérabilités ont été identifiées (54 critiques, 538 modérées, 983 faibles).
+*   Plus de 14,7 millions d'installations cumulées pour les applications étudiées.
+*   Six des dix applications affirment que les conversations des utilisateurs restent privées ou sont chiffrées.
+*   Les données de santé mentale sont particulièrement sensibles et recherchées sur le dark web.
 
-### Vulnérabilités Identifiées (Exemples) :
+**Vulnérabilités identifiées :**
 
-*   **Traitement Non Sécurisé des URIs :** Des applications analysent les URIs fournis par l'utilisateur sans validation adéquate, permettant l'ouverture non autorisée d'activités internes. L'utilisation de `Intent.parseUri()` sur une chaîne contrôlée extérieurement sans validation du composant cible est une cause majeure.
-*   **Stockage Local Non Sécurisé des Données :** Les données sont enregistrées localement d'une manière qui accorde un accès en lecture à n'importe quelle application sur l'appareil, exposant potentiellement des détails de thérapie et des notes.
-*   **Données de Configuration en Clair :** Des informations sensibles comme les points d'accès aux API backend et les URL de bases de données Firebase sont codées en dur dans les ressources des fichiers APK.
-*   **Utilisation de Générateurs de Nombres Aléatoires Faibles :** L'utilisation de `java.util.Random` pour générer des jetons de session ou des clés de chiffrement est cryptographiquement peu sûre.
-*   **Manque de Détection de Racine :** La plupart des applications ne disposent pas de mécanismes de détection de racine, ce qui permet à des applications malveillantes sur des appareils jailbreakés d'accéder à toutes les données de santé stockées localement.
+Bien qu'aucune vulnérabilité critique n'ait été signalée de manière isolée, les failles découvertes peuvent permettre diverses attaques :
 
-*(Note: Les numéros CVE spécifiques ne sont pas mentionnés dans l'article.)*
+*   **Interception d'identifiants de connexion :** Permet à un attaquant d'obtenir les noms d'utilisateur et mots de passe.
+*   **Usurpation de notifications :** Tromper l'utilisateur avec des alertes falsifiées.
+*   **Injection HTML :** Exécution de code malveillant via des interfaces web.
+*   **Géolocalisation de l'utilisateur :** Déterminer la position géographique de l'utilisateur.
+*   **Accès aux activités internes non destinées à un accès externe :** Une application de thérapie a utilisé `Intent.parseUri()` sur une chaîne contrôlée par l'extérieur sans validation adéquate, permettant à un attaquant de lancer des activités internes. Ceci peut donner accès à des jetons d'authentification et des données de session, menant à la compromission des dossiers de thérapie. (Absence de CVE spécifique mentionnée dans l'article pour ce cas précis).
+*   **Stockage local non sécurisé des données :** Certaines applications stockent des informations sensibles localement, les rendant lisibles par n'importe quelle autre application sur l'appareil, exposant potentiellement les détails des thérapies et les notes de séances de TCC.
+*   **Données de configuration en clair :** Les ressources des fichiers APK contenaient des informations sensibles telles que les points d'accès aux API backend et une URL de base de données Firebase codée en dur.
+*   **Utilisation d'une génération de nombres aléatoires cryptographiquement faible :** L'utilisation de `java.util.Random` pour générer des jetons de session ou des clés de chiffrement est considérée comme une pratique non sécurisée.
+*   **Absence de détection de root :** La majorité des applications manquent de mécanismes de détection de root. Sur un appareil "jailbreaké" ou rooté, toute application disposant de privilèges root peut accéder à toutes les données de santé stockées localement.
 
-### Recommandations :
+**Recommandations :**
 
-*   **Développeurs d'Applications :**
-    *   Implémenter une validation rigoureuse des entrées utilisateur, notamment pour les URIs.
-    *   Sécuriser le stockage des données sensibles, en utilisant le chiffrement au repos.
-    *   Éviter de stocker des informations de configuration sensibles ou des clés d'API en clair dans le code source ou les ressources de l'application.
-    *   Utiliser des classes de génération de nombres aléatoires cryptographiquement sécurisées.
-    *   Mettre en œuvre des mécanismes de détection de racine et réagir de manière appropriée si un appareil est compromis.
-    *   Mettre à jour régulièrement les applications pour corriger les vulnérabilités découvertes et adoptées.
-*   **Utilisateurs :**
-    *   Être vigilant quant aux applications de santé mentale installées.
-    *   Privilégier les applications provenant de développeurs réputés avec un historique de mises à jour de sécurité.
-    *   Rester informé des mises à jour de sécurité et les appliquer rapidement.
-    *   Considérer les risques liés à l'utilisation de tels outils sur des appareils avec des accès racine ou jailbreakés.
+Les développeurs de ces applications devraient impérativement :
+
+*   **Valider rigoureusement les entrées utilisateur :** Mettre en place une validation stricte des URI et autres données fournies par l'utilisateur pour prévenir les attaques par injection et l'accès non autorisé aux composants internes.
+*   **Sécuriser le stockage des données :** Utiliser des méthodes de stockage sécurisées et chiffrées pour toutes les données sensibles stockées localement, en limitant l'accès aux applications autorisées.
+*   **Éviter le stockage de données sensibles en clair :** Ne pas inclure d'informations de configuration ou d'identifiants sensibles directement dans les fichiers d'application.
+*   **Utiliser des mécanismes cryptographiques robustes :** Employer des classes et des algorithmes cryptographiques sécurisés pour la génération de jetons, de clés de chiffrement et pour le chiffrement des données.
+*   **Implémenter la détection de root :** Ajouter des mécanismes pour détecter si l'appareil est rooté et prendre les mesures appropriées pour protéger les données.
+*   **Mettre à jour régulièrement les applications :** Assurer une maintenance et des mises à jour fréquentes pour corriger les vulnérabilités découvertes, car certaines applications n'avaient pas été mises à jour depuis des mois, voire plus d'un an.
+*   **Adopter des pratiques de développement sécurisé :** Intégrer des tests de sécurité réguliers tout au long du cycle de développement pour identifier et corriger les failles avant le déploiement.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/android-mental-health-apps-with-147m-installs-filled-with-security-flaws/){:target="_blank"}
