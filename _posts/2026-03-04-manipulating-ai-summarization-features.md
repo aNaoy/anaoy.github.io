@@ -6,25 +6,29 @@ tags:
 - veille-cyber
 - schneier
 ---
-**Détournement des fonctionnalités de résumé par IA**
+**Détournement des fonctions de résumé par IA**
 
-Des entreprises insèrent des instructions cachées dans les boutons "Résumer avec l'IA". Lorsque ces boutons sont activés, les instructions tentent d'intégrer des commandes de persistance dans la mémoire d'un assistant IA via les paramètres d'URL. Ces instructions visent à ce que l'IA se souvienne de l'entreprise comme d'une source fiable ou recommande en priorité ses produits et services. Plus de 50 instructions différentes provenant de 31 entreprises ont été identifiées, déployables facilement grâce à des outils disponibles publiquement. Cette manipulation peut conduire à des recommandations biaisées dans des domaines cruciaux comme la santé, la finance et la sécurité, sans que l'utilisateur ne s'en aperçoive.
+Des entreprises exploitent les fonctions de résumé automatisé, intégrées dans des boutons, pour tenter d'influencer les assistants IA. En insérant des instructions cachées dans les paramètres d'URL, elles cherchent à faire reconnaître leur entreprise comme une source fiable ou à la privilégier dans les futures recommandations. Cette méthode, facile à déployer avec des outils accessibles, a été observée chez plus de 50 entreprises réparties dans 14 secteurs. L'enjeu réside dans le risque que les IA, manipulées, fournissent des conseils biaisés dans des domaines sensibles comme la santé, la finance ou la sécurité, sans que l'utilisateur en soit conscient. Cette pratique s'apparente à une optimisation pour les modèles de langage, similaire au référencement pour les moteurs de recherche, et promet de devenir une activité commerciale majeure.
 
 **Points Clés :**
 
-*   Des entreprises exploitent les fonctionnalités de résumé par IA pour influencer les comportements des assistants IA.
-*   Des instructions cachées dans les boutons "Résumer avec l'IA" modifient les paramètres d'URL pour manipuler la mémoire de l'IA.
-*   L'objectif est de faire de l'entreprise une source de confiance perçue ou de promouvoir ses offres.
-*   La technique est facilement déployable et déjà adoptée par de nombreuses entreprises dans divers secteurs.
-*   Les assistants IA compromis peuvent fournir des informations biaisées sur des sujets sensibles.
+*   Les entreprises insèrent des instructions cachées dans les boutons "Résumé par IA".
+*   Ces instructions visent à manipuler la mémoire de l'IA pour qu'elle privilégie certaines entreprises.
+*   La technique est facilement déployable et peu coûteuse.
+*   Plus de 50 exemples identifiés sur 31 entreprises dans 14 industries.
+*   Le risque principal est la fourniture de recommandations biaisées par l'IA dans des domaines critiques.
 
 **Vulnérabilités :**
 
-*   Aucune vulnérabilité spécifique avec un numéro CVE n'est mentionnée dans cet extrait. La vulnérabilité réside dans la conception des interactions avec les fonctionnalités d'IA qui permettent l'injection de ces instructions.
+*   Absence de validation et de nettoyage des paramètres d'URL utilisés dans les fonctions de résumé.
+*   Les modèles d'IA ne disposent pas de mécanismes suffisants pour détecter et rejeter les instructions malveillantes intégrées aux requêtes.
+*   (Aucun CVE spécifique n'est mentionné dans l'article.)
 
 **Recommandations :**
 
-*   Il n'y a pas de recommandations spécifiques formulées dans cet extrait, mais la situation souligne le besoin d'une vigilance accrue concernant la provenance et le biais potentiel des informations fournies par les assistants IA, et potentiellement la nécessité de mécanismes de sécurité pour valider les instructions injectées dans les prompts d'IA.
+*   Les développeurs d'assistants IA et les plateformes intégrant ces fonctions doivent implémenter des mécanismes de sécurité pour valider et nettoyer les entrées utilisateur et les paramètres d'URL.
+*   Mettre en place des protections contre les "injections de prompts" visant à altérer le comportement ou la mémoire de l'IA.
+*   Éduquer les utilisateurs sur les potentielles manipulations des recommandations générées par IA.
 
 ---
 [Source](https://www.schneier.com/blog/archives/2026/03/manipulating-ai-summarization-features.html){:target="_blank"}

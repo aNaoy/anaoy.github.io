@@ -6,37 +6,38 @@ tags:
 - veille-cyber
 - zerodaysfans
 ---
-### Surveillance Ciblée : Indicateur d'Activité Iranienne dans le Conflit au Moyen-Orient
+### Surveillance Caméra Piratée : Indicateur d'Attaques Physiques
 
-Une intensification de la compromission des caméras IP de fabricants spécifiques, attribuée à des acteurs affiliés à l'Iran, a été observée. Ces attaques coïncident avec des périodes de tensions géopolitiques et d'activité militaire dans la région, notamment en Israël, au Qatar, à Bahreïn, au Koweït, aux Émirats arabes unis, à Chypre et au Liban. Ces actions suggèrent une utilisation de la compromission des caméras pour le soutien opérationnel, l'évaluation des dommages de combat (BDA) et potentiellement la correction de cibles avant des opérations de missiles. L'activité de ciblage des caméras peut donc servir d'indicateur précoce d'une potentielle action cinétique.
+Des groupes liés à l'Iran intensifient depuis le 28 février leurs cyberattaques contre des caméras IP de marques Hikvision et Dahua. Ces attaques, qui ont également eu lieu en janvier, ciblent des pays tels qu'Israël, le Qatar, Bahreïn, le Koweït, les Émirats Arabes Unis, Chypre et le Liban. Ces mêmes régions ont connu une activité de missiles notable attribuée à l'Iran.
+
+Ces actions suggèrent une utilisation des caméras compromises pour l'assistance opérationnelle et l'évaluation des dommages de combat (BDA) lors d'opérations de missiles, potentiellement avant leur lancement. Le piratage de caméras pourrait donc servir de signal précurseur d'actions militaires imminentes.
 
 **Points Clés :**
 
-*   Des attaques ciblées contre des caméras IP de marques spécifiques ont été observées à partir du 28 février, émanant d'infrastructures attribuées à des acteurs iraniens.
-*   Ces ciblages s'étendent à plusieurs pays du Moyen-Orient et à Chypre, souvent parallèlement à une activité de missiles liée à l'Iran.
-*   Des activités antérieures similaires ont été détectées, notamment en janvier, en lien avec des événements géopolitiques majeurs pour l'Iran.
-*   L'exploitation de vulnérabilités connues sur des caméras Hikvision et Dahua est privilégiée.
-*   La compromission des caméras est perçue comme un outil soutenant les opérations militaires et l'évaluation des dommages.
+*   Augmentation significative du ciblage de caméras IP depuis le 28 février, avec des pics d'activité précédant des événements géopolitiques majeurs et des opérations militaires régionales.
+*   Les pays visés correspondent à ceux ayant connu une activité de missiles significative linked à l'Iran.
+*   L'infrastructure d'attaque utilise des VPN commerciaux et des serveurs virtuels, et est attribuée à des acteurs liés à l'Iran.
+*   Le piratage est utilisé pour le soutien opérationnel et l'évaluation des dommages de combat (BDA).
 
 **Vulnérabilités Ciblées (avec CVE) :**
 
 *   **Hikvision :**
-    *   CVE-2017-7921 (Authentification insuffisante)
-    *   CVE-2021-36260 (Injection de commandes)
-    *   CVE-2023-6895 (Injection de commandes OS)
-    *   CVE-2025-34067 (Exécution de code à distance sans authentification)
+    *   CVE-2017-7921 : Authentification incorrecte
+    *   CVE-2021-36260 : Injection de commandes
+    *   CVE-2023-6895 : Injection de commandes OS
+    *   CVE-2025-34067 : Exécution de code à distance non authentifiée
 *   **Dahua :**
-    *   CVE-2021-33044 (Contournement d'authentification)
+    *   CVE-2021-33044 : Contournement d'authentification
 
-*Note : Des correctifs sont disponibles pour toutes les vulnérabilités listées.*
+Des correctifs sont disponibles pour toutes ces vulnérabilités.
 
-**Recommandations pour la Défense :**
+**Recommandations :**
 
-*   **Limiter l'exposition publique :** Supprimer l'accès WAN direct aux caméras/NVRs, les placer derrière un VPN ou une passerelle d'accès Zero Trust, et bloquer les redirections de ports entrants.
-*   **Utiliser des identifiants forts :** Changer les mots de passe par défaut et exiger des identifiants uniques.
-*   **Gestion des correctifs :** Maintenir à jour les firmwares des caméras/NVRs et les logiciels de gestion. Remplacer les appareils obsolètes qui ne reçoivent plus de mises à jour de sécurité.
-*   **Segmentation réseau :** Isoler les caméras sur un VLAN dédié sans accès latéral aux réseaux d'entreprise ou OT. Contrôler strictement le trafic sortant.
-*   **Surveillance et détection :** Surveiller les échecs de connexion répétés, les connexions à distance inhabituelles et les connexions sortantes anormales initiées par les caméras.
+*   **Limiter l'exposition publique :** Supprimer l'accès WAN direct aux caméras, les placer derrière un VPN ou une passerelle d'accès Zero Trust, et bloquer les redirections de port entrantes.
+*   **Mots de passe robustes :** Changer les mots de passe par défaut et imposer des identifiants uniques.
+*   **Gestion des correctifs :** Maintenir le firmware et le logiciel de gestion des caméras à jour. Remplacer les appareils obsolètes qui ne reçoivent plus de mises à jour de sécurité.
+*   **Segmentation réseau :** Isoler les caméras sur un VLAN dédié, sans accès latéral aux réseaux d'entreprise ou OT. Contrôler strictement le trafic sortant.
+*   **Surveillance et détection :** Surveiller les échecs de connexion répétés, les connexions à distance inhabituelles et les connexions sortantes atypiques des caméras.
 
 ---
 [Source](https://research.checkpoint.com/2026/interplay-between-iranian-targeting-of-ip-cameras-and-physical-warfare-in-the-middle-east/){:target="_blank"}

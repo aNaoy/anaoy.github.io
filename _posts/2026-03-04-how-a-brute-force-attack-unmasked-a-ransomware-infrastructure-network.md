@@ -6,37 +6,38 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### Une attaque par force brute révèle un réseau d'infrastructure de rançongiciel
+## Descente dans un Réseau de Ransomware via une Attaque par Force Brute
 
-Une campagne d'attaques par force brute visant un serveur RDP exposé, initialement perçue comme une activité routinière, a conduit à la découverte d'une infrastructure complexe liée aux rançongiciels. L'analyse des journaux a révélé un accès réussi via une seule combinaison d'identifiants compromise, utilisée depuis plusieurs adresses IP, suggérant l'utilisation d'une infrastructure distribuée par un seul acteur.
+Une campagne d'attaque par force brute sur un serveur RDP exposé, initialement perçue comme une activité de routine, a permis de découvrir une infrastructure complexe liée au ransomware. Cette observation a mené à l'identification d'un réseau géographiquement distribué et d'un service VPN suspect, suggérant une opération de ransomware-as-a-service et ses "initial access brokers" (IAB).
 
-Suite à l'intrusion, l'attaquant a procédé à une énumération du domaine. Une observation inhabituelle a été le recours à la recherche manuelle d'identifiants dans des fichiers texte via le Bloc-notes, plutôt que les méthodes courantes d'extraction de clés comme Mimikatz. Cette approche a incité à une enquête plus approfondie des adresses IP d'origine.
+L'incident a débuté par des tentatives d'accès par force brute sur un serveur RDP. Bien que cette technique soit courante, la présence de logs pertinents a permis de confirmer une connexion réussie grâce à un compte compromis. L'analyse a révélé que l'accès provenait de plusieurs adresses IP, pointant vers un acteur unique utilisant une infrastructure coordonnée.
 
-Ces investigations ont permis de relier l'IP d'attaque aux rançongiciels Hive et BlackSuite. En examinant les certificats TLS, un domaine lié, "specialsseason[.]com", a été identifié. L'analyse de ce domaine a révélé un réseau d'adresses IP et de noms de domaine géographiquement distribués, utilisant une convention de nommage similaire (NL-\<code pays>.specialsseason[.]com). De plus, d'autres certificats ont conduit à la découverte du domaine "1vpns[.]com", un service VPN ressemblant à un service légitime, potentiellement utilisé par des acteurs malveillants pour maintenir l'anonymat. Le domaine "1jabber[.]com" et un nom de domaine lié à la politique de "0 logs" ("nologs[.]club") ont également été trouvés, renforçant l'idée d'un écosystème conçu pour les activités criminelles.
+Une fois à l'intérieur du réseau, l'attaquant a procédé à une énumération du domaine. Ce qui a attiré l'attention des analystes, c'est la méthode de recherche de credentials : plutôt que d'utiliser des outils classiques comme Mimikatz, l'attaquant a ouvert manuellement des fichiers texte semblant contenir des informations d'identification, une approche moins courante et plus laborieuse. Cette particularité a conduit à un examen plus approfondi des adresses IP utilisées lors de la phase d'attaque initiale.
 
-Cette découverte démontre comment une attaque apparemment simple peut débloquer des informations précieuses sur l'infrastructure et les motivations des opérateurs de rançongiciels, souvent déguisés en "initial access brokers".
+Les recherches ont rapidement établi un lien entre l'adresse IP de l'attaque et le ransomware Hive, ainsi qu'avec le groupe BlackSuite. Une analyse plus poussée des certificats TLS associés a révélé des noms de domaine suspects, notamment `specialsseason[.]com`. La dénomination de ces domaines, utilisant des codes de pays variés (`NL-XX`), suggère une large distribution géographique de l'infrastructure.
 
-**Points Clés :**
+En poursuivant cette investigation, un autre domaine, `1vpns[.]com`, a émergé. Ce nom est très similaire à un service VPN légitime, mais sans le "s" supplémentaire, et il est associé à un service publicisé comme ne conservant aucun journal d'activité, le rendant attractif pour les cybercriminels. Des rapports antérieurs ont lié ce service VPN à des groupes de ransomware. Un autre domaine associé, `1jabber[.]com`, et des noms de domaine comme `nologs[.]club` renforcent l'hypothèse d'un écosystème conçu pour faciliter les activités illicites.
 
-*   Une attaque par force brute sur un serveur RDP exposé a servi de point d'entrée.
-*   L'attaquant a utilisé une infrastructure distribuée depuis plusieurs adresses IP.
-*   Une méthode inhabituelle de recherche manuelle d'identifiants dans des fichiers texte a été observée.
-*   L'infrastructure démantelée est liée aux rançongiciels Hive et BlackSuite.
-*   Un réseau d'infrastructure distribué, incluant des domaines liés à des VPN et des services d'anonymat, a été découvert.
+L'analyse a mis en lumière l'objectif des acteurs malveillants de collecter un maximum d'informations sur les identifiants. L'incident souligne l'importance d'une analyse approfondie allant au-delà des alertes de sécurité courantes, car une simple intrusion par force brute peut révéler l'étendue d'une opération criminelle complexe.
 
-**Vulnérabilités :**
+**Points Clés:**
 
-*   Exposition de serveurs RDP à Internet.
-*   Utilisation d'identifiants faibles ou compromis permettant des attaques par force brute réussies.
+*   Une attaque par force brute sur un serveur RDP exposé a servi de porte d'entrée à une opération plus vaste.
+*   L'attaquant a utilisé une méthode inhabituelle de recherche de credentials en explorant des fichiers texte.
+*   L'infrastructure découverte est géographiquement distribuée et suggère l'utilisation d'un service VPN anonyme par les acteurs.
+*   L'opération est potentiellement liée à un écosystème de ransomware-as-a-service et aux "initial access brokers".
 
-**Recommandations :**
+**Vulnérabilités:**
 
-*   Sécuriser l'accès RDP en évitant l'exposition directe à Internet.
-*   Utiliser l'authentification multifacteur (MFA) pour l'accès RDP.
-*   Mettre en place des politiques de mots de passe robustes et des mécanismes de verrouillage de compte après plusieurs tentatives infructueuses.
-*   Surveiller activement les journaux de sécurité pour détecter les activités suspectes, y compris les tentatives de connexion par force brute.
-*   Effectuer des analyses de vulnérabilités régulières pour identifier et corriger les points d'entrée potentiels.
-*   Se tenir informé des tactiques, techniques et procédures (TTP) des acteurs malveillants pour anticiper et contrer les menaces.
+*   Exposition de serveurs RDP à Internet (sans mention spécifique de CVE).
+
+**Recommandations:**
+
+*   Sécuriser les accès RDP en évitant leur exposition directe à Internet.
+*   Mettre en place une authentification forte et des politiques de mots de passe robustes.
+*   Surveiller attentivement les logs RDP pour détecter les tentatives d'attaques par force brute et les accès suspects.
+*   Effectuer une analyse approfondie des activités post-intrusion, même pour des incidents apparemment bénins.
+*   Diversifier les méthodes de recherche de compromissions au-delà des indicateurs de compromission (IOC) et des techniques, tactiques et procédures (TTP) classiques.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/how-a-brute-force-attack-unmasked-a-ransomware-infrastructure-network/){:target="_blank"}

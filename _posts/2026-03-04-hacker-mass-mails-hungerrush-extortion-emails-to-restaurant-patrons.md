@@ -6,28 +6,30 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-## Campagne d'extorsion ciblant les clients de HungerRush
+## Tentative d'extorsion ciblant les clients de restaurants utilisant HungerRush
 
-Des clients de restaurants utilisant la plateforme de point de vente (POS) HungerRush ont reçu des courriels d'extorsion affirmant que des données de restaurants et de clients sont menacées. Les messages proviennent d'adresses email apparemment liées à HungerRush, notamment support@hungerrush.com et 2019@hungerrush.com, et avertissent de la mise en péril de données personnelles (noms, emails, mots de passe, adresses, numéros de téléphone, dates de naissance, informations de carte de crédit) si les demandes ne sont pas satisfaites.
+Des clients de restaurants utilisant la plateforme de point de vente (POS) HungerRush ont reçu des courriels d'un acteur malveillant. Ces messages menacent de divulguer des données de restaurants et de leurs clients si HungerRush ne répond pas à leurs demandes.
 
-L'analyse des en-têtes des courriels révèle qu'ils ont été envoyés via Twilio SendGrid, un service utilisé par HungerRush pour l'envoi de reçus transactionnels. Les courriels ont réussi les authentifications SPF, DKIM et DMARC pour le domaine hungerrush.com, indiquant une utilisation légitime du service d'envoi par le domaine de l'entreprise.
+HungerRush est un fournisseur de technologies pour restaurants, proposant des solutions pour la gestion des commandes, des informations clients et des opérations commerciales. L'entreprise affirme travailler avec plus de 16 000 établissements.
 
-Des rapports sur Reddit indiquent que les destinataires ont identifié HungerRush comme leur fournisseur POS par le passé. Une enquête suggère qu'un appareil d'un employé de HungerRush aurait été compromis en octobre 2025 par un logiciel malveillant voleur d'informations, entraînant le vol d'identifiants corporatifs pour divers services critiques, bien qu'un lien direct avec la fuite de données signalée reste incertain.
+Les courriels, envoyés depuis des adresses semblant légitimes de HungerRush (support@hungerrush.com et 2019@hungerrush.com), prétendent détenir des données sur des millions de clients, incluant noms, courriels, mots de passe, adresses, numéros de téléphone, dates de naissance et informations de carte de crédit. Les en-têtes des courriels indiquent qu'ils ont été envoyés via la plateforme Twilio SendGrid, utilisée précédemment par HungerRush pour des reçus clients, et ont passé les authentifications SPF, DKIM et DMARC du domaine hungerrush.com.
 
-### Points clés :
+Des signalements sur Reddit corroborent la réception de ces messages, les clients identifiant HungerRush comme le système utilisé par leurs restaurants. Des analyses préliminaires suggèrent qu'un appareil d'un employé de HungerRush aurait pu être compromis en octobre 2025 par un logiciel malveillant voleur d'informations (infostealer), menant au vol de multiples identifiants d'entreprise. L'existence d'une corrélation directe entre ces identifiants volés et la violation de données revendiquée n'est pas encore confirmée.
 
-*   Des courriels d'extorsion sont envoyés à des clients de restaurants utilisant HungerRush.
-*   Les attaquants menacent de divulguer des données de millions de clients.
-*   Les courriels semblent utiliser des adresses email légitimes de HungerRush et passent les authentifications de domaine.
-*   L'hypothèse d'une compromission des identifiants d'un employé de HungerRush est évoquée.
+**Points clés :**
 
-### Vulnérabilités :
+*   Des clients de restaurants utilisant HungerRush reçoivent des courriels d'extorsion.
+*   Les courriels menacent de divulguer des données clients si HungerRush ne réagit pas.
+*   Les messages semblent provenir du domaine HungerRush et ont passé les authentifications.
+*   Une possible compromission d'un employé de HungerRush et le vol d'identifiants sont suspectés.
 
-*   Non spécifié dans l'article. L'article suggère une possible compromission des identifiants d'un employé, mais sans attribution de CVE spécifique.
+**Vulnérabilités :**
 
-### Recommandations :
+*   Il est suggéré qu'un employé a été infecté par un "infostealer", menant à la compromission d'identifiants d'entreprise pour des services tels que NetSuite, QuickBooks, Stripe, Bill.com, Visa Online et Salesforce. Aucune CVE spécifique n'est mentionnée dans l'article.
 
-*   Les clients des restaurants utilisant le système POS HungerRush doivent être vigilants quant à d'éventuels courriels et SMS d'hameçonnage exploitant les informations prétendument volées.
+**Recommandations :**
+
+*   Les clients des restaurants utilisant le système HungerRush doivent être vigilants face à d'éventuels courriels ou SMS de phishing exploitant les informations potentiellement compromises.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/hacker-mass-mails-hungerrush-extortion-emails-to-restaurant-patrons/){:target="_blank"}
