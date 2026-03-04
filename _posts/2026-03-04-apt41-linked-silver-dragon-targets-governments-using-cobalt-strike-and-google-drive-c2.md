@@ -6,45 +6,49 @@ tags:
 - veille-cyber
 - hackernews
 ---
-**"Dragon d'Argent" : La Menace APT41 Ciblent les Gouvernements**
+## Silver Dragon : La Nouvelle Menace Ciblant les Gouvernements
 
-Un groupe de menace persistante avancée (APT) nommé "Dragon d'Argent" est actif depuis au moins mi-2024, ciblant des entités gouvernementales en Europe et en Asie du Sud-Est. Ce groupe est considéré comme faisant partie de l'écosystème APT41, un groupe de pirates informatiques chinois connu pour ses activités d'espionnage et potentiellement pour des motivations financières.
+Un groupe de cybercriminels persistants avancé (APT), surnommé Silver Dragon, est actif depuis mi-2024, ciblant des organisations en Europe et en Asie du Sud-Est. Ce groupe, présumé lié à l'APT41 d'origine chinoise, concentre ses attaques sur les entités gouvernementales.
 
-**Techniques et Outils Employés :**
+### Points Clés :
 
-*   **Accès initial :** Exploitation de serveurs publics exposés sur Internet et campagnes d'hameçonnage (phishing) avec des pièces jointes malveillantes.
-*   **Maintien de la persistance :** Piratage de services Windows légitimes pour masquer les processus malveillants. Utilisation de Cobalt Strike pour maintenir la présence sur les systèmes compromis.
-*   **Communication de commande et contrôle (C2) :** Techniques de tunneling DNS pour contourner la détection. Utilisation de Google Drive pour la communication C2, avec des extensions de fichiers spécifiques (*.png, *.pdf, *.cab, *.rar, *.7z) dictant les actions à entreprendre et la manière de rapporter les résultats.
-*   **Chaînes d'infection identifiées :**
-    *   **Pirâtage d'AppDomain et DLL de service :** Ces méthodes, livrées via des archives compressées, sont utilisées dans des scénarios post-exploitation suite au compromis de serveurs vulnérables. Elles impliquent des scripts batch, des chargeurs comme MonikerLoader et BamboLoader, et l'injection de shellcode dans des processus légitimes (ex: "taskhost.exe").
-    *   **Hameçonnage par raccourcis Windows (LNK) :** Principalement ciblant l'Ouzbékistan, ces fichiers LNK lancent du code PowerShell pour télécharger et exécuter des charges utiles. Cela inclut un document d'apparence légitime comme couverture, une DLL malveillante (BamboLoader) exploitant une vulnérabilité de "DLL side-loading" dans "GameHook.exe", et une charge utile Cobalt Strike chiffrée ("simhei.dat").
-*   **Outils post-exploitation :**
-    *   **SilverScreen :** Outil de surveillance d'écran pour capturer des captures d'écran périodiques.
-    *   **SSHcmd :** Utilitaire de ligne de commande SSH pour l'exécution à distance de commandes et le transfert de fichiers.
-    *   **GearDoor :** Porte dérobée (backdoor) communiquant via Google Drive, présentant des similitudes avec MonikerLoader.
+*   **Cible Principale :** Entités gouvernementales en Europe et en Asie du Sud-Est.
+*   **Affiliation :** Suspecté d'opérer sous l'égide de l'APT41, un groupe connu pour des activités d'espionnage et potentiellement lucratives.
+*   **Techniques d'Infiltration :** Exploitation de serveurs accessibles publiquement, emails d'hameçonnage avec pièces jointes malveillantes.
+*   **Maintien de Persistance :** Détournement de services Windows légitimes pour masquer les processus malveillants.
+*   **Commandement et Contrôle (C2) :** Utilisation de DNS tunneling et de Google Drive pour contourner la détection.
+*   **Outils Utilisés :** Cobalt Strike, MonikerLoader, BamboLoader, SilverScreen, SSHcmd, GearDoor.
 
-**Points Clés :**
+### Vulnérabilités et Vecteurs d'Attaque :
 
-*   Le groupe "Dragon d'Argent" est associé à APT41, un acteur majeur dans le paysage des menaces cybernétiques chinoises.
-*   Les attaques ciblent spécifiquement des entités gouvernementales.
-*   Une forte utilisation de Cobalt Strike et de techniques d'évasion avancées, notamment via Google Drive pour le C2.
-*   Les méthodes d'infection et les outils démontrent une évolution constante et une adaptabilité du groupe.
+Les méthodes d'infection initiales identifiées incluent :
 
-**Vulnérabilités (non spécifiées avec CVE dans l'article) :**
+*   **Détournement d'AppDomain :** Via des archives compressées contenant des scripts batch, menant à l'exécution de MonikerLoader, un chargeur .NET qui exécute des charges utiles secondaires en mémoire.
+*   **DLL de Service :** Également via des archives compressées, un script batch déploie BamboLoader, une DLL obfuscée enregistrée comme service Windows. Celle-ci décompresse et injecte du shellcode dans des processus légitimes comme "taskhost.exe".
+*   **Campagne d'Hameçonnage :** Principalement dirigée vers l'Ouzbékistan, utilisant des raccourcis Windows (LNK) malveillants. Ces fichiers lancent du code PowerShell pour télécharger et exécuter des charges utiles, incluant un document factice, un exécutable vulnérable ("GameHook.exe") permettant le chargement latéral de DLL, une DLL malveillante ("graphics-hook-filter64.dll") et une charge utile chiffrée de Cobalt Strike ("simhei.dat").
 
-L'article mentionne l'exploitation de :
-*   Serveurs publics exposés sur Internet.
-*   Vulnérabilités dans des exécutables légitimes permettant le "DLL side-loading" (ex: "GameHook.exe").
+Les outils de post-exploitation déployés incluent :
 
-**Recommandations :**
+*   **SilverScreen :** Outil de surveillance d'écran capturant l'activité utilisateur.
+*   **SSHcmd :** Utilititaire SSH pour l'exécution de commandes à distance et le transfert de fichiers.
+*   **GearDoor :** Une porte dérobée communiquant via Google Drive.
 
-Bien que l'article se concentre sur les tactiques du groupe, les recommandations implicites pour contrer de telles menaces incluent :
-*   **Sécurisation des périmètres :** Renforcer la sécurité des serveurs publics exposés sur Internet et patcher les vulnérabilités connues.
-*   **Sensibilisation au phishing :** Former les utilisateurs à reconnaître et signaler les e-mails de phishing et les pièces jointes suspectes.
-*   **Surveillance et détection :** Mettre en place des solutions de surveillance réseau etEndpoint Detection and Response (EDR) robustes pour détecter les comportements anormaux, y compris l'utilisation de Cobalt Strike et les communications C2 inhabituelles.
-*   **Gestion des services et des processus :** Surveiller les modifications apportées aux services Windows légitimes et les processus suspects.
-*   **Politiques de sécurité strictes :** Appliquer des politiques de sécurité rigoureuses concernant l'utilisation des applications et le téléchargement de fichiers.
-*   **Analyse des journaux :** Examiner attentivement les journaux d'événements pour identifier des signes d'intrusion ou de mouvements latéraux.
+L'utilisation de Google Drive comme canal C2 est notable. GearDoor utilise différentes extensions de fichiers (*.png, *.pdf, *.cab, *.rar, *.7z) pour envoyer des informations système, recevoir des commandes, exécuter des tâches, transférer des fichiers et charger des plugins ou des mises à jour.
+
+Les liens avec APT41 proviennent de similarités dans les scripts d'installation post-exploitation et du mécanisme de déchiffrement de BamboLoader observé dans des activités APT liées à la Chine. Le groupe fait preuve d'une adaptabilité et d'une sophistication notables en utilisant des exploits variés, des chargeurs personnalisés et des communications C2 basées sur des fichiers.
+
+### Recommandations :
+
+Bien que l'article ne détaille pas de recommandations spécifiques de manière exhaustive, les techniques employées suggèrent les mesures suivantes :
+
+*   **Sécurisation des Serveurs Publiquement Exposés :** Appliquer des correctifs et des mesures de sécurité pour les serveurs accessibles depuis Internet.
+*   **Sensibilisation à l'Hameçonnage :** Éduquer les utilisateurs à reconnaître et signaler les emails suspects et les pièces jointes malveillantes.
+*   **Surveillance du Trafic Réseau :** Mettre en place des systèmes de détection d'intrusion et surveiller les communications DNS et l'utilisation de services Cloud comme Google Drive pour des activités suspectes.
+*   **Gestion des Vulnérabilités :** Maintenir un inventaire des actifs et appliquer régulièrement les mises à jour de sécurité pour les logiciels et systèmes d'exploitation afin de corriger les vulnérabilités exploitées (ex: DLL side-loading).
+*   **Analyse des Processus et Services :** Surveiller l'apparition de processus suspects ou le détournement de services Windows légitimes.
+*   **Analyse des Charges Utiles :** Utiliser des solutions de sécurité capables de détecter et d'analyser les malwares .NET, les shellcodes et les artefacts d'exécution en mémoire.
+
+Il n'y a pas de CVE spécifiques mentionnés dans cet article.
 
 ---
 [Source](https://thehackernews.com/2026/03/apt41-linked-silver-dragon-targets.html){:target="_blank"}

@@ -6,38 +6,37 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-## Descente dans un Réseau de Ransomware via une Attaque par Force Brute
+### Découverte d'une Infrastructure de Ransomware via une Attaque par Force Brute
 
-Une campagne d'attaque par force brute sur un serveur RDP exposé, initialement perçue comme une activité de routine, a permis de découvrir une infrastructure complexe liée au ransomware. Cette observation a mené à l'identification d'un réseau géographiquement distribué et d'un service VPN suspect, suggérant une opération de ransomware-as-a-service et ses "initial access brokers" (IAB).
+Une campagne d'attaques par force brute visant un serveur RDP exposé a servi de point d'entrée pour démasquer une opération d'envergure liée au ransomware. Les analystes ont initialement traité l'alerte comme une activité de routine, mais en examinant les journaux, ils ont découvert une connexion réussie via cette méthode.
 
-L'incident a débuté par des tentatives d'accès par force brute sur un serveur RDP. Bien que cette technique soit courante, la présence de logs pertinents a permis de confirmer une connexion réussie grâce à un compte compromis. L'analyse a révélé que l'accès provenait de plusieurs adresses IP, pointant vers un acteur unique utilisant une infrastructure coordonnée.
+Ce qui a attiré l'attention, c'est l'utilisation inhabituelle d'outils pour rechercher des identifiants dans des fichiers texte plutôt que de recourir aux méthodes plus courantes comme l'exploitation du processus LSASS. Cette approche moins standard a incité à une investigation plus approfondie des adresses IP impliquées.
 
-Une fois à l'intérieur du réseau, l'attaquant a procédé à une énumération du domaine. Ce qui a attiré l'attention des analystes, c'est la méthode de recherche de credentials : plutôt que d'utiliser des outils classiques comme Mimikatz, l'attaquant a ouvert manuellement des fichiers texte semblant contenir des informations d'identification, une approche moins courante et plus laborieuse. Cette particularité a conduit à un examen plus approfondi des adresses IP utilisées lors de la phase d'attaque initiale.
+Les recherches ont révélé que l'une des adresses IP était associée à des familles de ransomware telles que Hive et BlackSuite. En analysant les certificats TLS associés à cette IP, un domaine malveillant, `specialsseason[.]com`, a été découvert. Ce domaine, ainsi que des analyses ultérieures des certificats, ont permis de découvrir un réseau d'infrastructure géographiquement distribué utilisant des sous-domaines avec des codes de pays, tels que `NL-SE.specialsseason[.]com`.
 
-Les recherches ont rapidement établi un lien entre l'adresse IP de l'attaque et le ransomware Hive, ainsi qu'avec le groupe BlackSuite. Une analyse plus poussée des certificats TLS associés a révélé des noms de domaine suspects, notamment `specialsseason[.]com`. La dénomination de ces domaines, utilisant des codes de pays variés (`NL-XX`), suggère une large distribution géographique de l'infrastructure.
+L'analyse a également mis en évidence l'utilisation d'un service VPN potentiellement utilisé par des acteurs malveillants, lié au domaine `1vpns[.]com`. Ce service VPN, associé à la politique de non-conservation des journaux, renforce l'hypothèse de son utilisation par des cybercriminels. D'autres domaines associés, comme `1jabber[.]com` et `nologs[.]club`, suggèrent une opération de plus grande envergure orchestrée par des "Initial Access Brokers" (IAB) facilitant les attaques par ransomware.
 
-En poursuivant cette investigation, un autre domaine, `1vpns[.]com`, a émergé. Ce nom est très similaire à un service VPN légitime, mais sans le "s" supplémentaire, et il est associé à un service publicisé comme ne conservant aucun journal d'activité, le rendant attractif pour les cybercriminels. Des rapports antérieurs ont lié ce service VPN à des groupes de ransomware. Un autre domaine associé, `1jabber[.]com`, et des noms de domaine comme `nologs[.]club` renforcent l'hypothèse d'un écosystème conçu pour faciliter les activités illicites.
+Le terme "Special season", également connu sous le nom de "big game hunting", est une expression couramment utilisée pour décrire les groupes de menaces motivés par des gains financiers, ciblant particulièrement les organisations à forte valeur.
 
-L'analyse a mis en lumière l'objectif des acteurs malveillants de collecter un maximum d'informations sur les identifiants. L'incident souligne l'importance d'une analyse approfondie allant au-delà des alertes de sécurité courantes, car une simple intrusion par force brute peut révéler l'étendue d'une opération criminelle complexe.
+**Points Clés :**
 
-**Points Clés:**
+*   Une attaque par force brute sur un serveur RDP exposé a été le point de départ de l'investigation.
+*   L'utilisation atypique de recherche d'identifiants dans des fichiers texte a alerté les analystes.
+*   L'analyse a révélé une infrastructure réseau étendue et géographiquement distribuée.
+*   L'opération semble liée à des acteurs de ransomware-as-a-service et des "Initial Access Brokers".
+*   L'utilisation d'un service VPN axé sur la non-conservation des journaux renforce l'intention malveillante.
 
-*   Une attaque par force brute sur un serveur RDP exposé a servi de porte d'entrée à une opération plus vaste.
-*   L'attaquant a utilisé une méthode inhabituelle de recherche de credentials en explorant des fichiers texte.
-*   L'infrastructure découverte est géographiquement distribuée et suggère l'utilisation d'un service VPN anonyme par les acteurs.
-*   L'opération est potentiellement liée à un écosystème de ransomware-as-a-service et aux "initial access brokers".
+**Vulnérabilités :**
 
-**Vulnérabilités:**
+*   **Exposition du serveur RDP à Internet :** La principale porte d'entrée exploitée. Bien que le CVE spécifique ne soit pas mentionné, l'exposition de services RDP est une pratique connue pour être une source de vulnérabilité.
 
-*   Exposition de serveurs RDP à Internet (sans mention spécifique de CVE).
+**Recommandations :**
 
-**Recommandations:**
-
-*   Sécuriser les accès RDP en évitant leur exposition directe à Internet.
-*   Mettre en place une authentification forte et des politiques de mots de passe robustes.
-*   Surveiller attentivement les logs RDP pour détecter les tentatives d'attaques par force brute et les accès suspects.
-*   Effectuer une analyse approfondie des activités post-intrusion, même pour des incidents apparemment bénins.
-*   Diversifier les méthodes de recherche de compromissions au-delà des indicateurs de compromission (IOC) et des techniques, tactiques et procédures (TTP) classiques.
+*   **Sécuriser les accès RDP :** Éviter l'exposition directe des serveurs RDP à Internet. Privilégier l'utilisation de VPN sécurisés ou de passerelles d'accès distant conformes aux meilleures pratiques de sécurité.
+*   **Renforcer l'authentification :** Implémenter l'authentification multifacteur (MFA) sur les accès RDP et autres services sensibles.
+*   **Surveillance et analyse des journaux :** Mettre en place une surveillance proactive des journaux pour détecter les tentatives d'attaques par force brute et autres activités suspectes.
+*   **Inspection approfondie des alertes :** Ne pas négliger les alertes de sécurité considérées comme de "routine", car elles peuvent parfois révéler des opérations plus complexes.
+*   **Comprendre le comportement des acteurs :** Analyser les comportements atypiques des attaquants peut aider à identifier des menaces plus sophistiquées ou des réseaux d'infrastructure cachés.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/how-a-brute-force-attack-unmasked-a-ransomware-infrastructure-network/){:target="_blank"}

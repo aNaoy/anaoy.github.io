@@ -6,35 +6,27 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Démantèlement du forum de cybercriminalité LeakBase**
+**Forum de Cybercriminalité LeakBase Démantelé**
 
-Une opération internationale coordonnée par Europol et impliquant 14 pays a conduit à la saisie du forum de cybercriminalité LeakBase. Ce forum servait de plateforme aux cybercriminels pour l'achat et la vente d'outils de piratage et de données volées. Le FBI, en collaboration avec d'autres agences d'application de la loi, a procédé à la saisie de deux domaines du forum, affichant désormais des bannières de saisie. L'opération a également entraîné des arrestations, des perquisitions et des interrogatoires aux États-Unis et dans plusieurs pays européens et en Australie.
+Une opération internationale coordonnée par Europol, baptisée "Opération Leak", a conduit à la saisie par le FBI du forum de cybercriminalité LeakBase. Ce site, actif depuis 2021 et ayant attiré plus de 142 000 membres, servait de plateforme d'échange pour des outils de piratage, des données volées et d'autres services illicites. L'opération, impliquant des forces de l'ordre de 14 pays, a abouti à la saisie de deux de ses domaines (<em>leakbase[.]la</em>), à des arrestations et à des perquisitions. Les données du forum, y compris les journaux IP et les messages privés, ont été sécurisées à des fins probatoires.
 
-**Points Clés :**
+**Points Clés:**
 
-*   **Saisie de LeakBase :** Les autorités ont pris le contrôle des domaines du forum et de toute sa base de données, y compris les journaux d'adresses IP et les messages privés, à des fins d'enquête.
-*   **Opération Internationale :** L'action fait partie d'une opération coordonnée plus large visant à démanteler les infrastructures de cybercriminalité.
-*   **142 000 Membres Concernés :** LeakBase comptait plus de 142 000 membres et a gagné en popularité après la fermeture du forum Breached.
-*   **Activités du Forum :** Le forum proposait des bases de données, un marché pour les fuites de données et les exploits, des services de cybercriminalité, et des espaces de discussion sur la programmation, le piratage, l'ingénierie sociale et la cryptographie.
-*   **Suite d'une Tendance :** Ce démantèlement s'inscrit dans la continuité d'actions similaires contre d'autres forums de cybercriminalité majeurs, tels que RaidForums et BreachForums.
+*   **Saisie de LeakBase:** Le FBI et des agences internationales ont saisi le forum LeakBase, un lieu de prédilection pour les cybercriminels.
+*   **Opération Internationale:** L'action fait partie d'une opération conjointe coordonnée par Europol, impliquant 14 pays.
+*   **Données Sécurisées:** Les informations du forum, incluant les comptes utilisateurs, les publications et les journaux IP, ont été préservées pour des enquêtes futures.
+*   **Successeur de Forums Fermés:** LeakBase avait émergé après la fermeture de forums similaires comme Breached et RaidForums.
+*   **Services Offerts:** Le forum proposait des bases de données, un marché pour les fuites d'informations, des exploits, des services de cybercriminalité et des ressources sur le piratage et l'ingénierie sociale.
 
-**Vulnérabilités :**
+**Vulnérabilités (non spécifiées avec CVE dans l'article):**
 
-Bien que l'article ne mentionne pas de vulnérabilités spécifiques avec des identifiants CVE, il met en évidence l'existence d'une plateforme facilitant le commerce de :
+L'article ne mentionne pas de vulnérabilités spécifiques avec des identifiants CVE exploitées par le forum LeakBase ou ses membres. Il met l'accent sur l'utilisation du forum comme plateforme pour l'achat et la vente de ces éléments.
 
-*   Outils de piratage
-*   Données volées
-*   Fuites de données (Leaks)
-*   Exploits
+**Recommandations (implicites dans le contexte de l'opération):**
 
-**Recommandations :**
-
-Les actions menées par les forces de l'ordre suggèrent les recommandations suivantes pour les individus et les organisations :
-
-*   **Prudence avec les Données Personnelles :** Les utilisateurs de tels forums s'exposent à des poursuites judiciaires.
-*   **Sécurité Renforcée :** Les organisations doivent mettre en œuvre des mesures de cybersécurité robustes pour prévenir les fuites de données.
-*   **Surveillance des Activités Malveillantes :** Les forces de l'ordre continueront à surveiller et à démanteler les forums de cybercriminalité.
-*   **Conséquences Juridiques :** S'engager dans des activités de cybercriminalité peut entraîner des poursuites pénales et des sanctions.
+*   **Prudence Numérique:** Les utilisateurs de plateformes en ligne, en particulier celles liées à des activités potentiellement illégales, doivent être conscients des risques encourus et des conséquences juridiques.
+*   **Collaboration Internationale:** Le succès de telles opérations souligne l'importance de la coopération entre les agences de l'ordre à l'échelle mondiale pour lutter contre la cybercriminalité.
+*   **Surveillance et Démantèlement:** Les autorités continuent de surveiller et de démanteler les forums de cybercriminalité pour perturber les activités illégales.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/fbi-seizes-leakbase-cybercrime-forum-data-of-142-000-members/){:target="_blank"}
