@@ -6,33 +6,33 @@ tags:
 - veille-cyber
 - hackernews
 ---
-**Les limites de l'authentification multifacteur dans les environnements Windows**
+### Les limites de l'authentification multifacteur (MFA) face au vol d'identifiants
 
-L'authentification multifacteur (MFA) est souvent déployée pour sécuriser les accès, mais elle ne couvre pas tous les scénarios dans les environnements Windows. Les attaquants exploitent encore des identifiants valides pour compromettre les réseaux car de nombreuses méthodes d'authentification Windows, notamment les connexions locales et certaines utilisations de RDP, NTLM, Kerberos, SMB et des comptes de service, ne déclenchent pas de processus MFA basé sur les fournisseurs d'identité cloud.
+L'implémentation de l'authentification multifacteur (MFA) est souvent considérée comme une protection suffisante contre l'utilisation de mots de passe volés. Cependant, dans les environnements Windows, cette hypothèse est rarement vraie. Les attaquants continuent de compromettre les réseaux en exploitant des identifiants valides, car la couverture de l'authentification multifacteur n'est pas toujours complète. L'MFA, lorsqu'il est géré par un fournisseur d'identité (IdP) comme Microsoft Entra ID, Okta ou Google Workspace, protège efficacement les applications cloud et les connexions fédérées. Néanmoins, de nombreuses connexions Windows s'appuient sur des chemins d'authentification Active Directory (AD) qui n'activent pas les invites MFA. Pour réduire les compromissions basées sur les identifiants, les équipes de sécurité doivent comprendre les points d'entrée de l'authentification Windows qui échappent aux contrôles de l'IdP.
 
-**Points Clés :**
+**Points clés :**
 
-*   La MFA est efficace pour les applications cloud et les connexions fédérées, mais les connexions Windows traditionnelles via Active Directory (AD) peuvent ne pas être protégées.
-*   Des techniques d'attaque comme le "pass-the-hash" et le vol de tickets Kerberos contournent l'authentification simple par mot de passe et peuvent ne pas être arrêtées par la MFA traditionnelle.
-*   Les comptes administrateurs locaux et les comptes de service représentent des points d'entrée critiques car ils sont souvent utilisés avec des identifiants réutilisés ou non surveillés et n'activent pas la MFA.
+*   L'MFA est généralement efficace pour les applications cloud et les connexions fédérées, mais pas toujours pour les connexions directes aux systèmes Windows.
+*   De nombreuses méthodes d'authentification Windows ne déclenchent pas l'MFA, laissant des vulnérabilités exploitables.
+*   Les attaquants ciblent spécifiquement ces chemins d'authentification non couverts par l'MFA.
 
-**Vulnérabilités et Vecteurs d'Attaque :**
+**Vulnérabilités et voies d'attaque exploitées :**
 
-*   **Connexion interactive Windows (locale ou jointe au domaine) :** Les connexions directes aux postes de travail ou serveurs Windows utilisent souvent l'AD, et non le fournisseur d'identité cloud, permettant l'authentification avec un simple mot de passe volé ou un hash.
-*   **Accès RDP direct :** Les sessions RDP peuvent ne pas passer par les contrôles MFA du cloud, reposant uniquement sur les identifiants AD sous-jacents.
-*   **Authentification NTLM :** Ce protocole hérité et obsolète est vulnérable aux attaques de type "pass-the-hash" où le hash du mot de passe suffit pour s'authentifier.
-*   **Abus de tickets Kerberos :** Les attaquants volent ou falsifient des tickets Kerberos pour obtenir un accès persistant et se déplacer latéralement dans le réseau.
-*   **Comptes administrateurs locaux et réutilisation d'identifiants :** La réutilisation des identifiants des administrateurs locaux sur plusieurs machines permet une escalade des privilèges rapide et contourne complètement la MFA.
-*   **Authentification SMB et mouvement latéral :** SMB est utilisé pour le partage de fichiers et l'accès à distance, offrant une voie de mouvement latéral efficace avec des identifiants valides, souvent sans application de la MFA.
-*   **Comptes de service :** Ces comptes automatisés et souvent avec des privilèges étendus sont difficiles à sécuriser avec la MFA et constituent des cibles privilégiées.
+1.  **Connexion interactive Windows (locale ou jointe au domaine) :** L'authentification directe sur un poste de travail ou un serveur Windows utilise généralement AD (Kerberos ou NTLM) plutôt qu'un IdP cloud. Les mots de passe ou hashes NTLM volés permettent une connexion aux systèmes joints au domaine sans déclencher d'MFA.
+2.  **Accès RDP direct :** Les sessions RDP directes ne passent pas systématiquement par les contrôles MFA basés sur le cloud, s'appuyant sur les identifiants AD sous-jacents.
+3.  **Authentification NTLM :** Ce protocole hérité, bien que déprécié, est encore utilisé et supporte des techniques comme "pass-the-hash", où le hash NTLM suffit pour l'authentification, contournant l'MFA.
+4.  **Abus de tickets Kerberos :** Les attaquants volent ou forgent des tickets Kerberos pour obtenir un accès persistant et se déplacer latéralement dans le réseau, indépendamment de la réinitialisation des mots de passe. Les techniques incluent "pass-the-ticket", "Golden Ticket" et "Silver Ticket".
+5.  **Comptes administrateurs locaux et réutilisation d'identifiants :** La réutilisation des mots de passe des comptes administrateurs locaux sur plusieurs machines permet aux attaquants d'étendre rapidement une compromission. Ces comptes s'authentifient localement, ignorant les contrôles MFA.
+6.  **Authentification SMB et mouvement latéral :** SMB, utilisé pour le partage de fichiers et l'accès à distance, est une voie fréquente pour le mouvement latéral. Si cette authentification est considérée comme interne, l'MFA y est rarement appliqué.
+7.  **Comptes de service sans MFA :** Les comptes de service, utilisés pour les tâches automatisées et les applications, ont souvent des identifiants stables et des permissions étendues. Leur authentification étant automatisée, ils sont difficiles à protéger par MFA et sont une cible privilégiée.
 
 **Recommandations :**
 
-*   **Appliquer des politiques de mots de passe plus fortes dans AD :** Privilégier des phrases de passe longues (15+ caractères), interdire la réutilisation et bloquer les modèles faibles.
-*   **Bloquer continuellement les mots de passe compromis :** Empêcher l'utilisation de mots de passe issus de fuites de données connues dès leur création.
-*   **Réduire l'exposition aux protocoles d'authentification hérités :** Limiter ou éliminer l'utilisation de NTLM et renforcer les contrôles là où il ne peut être supprimé.
-*   **Auditer les comptes de service et réduire l'escalade des privilèges :** Inventairez, limitez les permissions inutiles, faites pivoter les identifiants et supprimez les comptes obsolètes. Considérer les comptes de service avec des permissions de domaine comme des cibles à haut risque.
-*   **Envisager des solutions de sécurité adaptées :** Des outils comme Specops Secure Access peuvent aider à imposer la MFA pour les connexions Windows, VPN et RDP, y compris pour les connexions hors ligne. Specops Password Policy offre des contrôles de mots de passe avancés et une protection contre les mots de passe compromis.
+*   **Politiques de mots de passe renforcées dans AD :** Imposer des phrases de passe plus longues (plus de 15 caractères), empêcher la réutilisation des mots de passe et bloquer les modèles faibles.
+*   **Blocage continu des mots de passe compromis :** Empêcher l'utilisation de mots de passe déjà exposés dans des fuites de données.
+*   **Réduction de l'exposition aux protocoles d'authentification hérités :** Restreindre ou éliminer l'utilisation de NTLM lorsque cela est possible et renforcer les contrôles là où il ne peut être supprimé.
+*   **Audit des comptes de service et réduction des privilèges excessifs :** Identifier, réduire les permissions inutiles, faire pivoter les identifiants et supprimer les comptes de service obsolètes. Traiter les comptes de service avec des permissions de domaine comme des cibles à haut risque.
+*   **Implémenter l'MFA pour les connexions Windows :** Utiliser des solutions comme Windows Hello for Business, les cartes à puce, ou des outils tiers pour appliquer l'MFA aux connexions locales, RDP et VPN.
 
 ---
 [Source](https://thehackernews.com/2026/03/where-multi-factor-authentication-stops.html){:target="_blank"}

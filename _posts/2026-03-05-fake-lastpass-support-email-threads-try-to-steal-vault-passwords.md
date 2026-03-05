@@ -8,30 +8,30 @@ tags:
 ---
 **Campagne de Phishing Ciblant les Utilisateurs de LastPass**
 
-Une nouvelle campagne de phishing vise les utilisateurs de LastPass en se faisant passer pour le support technique de l'entreprise. Les emails frauduleux imitent des fils de discussion internes concernant une tentative de modification de l'adresse email principale d'un compte, dans le but de susciter l'urgence chez la victime.
+Une campagne de phishing utilise de faux fils d'e-mails de support LastPass pour tromper les utilisateurs et voler leurs identifiants de coffre-fort. Les attaquants imitent des communications internes entre LastPass et son équipe de support, signalant un accès non autorisé au compte. Les e-mails incitent les victimes à cliquer sur des liens tels que "signaler une activité suspecte" pour répondre à cette fausse alerte.
 
-Ces messages incitent les utilisateurs à cliquer sur des liens tels que "signaler une activité suspecte" ou "révoquer l'appareil". Ces liens redirigent vers de fausses pages de connexion LastPass hébergées sur des domaines frauduleux (par exemple, "verify-lastpass[.]com") conçus pour dérober les identifiants de compte.
+Ces liens redirigent vers une page de connexion frauduleuse hébergée sur le domaine "verify-lastpass[.]com", conçue pour capturer les informations d'identification des utilisateurs de LastPass. Les attaquants emploient diverses adresses d'expéditeur et lignes d'objet, se faisant passer pour le "Support LastPass" via le nom d'affichage pour masquer leurs véritables origines, souvent des sites web compromis ou des domaines abandonnés.
 
-LastPass précise que son infrastructure n'a pas été compromise et que cette campagne n'a aucun impact sur ses systèmes.
+LastPass précise que son infrastructure n'est pas compromise et que ses systèmes ne sont pas affectés. L'entreprise rappelle que son personnel de support ne demandera jamais le mot de passe maître.
 
 **Points Clés :**
 
-*   **Imitation du Support :** Les emails utilisent le nom d'affichage "LastPass Support" pour masquer des adresses d'expéditeurs non liées.
-*   **Stratégie de Fil de Discussion :** Les messages sont présentés comme des conversations forwarded pour ajouter de la crédibilité.
-*   **Objectif :** Voler les identifiants de compte LastPass via de fausses pages de connexion.
-*   **Absence de Compromission Interne :** LastPass confirme que ses systèmes ne sont pas affectés.
+*   **Imitation d'e-mails de support :** Les attaquants créent de faux fils d'e-mails semblant être des communications internes sur des problèmes d'accès au compte.
+*   **Urgence simulée :** Les e-mails poussent à une action rapide en cas d'activité suspecte signalée.
+*   **Redirection vers une fausse page de connexion :** Les liens mènent à un site web malveillant qui collecte les identifiants LastPass.
+*   **Techniques d'évasion :** Utilisation de multiples adresses d'expéditeur et noms d'affichage pour dissimuler l'origine et rendre le traçage difficile.
 
 **Vulnérabilités :**
 
-Aucune vulnérabilité spécifique (CVE) n'est mentionnée dans l'article, la menace reposant sur l'ingénierie sociale et l'usurpation d'identité.
+*   Aucune vulnérabilité technique spécifique de LastPass n'est mentionnée dans cet article. L'attaque exploite la confiance des utilisateurs et les techniques d'ingénierie sociale.
 
 **Recommandations :**
 
-*   **Méfiance envers les alertes :** Soyez extrêmement prudent face aux emails prétendant signaler une activité suspecte sur votre compte.
-*   **Vérification des liens :** Survolez les liens dans les emails sans cliquer pour vérifier l'URL réelle. Les domaines légitimes de LastPass sont les seuls à faire confiance.
-*   **Ne jamais partager le mot de passe maître :** Le personnel de LastPass ne vous demandera jamais votre mot de passe maître.
-*   **Signaler les communications suspectes :** Transmettez tout email suspect à l'adresse abuse@lastpass.com.
-*   **Contacter directement le support :** En cas de doute, contactez LastPass directement via leurs canaux officiels, et non via les liens fournis dans les emails suspects.
+*   **Prudence avec les communications :** Soyez vigilant face aux e-mails prétendant provenir du support LastPass, surtout s'ils signalent des problèmes de compte inattendus ou demandent une action immédiate via des liens.
+*   **Vérification des liens :** Survolez les liens dans les e-mails pour vérifier l'URL de destination avant de cliquer. Méfiez-vous des domaines suspects ou légèrement modifiés.
+*   **Ne jamais divulguer le mot de passe maître :** Le personnel de support de LastPass ne demandera jamais votre mot de passe maître. Ne le partagez jamais.
+*   **Rapporter les communications suspectes :** Signalez tout e-mail suspect à abuse@lastpass.com.
+*   **LastPass travaille à la suppression des sites frauduleux :** L'entreprise collabore avec des partenaires pour retirer rapidement les sites de phishing.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/fake-lastpass-support-email-threads-try-to-steal-vault-passwords/){:target="_blank"}

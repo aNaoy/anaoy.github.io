@@ -6,25 +6,25 @@ tags:
 - veille-cyber
 - schneier
 ---
-### Piratage d'une application iranienne à des fins de propagande
+**Application de prière compromise dans une campagne de désinformation**
 
-Une application populaire de calendrier de prière, BadeSaba Calendar, téléchargée plus de 5 millions de fois sur le Google Play Store, a été compromise. Peu après les premières explosions survenues en Iran, des notifications ont été envoyées aux utilisateurs de l'application, leur demandant de "se rendre" et leur indiquant que "l'aide est arrivée". Ces messages, diffusés en rafale sur une période de 30 minutes, semblent faire partie d'une campagne de propagande. Bien qu'aucune partie n'ait revendiqué la responsabilité, la rapidité de l'événement suggère une opération gouvernementale, potentiellement menée par les États-Unis et Israël, qui auraient pu pirater l'application au préalable pour une utilisation ultérieure.
+Une application de calendrier et de prière, BadeSaba Calendar, téléchargée plus de 5 millions de fois, a été compromise pour diffuser des messages de propagande en Iran, notamment après une série d'explosions. Ces notifications, qui ont débuté par "L'aide est arrivée", ont été envoyées en rafale sur les téléphones des Iraniens, juste après les premières explosions. Aucune entité n'a revendiqué la responsabilité de ces piratages, mais il est fortement suspecté qu'une opération gouvernementale, potentiellement menée par les États-Unis et Israël, soit à l'origine de cette action.
 
 **Points Clés :**
 
-*   Une application iranienne de calendrier de prière a été piratée.
-*   Des messages de propagande, appelant à la reddition, ont été envoyés aux utilisateurs.
-*   L'incident est survenu peu après des explosions en Iran.
-*   L'hypothèse privilégiée est une opération gouvernementale, potentiellement américano-israélienne.
+*   Une application de prière populaire (BadeSaba Calendar) a été piratée.
+*   Des messages de propagande, suggérant l'arrivée d'une "aide", ont été diffusés.
+*   L'incident coïncide avec des explosions en Iran.
+*   Une opération gouvernementale américano-israélienne est fortement suspectée.
 
 **Vulnérabilités :**
 
-*   Aucune vulnérabilité spécifique (avec CVE) n'est mentionnée dans l'article. La faille exploitée est dans l'application BadeSaba Calendar elle-même, permettant l'envoi de notifications non autorisées.
+*   Aucune vulnérabilité spécifique avec un identifiant CVE n'est mentionnée dans cet extrait.
 
 **Recommandations :**
 
-*   Les développeurs d'applications devraient renforcer leurs mesures de sécurité pour prévenir le piratage et l'envoi de messages non autorisés.
-*   Les utilisateurs devraient être prudents face aux notifications provenant d'applications, surtout en période de tensions ou d'événements critiques, et vérifier la source d'information auprès de canaux officiels.
+*   Les utilisateurs d'applications, en particulier celles liées à des sujets sensibles ou potentiellement ciblées par des opérations d'influence, devraient faire preuve de prudence quant aux messages reçus.
+*   Les gouvernements et les développeurs d'applications devraient renforcer la sécurité des applications critiques pour prévenir de tels abus.
 
 ---
 [Source](https://www.schneier.com/blog/archives/2026/03/hacked-app-part-of-us-israeli-propaganda-campaign-against-iran.html){:target="_blank"}
