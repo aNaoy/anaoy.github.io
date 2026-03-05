@@ -6,33 +6,39 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Forum de Cybercriminalité LeakBase Saisi par les Autorités Internationales**
+**Démantèlement du forum de cybercriminalité LeakBase**
 
-Une opération coordonnée par Europol et menée par les forces de l'ordre de 14 pays a conduit à la saisie du forum LeakBase, une plateforme majeure où les cybercriminels échangeaient des outils de piratage et des données volées. L'action, menée les 3 et 4 mars, a entraîné la saisie de deux domaines du site, le remplacement de son contenu par un avis de saisie par le FBI, et la collecte de preuves incluant les journaux IP et les messages privés des membres. Environ 100 actions ont été menées à l'échelle mondiale, ciblant notamment 37 des utilisateurs les plus actifs de la plateforme.
+Une opération internationale coordonnée par Europol, baptisée "Opération Leak", a mené à la saisie du forum de cybercriminalité LeakBase par le FBI et des agences de maintien de l'ordre de 14 pays. Ce forum était utilisé par les cybercriminels pour acheter et vendre des outils de piratage et des données volées.
 
-LeakBase, actif depuis 2021 et soutenu initialement par le groupe ARES, avait rassemblé plus de 142 000 membres suite à la fermeture du forum Breached. Il proposait un accès gratuit à des bases de données, un marché pour la vente de fuites et d'exploits, ainsi que des espaces de discussion sur divers sujets liés à la cybercriminalité, comme le piratage et l'ingénierie sociale.
+Les autorités ont saisi deux domaines du site, affichant désormais un message de saisie du FBI. Les bases de données du forum, y compris les journaux d'adresses IP et les messages privés de ses plus de 142 000 membres, ont été sécurisées à des fins probatoires. Des actions d'application de la loi, incluant des arrestations, des perquisitions et des entretiens, ont eu lieu dans plusieurs pays.
 
-Cette action s'inscrit dans une série de démantèlements de forums de cybercriminalité, faisant suite aux saisies de RaidForums en 2022 et BreachForums en 2023.
+LeakBase, actif depuis 2021 et soutenu par le groupe de menaces ARES, a prospéré après la fermeture du forum de hackers Breached. Il proposait un accès à des bases de données, un marché pour les fuites de données et les exploits, ainsi que des forums de discussion sur des sujets liés à la cybersécurité.
 
-**Points Clés :**
+Cette action s'inscrit dans une série de démantèlements de plateformes de cybercriminalité, faisant suite à ceux de RaidForums en 2022 et BreachForums en 2023.
+
+**Points clés :**
 
 *   Saisie du forum de cybercriminalité LeakBase.
-*   Opération internationale coordonnée par Europol impliquant 14 pays.
-*   Plus de 142 000 membres et leurs données préservées à des fins d'enquête.
-*   Démantèlement dans le cadre de l'"Opération Leak".
+*   Opération internationale impliquant le FBI et Europol.
+*   142 000 membres touchés par la saisie des données.
+*   Objectif : perturber le commerce illégal d'outils et de données volées.
 
 **Vulnérabilités :**
 
-L'article ne mentionne pas de vulnérabilités spécifiques avec des identifiants CVE. Il décrit l'utilisation de la plateforme par des cybercriminels pour acheter et vendre des outils de piratage, des données volées et des services illégaux.
+Bien que l'article ne mentionne pas de vulnérabilités spécifiques avec des identifiants CVE, le forum lui-même servait de plateforme pour le commerce et la diffusion de :
+
+*   Outils de piratage (exploits, malwares).
+*   Données volées (identifiants, informations financières, etc.).
+*   Techniques de cybercriminalité (ingénierie sociale, cryptographie).
 
 **Recommandations :**
 
-Bien que l'article ne contienne pas de recommandations directes, les actions entreprises par les forces de l'ordre soulignent l'importance de :
+L'article met l'accent sur les actions répressives menées par les forces de l'ordre. Les recommandations implicites pour les individus et les organisations sont :
 
-*   La coopération internationale dans la lutte contre la cybercriminalité.
-*   La surveillance et le démantèlement des plateformes utilisées par les cybercriminels.
-*   La sensibilisation aux conséquences juridiques de la participation à des activités de cybercriminalité.
-*   La préservation des preuves numériques pour les enquêtes futures.
+*   **Vigilance accrue :** Être conscient des risques liés à l'existence de tels forums et des menaces qu'ils propagent.
+*   **Sécurité renforcée :** Mettre en place des mesures de cybersécurité robustes pour protéger les données et les systèmes contre les attaques provenant de ces sources.
+*   **Signalement des activités suspectes :** Encourager le signalement des plateformes et des activités illicites aux autorités compétentes.
+*   **Éducation et sensibilisation :** Informer sur les dangers de la cybercriminalité et les conséquences de l'implication dans des activités illégales.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/fbi-seizes-leakbase-cybercrime-forum-data-of-142-000-members/){:target="_blank"}

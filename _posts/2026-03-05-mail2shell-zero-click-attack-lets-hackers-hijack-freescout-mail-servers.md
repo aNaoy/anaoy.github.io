@@ -6,30 +6,29 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Détournement de serveurs FreeScout via une vulnérabilité de type "zero-click"**
+## Risque Critique : Exécution de Code à Distance sur FreeScout
 
-Une faille critique, identifiée sous la référence CVE-2026-28289, permet à des attaquants d'exécuter du code à distance sur les serveurs de messagerie utilisant la plateforme d'assistance FreeScout, sans aucune interaction utilisateur ni authentification.
+Une vulnérabilité de sévérité maximale, identifiée sous **CVE-2026-28289**, a été découverte dans la plateforme d'assistance FreeScout. Celle-ci permet une exécution de code à distance (RCE) sans aucune interaction utilisateur ni authentification.
 
-Cette vulnérabilité contourne une correction précédente (CVE-2026-27636) qui nécessitait une authentification et des permissions de téléchargement. L'exploitation repose sur l'envoi d'un e-mail spécialement conçu contenant une pièce jointe malveillante. Grâce à l'utilisation d'un caractère invisible (espace de largeur nulle, Unicode U+200B) avant le nom du fichier, les mécanismes de validation sont déjoués, permettant au fichier d'être enregistré comme un fichier de configuration (.htaccess dans certains cas) qui déclenche ensuite l'exécution de code. La pièce jointe est stockée dans un répertoire accessible via l'interface web, rendant l'attaque effective sans aucune action de la part d'un utilisateur.
+Cette faille contourne une précédente correction (CVE-2026-27636) qui nécessitait des permissions de téléchargement et une authentification pour être exploitée.
 
-**Points clés :**
+### Points Clés :
 
-*   **Nature de l'attaque :** "Zero-click" RCE (Remote Code Execution).
-*   **Mécanisme :** Contournement des validations de fichiers à l'aide d'un caractère invisible.
-*   **Impact potentiel :** Prise de contrôle complète du serveur, fuites de données, mouvement latéral sur le réseau, interruption de service.
-*   **Contexte :** FreeScout est une plateforme d'assistance open-source largement utilisée.
+*   **Attaque "zero-click"** : Les attaquants peuvent exploiter cette vulnérabilité en envoyant un seul e-mail spécialement conçu à une adresse configurée dans FreeScout.
+*   **Contournement des sécurités** : Un caractère d'espace sans largeur (Unicode U+200B) inséré avant le nom d'un fichier d'attachement permet de contourner le mécanisme de validation des noms de fichiers. Ce caractère, non visible, est supprimé lors du traitement, permettant au fichier d'être enregistré comme un "dotfile" (.htaccess), déclenchant ainsi l'exploitation de la vulnérabilité précédente.
+*   **Impact potentiel** : L'exploitation réussie de CVE-2026-28289 peut entraîner une compromission totale du serveur, des fuites de données, des déplacements latéraux sur les réseaux internes et des interruptions de service.
 
-**Vulnérabilités :**
+### Vulnérabilités :
 
-*   **CVE-2026-28289 :** Permet l'exécution de code à distance sans authentification via un e-mail piégé.
-*   **CVE-2026-27636 :** Vulnérabilité précédente sur l'exécution de code à distance, qui est contournée par la nouvelle faille.
+*   **CVE-2026-28289** : Permet l'exécution de code à distance (RCE) via l'envoi d'un e-mail contenant un fichier d'attachement malveillant.
+*   **CVE-2026-27636** : Vulnérabilité RCE précédente, exploitée ici via le contournement du mécanisme de validation des fichiers.
 
-**Recommandations :**
+### Recommandations :
 
-*   **Mise à jour immédiate :** Appliquer la version 1.8.207 ou ultérieure de FreeScout.
-*   **Configuration Apache :** Désactiver 'AllowOverrideAll' dans la configuration Apache, même après la mise à jour.
+*   **Mise à jour immédiate** : Il est impératif de mettre à jour FreeScout vers la version **1.8.207** ou supérieure, qui corrige cette faille.
+*   **Configuration Apache** : Il est également recommandé de désactiver l'option `AllowOverrideAll` dans la configuration Apache du serveur FreeScout, même après la mise à jour vers la version 1.8.207.
 
-Bien qu'aucune exploitation active n'ait été signalée, le risque est jugé élevé étant donné la simplicité de déclenchement de la faille.
+Bien qu'aucune exploitation active n'ait été observée pour l'instant, le risque est jugé très élevé en raison de la nature de la faille.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/mail2shell-zero-click-attack-lets-hackers-hijack-freescout-mail-servers/){:target="_blank"}

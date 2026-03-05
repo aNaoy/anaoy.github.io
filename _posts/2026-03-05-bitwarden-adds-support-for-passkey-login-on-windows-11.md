@@ -6,33 +6,32 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-**Bitwarden Intègre les Passkeys pour l'Accès à Windows 11**
+**Bitwarden Intègre la Connexion par Passkey sur Windows 11**
 
-Bitwarden, le gestionnaire de mots de passe et de secrets open-source, propose désormais une fonctionnalité permettant de se connecter aux appareils Windows 11 en utilisant des passkeys stockées dans son coffre-fort. Cette intégration vise à renforcer la sécurité en offrant une authentification résistante au phishing.
+Bitwarden introduit la prise en charge des passkeys pour la connexion aux appareils sous Windows 11. Cette fonctionnalité permet une authentification résistante au phishing, utilisant des clés cryptographiques plutôt que des mots de passe. Les passkeys stockées dans le coffre-fort Bitwarden sécurisé peuvent désormais être utilisées pour accéder au système d'exploitation, offrant une couche de sécurité supplémentaire.
 
-La nouvelle fonctionnalité est disponible pour tous les utilisateurs, y compris ceux du forfait gratuit. Pour l'utiliser, les utilisateurs doivent répondre à trois conditions : disposer d'appareils joints à Entra ID, activer la connexion via une clé de sécurité FIDO2, et posséder une passkey Entra ID enregistrée dans leur coffre-fort Bitwarden.
+Cette nouvelle capacité est accessible à tous les utilisateurs, y compris ceux du plan gratuit. Pour l'utiliser, il est nécessaire d'avoir des appareils joints à Entra ID, que la connexion par clé de sécurité FIDO2 soit activée, et de posséder une passkey Entra ID enregistrée dans son coffre-fort Bitwarden.
 
-Le processus implique la sélection de l'option de clé de sécurité lors de la connexion à Windows, suivi de la numérisation d'un code QR avec un appareil mobile pour confirmer l'accès à la passkey. Bitwarden agit comme fournisseur de passkey dans le flux d'authentification Windows, stockant la clé dans le coffre-fort synchronisé de l'utilisateur plutôt que de la lier à un seul appareil, ce qui facilite la récupération en cas de perte de téléphone.
+Bitwarden agit comme fournisseur de passkey dans le processus d'authentification Windows, stockant les identifiants dans le coffre-fort synchronisé de l'utilisateur, ce qui facilite la récupération depuis d'autres appareils en cas de perte de téléphone. L'élimination de la saisie de mots de passe réduit considérablement le risque d'exposition aux attaques de phishing.
 
-En remplaçant la saisie de mot de passe par des défis cryptographiques signés avec des clés privées, cette méthode réduit considérablement le risque d'exposition des identifiants. Microsoft déploie actuellement cette fonctionnalité sur Windows 11, en fonction de la configuration d'Entra ID. Cette avancée étend la prise en charge des passkeys, introduite par Microsoft pour les applications tierces en novembre 2025, à une couche d'authentification plus fondamentale, celle du système d'exploitation lui-même.
+Cette évolution s'appuie sur l'API de fournisseur de passkey introduite par Microsoft pour Windows 11 en novembre 2025, permettant aux applications tierces de gérer les passkeys. L'intégration actuelle va plus loin en l'appliquant à la couche d'authentification du système d'exploitation lui-même.
 
 **Points Clés :**
 
-*   Bitwarden permet la connexion à Windows 11 avec des passkeys.
-*   Cette méthode offre une authentification résistante au phishing.
-*   La fonctionnalité est accessible à tous les plans de Bitwarden.
-*   Les passkeys sont stockées de manière sécurisée dans le coffre-fort Bitwarden et synchronisées sur tous les appareils.
+*   **Nouvelle Fonctionnalité :** Connexion à Windows 11 via des passkeys stockées dans Bitwarden.
+*   **Sécurité Améliorée :** Authentification résistante au phishing grâce à des identifiants cryptographiques.
+*   **Accessibilité :** Disponible pour tous les plans, y compris gratuit.
+*   **Flexibilité :** Les passkeys sont liées au coffre-fort synchronisé, permettant une récupération facile.
 
-**Vulnérabilités :**
+**Vulnérabilités (Non Spécifiées dans l'article) :**
 
-*   Aucune vulnérabilité spécifique (avec CVE) n'est mentionnée dans cet article. La fonctionnalité vise à prévenir les risques liés aux vulnérabilités de phishing associées aux mots de passe traditionnels.
+L'article ne détaille pas de vulnérabilités spécifiques liées à cette nouvelle fonctionnalité.
 
 **Recommandations :**
 
-*   Utiliser des appareils joints à Entra ID.
-*   Activer la connexion via une clé de sécurité FIDO2.
-*   Enregistrer une passkey Entra ID dans son coffre-fort Bitwarden.
-*   S'assurer que la configuration d'Entra ID sur Windows 11 est prête pour le déploiement de la fonctionnalité.
+*   Assurez-vous que vos appareils Windows 11 sont joints à Entra ID.
+*   Vérifiez que la connexion par clé de sécurité FIDO2 est activée.
+*   Enregistrez vos passkeys Entra ID dans votre coffre-fort Bitwarden.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/bitwarden-adds-support-for-passkey-login-on-windows-11/){:target="_blank"}

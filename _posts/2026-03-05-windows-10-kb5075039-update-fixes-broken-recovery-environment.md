@@ -8,23 +8,22 @@ tags:
 ---
 **Mise à jour de l'environnement de récupération Windows 10**
 
-Microsoft a publié la mise à jour KB5075039 pour corriger un problème affectant l'environnement de récupération Windows (WinRE) sur Windows 10. Ce problème, introduit par la mise à jour KB5068164 en octobre 2025, empêchait le bon démarrage de WinRE, rendant les outils de dépannage inaccessibles.
+Microsoft a publié la mise à jour KB5075039 pour corriger un problème persistant qui empêchait l'accès à l'environnement de récupération Windows (WinRE) sur Windows 10. Cet environnement est essentiel pour le dépannage, la réparation du système d'exploitation et la suppression de logiciels malveillants.
 
-**Points Clés :**
+**Points clés :**
 
-*   La mise à jour KB5075039 résout un dysfonctionnement de l'environnement de récupération Windows (WinRE).
-*   Le problème était causé par une mise à jour précédente, KB5068164, datant d'octobre 2025.
-*   WinRE est un environnement de dépannage essentiel pour réparer le système d'exploitation, diagnostiquer les plantages ou supprimer les logiciels malveillants.
+*   La mise à jour KB5075039 résout un problème où WinRE ne démarrait pas correctement après l'installation de la mise à jour KB5068164 d'octobre 2025.
+*   Ce problème affectait l'environnement de récupération Windows 10.
+*   Une pré-condition pour installer cette mise à jour est que la partition WinRE doit avoir une taille minimale de 256 Mo.
 
 **Vulnérabilités :**
 
-L'article ne mentionne pas de CVE spécifiques pour ce problème. Le dysfonctionnement réside dans l'incapacité de WinRE à démarrer correctement après l'installation de la mise à jour KB5068164.
+*   **Problème non spécifié dans l'article sous forme de CVE :** L'article mentionne un dysfonctionnement de l'environnement de récupération suite à une mise à jour précédente (KB5068164), mais sans fournir de numéro CVE spécifique pour cette faille.
 
 **Recommandations :**
 
-*   Installer la mise à jour KB5075039 pour corriger le problème.
-*   Vérifier que la partition WinRE dispose d'une taille minimale de 256 Mo.
-*   Si la partition est trop petite, suivre les instructions fournies par Microsoft pour la redimensionner.
+*   Installer la mise à jour KB5075039 pour corriger le problème d'accès à WinRE.
+*   S'assurer que la partition WinRE dispose d'une taille d'au moins 256 Mo. Si ce n'est pas le cas, il faut l'agrandir en suivant les instructions fournies par Microsoft (lien donné dans l'article).
 *   Il est conseillé de sauvegarder les données avant toute opération de redimensionnement de partition.
 
 ---

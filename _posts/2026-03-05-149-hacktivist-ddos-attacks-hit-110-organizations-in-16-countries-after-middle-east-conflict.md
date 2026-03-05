@@ -6,41 +6,41 @@ tags:
 - veille-cyber
 - hackernews
 ---
-## Vague de Cyberattaques Hacktivistes Post-Conflit au Moyen-Orient
+## Vague de Cyberattaques Soutenue par le Hacktivisme au Moyen-Orient
 
-Suite aux opérations militaires conjointes américano-israéliennes contre l'Iran, une vague de 149 attaques DDoS attribuées à des groupes hacktivistes a touché 110 organisations réparties dans 16 pays. Ces attaques, visant principalement les secteurs public, financier et des télécommunications, ont été menées par 12 groupes distincts, dont Keymous+, DieNet et NoName057(16) qui en représentent près de 70%.
+Suite aux actions militaires coordonnées des États-Unis et d'Israël contre l'Iran, une vague de 149 attaques par déni de service distribué (DDoS) menées par des hacktivistes a touché 110 organisations réparties dans 16 pays. Ces attaques, initiées le 28 février 2026, ont été largement attribuées à deux groupes principaux, Keymous+ et DieNet, responsables de près de 70% de l'activité observée. Le groupe tunisien Hider Nex, connu pour sa stratégie "hack-and-leak" et son soutien aux causes pro-palestiniennes, a lancé la première attaque.
 
-La majorité des attaques (107) étaient concentrées au Moyen-Orient, avec un ciblage disproportionné des infrastructures publiques et des entités étatiques. Le Koweït, Israël et la Jordanie ont été les pays les plus touchés dans cette région. L'Europe a également subi 22,8% de l'activité globale.
-
-Certains groupes, tels que Cardinal et Russian Legion, ont revendiqué des intrusions dans des réseaux militaires israéliens, y compris le système de défense antimissile Iron Dome. Parallèlement, une campagne de phishing par SMS utilise une fausse application d'alerte israélienne pour diffuser des malwares espions. L'Iran, par le biais de ses acteurs étatiques comme le corps des Gardiens de la révolution islamique (IRGC) et des groupes comme Cotton Sandstorm, a ciblé les infrastructures énergétiques et numériques, ainsi que des entités aux Bahreïn. Des groupes comme UNC1549 ont montré une activité notable contre les secteurs de la défense et de l'aérospatiale.
-
-Les plateformes d'échange de cryptomonnaies iraniennes ont ajusté leurs opérations face aux possibles perturbations de connectivité et aux sanctions. Les analystes estiment que les organisations israéliennes, américaines et alliées sont particulièrement exposées, notamment dans les secteurs gouvernemental, des infrastructures critiques, de la défense, de la finance, académique et médiatique.
+La majorité des attaques (107) étaient concentrées au Moyen-Orient, ciblant principalement les infrastructures publiques et les entités étatiques. L'Europe a été la cible de 22,8% des attaques. Les secteurs les plus touchés étaient le gouvernement (47,8%), suivi par la finance (11,9%) et les télécommunications (6,7%).
 
 ### Points Clés :
 
-*   **Augmentation des cyberattaques hacktivistes** : Réponse aux actions militaires au Moyen-Orient.
-*   **Ciblage géographique** : Forte concentration au Moyen-Orient (Koweït, Israël, Jordanie) et impact sur l'Europe.
-*   **Secteurs visés** : Principalement public, défense, finance, télécommunications, infrastructures critiques.
-*   **Acteurs majeurs** : Keymous+, DieNet, NoName057(16) dominent l'activité.
-*   **Techniques utilisées** : DDoS, hameçonnage par SMS avec malware, défiguration de sites web, revendications de compromissions, potentiellement ransomware.
-*   **Implication de l'Iran** : Des groupes étatiques et des acteurs soutenus par l'Iran sont actifs, visant à exercer une pression et une visibilité.
+*   **Augmentation du Hacktivisme :** Les actions militaires ont déclenché une recrudescence des cyberattaques menées par des groupes hacktivistes.
+*   **Acteurs Principaux :** Keymous+, DieNet et NoName057(16) sont les groupes les plus actifs, représentant plus de 74% des attaques.
+*   **Ciblage Géographique :** Le Moyen-Orient est la région la plus touchée, avec le Koweït, Israël et la Jordanie comme cibles prioritaires.
+*   **Secteurs Visés :** Les organisations gouvernementales, financières et de télécommunications sont les plus affectées.
+*   **Stratégies Diversifiées :** Outre les DDoS, des campagnes de phishing, des intrusions dans les réseaux militaires (y compris des systèmes de défense), et des déploiements de malwares sont observés.
 
-### Vulnérabilités et Menaces Spécifiques :
+### Vulnérabilités et Tactiques :
 
-*   **Attaques DDoS** : L'article mentionne spécifiquement ce type d'attaque, sans détailler de vulnérabilités associées à des CVE.
-*   **Phishing par SMS avec Malware** : Utilisation d'une fausse application RedAlert pour déployer des malwares d'espionnage et d'exfiltration de données. Aucune CVE spécifique n'est mentionnée pour ce malware.
-*   **Cyberattaques étatiques iraniennes** : Ciblage des infrastructures énergétiques, numériques, des réseaux militaires et de défense.
+*   **DDoS :** Technique principale utilisée pour perturber les services en ligne.
+*   **Hack-and-Leak :** Combinaison d'attaques DDoS avec des fuites de données sensibles.
+*   **Phishing :** Utilisation d'applications malveillantes déguisées en mises à jour d'urgence pour déployer des malwares de surveillance et d'exfiltration de données.
+*   **Intrusion dans les Systèmes Critiques :** Allégations de compromission de réseaux militaires, y compris des systèmes de défense.
+*   **Malware :** Déploiement de logiciels malveillants pour la surveillance et l'exfiltration de données.
+*   **Ransomware :** Le recours au ransomware par des acteurs iraniens est une tendance observée.
+*   **Exploitation de l'Instabilité :** Les groupes iraniens exploitent les périodes de conflit pour faire avancer leurs objectifs géopolitiques.
+
+Aucune vulnérabilité spécifique avec un identifiant CVE n'est mentionnée dans l'article. Les attaques semblent tirer parti de failles existantes ou de techniques d'ingénierie sociale.
 
 ### Recommandations :
 
-*   **Renforcer la posture de cybersécurité** : Pour mieux répondre aux menaces.
-*   **Activer une surveillance continue** : Pour détecter l'activité accrue des menaces.
-*   **Mettre à jour les signatures d'intelligence de menaces**.
-*   **Réduire la surface d'attaque externe**.
-*   **Effectuer des revues d'exposition complètes des actifs connectés**.
-*   **Valider la segmentation appropriée** entre les réseaux IT et OT (technologie opérationnelle).
-*   **Assurer l'isolement adéquat des appareils IoT**.
-*   **Adapter les opérations de sécurité** pour tenir compte de l'escalade des menaces.
+*   **Surveillance Continue :** Mettre en place une surveillance renforcée pour détecter les activités d'escalade des menaces.
+*   **Mise à Jour des Menaces :** Actualiser les signatures de renseignement sur les menaces.
+*   **Réduction de la Surface d'Attaque :** Minimiser la surface d'attaque externe des organisations.
+*   **Examen des Actifs Connectés :** Effectuer des revues d'exposition complètes des actifs connectés.
+*   **Segmentation des Réseaux :** Valider la segmentation adéquate entre les réseaux IT et OT.
+*   **Isolation des Appareils IoT :** Assurer l'isolement approprié des appareils IoT.
+*   **Renforcement de la Posture de Cybersécurité :** Les organisations sont invitées à renforcer leur sécurité pour mieux réagir aux attaques.
 
 ---
 [Source](https://thehackernews.com/2026/03/149-hacktivist-ddos-attacks-hit-110.html){:target="_blank"}
