@@ -1,12 +1,12 @@
 ---
-title: 'Europol-Led Operation Takes Down Tycoon 2FA Phishing-as-a-Service Linked to 64,000 Attacks'
+title: 'Wikipedia hit by self-propagating JavaScript worm that vandalized pages'
 date: 2026-03-05
-permalink: /posts/2026/03/05/europol-led-operation-takes-down-tycoon-2fa-phishing-as-a-service-linked-to-64000-attacks/
+permalink: /posts/2026/03/05/wikipedia-hit-by-self-propagating-javascript-worm-that-vandalized-pages/
 tags:
 - veille-cyber
-- hackernews
+- bleepingcomp
 ---
 Erreur lors de la génération du résumé : 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-3.1-flash-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
 
 ---
-[Source](https://thehackernews.com/2026/03/europol-led-operation-takes-down-tycoon.html){:target="_blank"}
+[Source](https://www.bleepingcomputer.com/news/security/wikipedia-hit-by-self-propagating-javascript-worm-that-vandalized-pages/){:target="_blank"}
