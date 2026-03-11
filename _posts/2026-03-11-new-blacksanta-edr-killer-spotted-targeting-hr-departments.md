@@ -8,22 +8,22 @@ tags:
 ---
 ### Menace persistante : La campagne « BlackSanta » cible les départements RH
 
-Des cybercriminels russophones mènent depuis plus d’un an une campagne sophistiquée visant les départements des ressources humaines. Utilisant le hameçonnage ciblé (*spear-phishing*), les attaquants incitent les victimes à télécharger des fichiers ISO contenant de faux CV. Une fois exécutée, la chaîne d'infection déploie « BlackSanta », un outil redoutable conçu pour désactiver les solutions de sécurité avant l'installation de charges utiles malveillantes.
+Des cybercriminels russophones mènent depuis plus d’un an une campagne sophistiquée ciblant les services des ressources humaines. Utilisant le spear-phishing pour diffuser des fichiers ISO dissimulés en CV, les attaquants déploient « BlackSanta », un outil capable de neutraliser les solutions EDR et antivirus au niveau du noyau (kernel).
 
 **Points clés :**
-*   **Vecteur d'attaque :** Fichiers ISO malveillants hébergés sur des services cloud (Dropbox) dissimulés en documents PDF.
-*   **Techniques d'évasion :** Utilisation de stéganographie pour extraire du code dans la mémoire système, *DLL sideloading* (via SumatraPDF) et détection d'environnements sandbox/VM pour stopper l'exécution si une analyse est suspectée.
-*   **Capacités de BlackSanta :** Modification des exclusions Windows Defender, réduction de la télémétrie Microsoft, et surtout, neutralisation des outils de sécurité (EDR, antivirus, SIEM) au niveau du noyau.
-*   **BYOVD (Bring Your Own Vulnerable Driver) :** Exploitation des pilotes légitimes *RogueKiller (truesight.sys)* et *IObitUnlocker.sys* pour obtenir des privilèges élevés et supprimer les verrous sur les processus de sécurité.
+*   **Vecteur d'attaque :** Fichiers ISO malveillants hébergés sur des services cloud, contenant des raccourcis .LNK, des scripts PowerShell et des fichiers dissimulés par stéganographie.
+*   **Techniques d'évasion :** Utilisation du *DLL sideloading* (via SumatraPDF), détection d'environnements virtualisés (sandbox/VM) et *process hollowing* pour injecter des charges utiles dans des processus légitimes.
+*   **Neutralisation de la sécurité :** BlackSanta modifie les exclusions Microsoft Defender, réduit la télémétrie Windows et utilise des pilotes vulnérables légitimes (BYOD - Bring Your Own Driver) pour forcer l'arrêt des processus de sécurité.
+*   **Pilotes détournés :** Exploitation des pilotes *RogueKiller* (truesight.sys) et *IObitUnlocker.sys* pour obtenir des privilèges élevés et contourner les verrous système.
 
 **Vulnérabilités exploitées :**
-*   L'attaque repose sur l'exploitation de **pilotes légitimes vulnérables** (BYOVD) pour détourner les protections du noyau Windows. Aucun CVE spécifique n'est mentionné pour les pilotes eux-mêmes, mais l'usage détourné de ces outils permet de contourner les mécanismes de défense standards.
+*   **BYOD (Bring Your Own Vulnerable Driver) :** Exploitation de pilotes signés mais vulnérables pour contourner les protections du noyau Windows. Aucune CVE unique n'est mentionnée, car la technique repose sur le détournement de fonctionnalités légitimes de pilotes tiers.
 
 **Recommandations :**
-*   **Sensibilisation :** Former le personnel RH à la vigilance face aux fichiers ISO ou aux liens de téléchargement inattendus, même s'ils semblent provenir de sources professionnelles.
-*   **Filtrage des accès :** Bloquer ou restreindre l'exécution de fichiers ISO et le montage automatique de disques amovibles/images via les politiques de groupe (GPO).
-*   **Contrôle des applications et pilotes :** Implémenter le contrôle des applications (AppLocker ou WDAC) pour empêcher l'exécution de binaires non approuvés et restreindre l'installation ou le chargement de pilotes tiers non signés ou connus pour être vulnérables.
-*   **Surveillance :** Surveiller les modifications suspectes apportées aux exclusions de Windows Defender et aux valeurs de registre liées à la télémétrie.
+*   **Contrôle des périphériques :** Restreindre le chargement de pilotes tiers non approuvés via le contrôle d'intégrité du code (HVCI/VBS).
+*   **Gestion des emails :** Sensibiliser le personnel RH au risque des fichiers ISO reçus par email et bloquer systématiquement les extensions de fichiers suspectes au niveau de la passerelle mail.
+*   **Surveillance système :** Surveiller les modifications suspectes apportées aux exclusions Microsoft Defender et aux valeurs de registre liées à la télémétrie.
+*   **Durcissement :** Utiliser des solutions EDR configurées avec une protection renforcée contre la désactivation (tamper protection) et restreindre les droits d'exécution des scripts PowerShell pour les utilisateurs non administratifs.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/new-blacksanta-edr-killer-spotted-targeting-hr-departments/){:target="_blank"}

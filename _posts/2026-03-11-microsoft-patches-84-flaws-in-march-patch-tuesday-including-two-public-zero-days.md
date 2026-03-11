@@ -6,27 +6,28 @@ tags:
 - veille-cyber
 - hackernews
 ---
-### Mise à jour de sécurité Microsoft de mars 2026 : 84 vulnérabilités corrigées
+### Microsoft Patch Tuesday : 84 vulnérabilités corrigées en mars 2026
 
-Microsoft a publié son correctif mensuel traitant 84 vulnérabilités, dont huit sont classées comme critiques. La majorité des failles corrigées concernent l'élévation de privilèges (46) et l'exécution de code à distance (18).
+Microsoft a publié des correctifs pour 84 vulnérabilités, dont huit sont classées comme critiques. Le rapport met en évidence une prédominance des failles d'élévation de privilèges (55 % des correctifs).
 
 **Points clés :**
 *   **Zero-days :** Deux vulnérabilités connues publiquement ont été corrigées.
-*   **Priorité aux privilèges :** Plus de la moitié des failles traitées permettent une élévation de privilèges, souvent utilisées par des attaquants pour se déplacer latéralement après une compromission initiale.
-*   **Modernisation :** Microsoft généralise les "hotpatchs" via Windows Autopatch pour appliquer les correctifs de sécurité sans nécessiter de redémarrage immédiat.
+*   **Répartition des failles :** 46 élévations de privilèges, 18 exécutions de code à distance (RCE), 10 divulgations d'informations, 4 dénis de service (DoS), 4 usurpations d'identité et 2 contournements de sécurité.
+*   **Évolution :** Microsoft active désormais par défaut les "hotpatchs" pour Windows Autopatch afin d'accélérer le déploiement des correctifs sans nécessiter de redémarrage immédiat.
 
-**Vulnérabilités notables :**
+**Vulnérabilités majeures :**
 *   **CVE-2026-21262 (Score 8.8) :** Élévation de privilèges dans SQL Server (Zero-day).
 *   **CVE-2026-26127 (Score 7.5) :** Déni de service dans .NET (Zero-day).
-*   **CVE-2026-21536 (Score 9.8) :** Exécution de code à distance dans le *Microsoft Devices Pricing Program* (corrigé, aucune action utilisateur requise).
-*   **CVE-2026-25187 (Score 7.8) :** Élévation de privilèges via *Winlogon*, permettant à un utilisateur local d'obtenir des droits SYSTEM.
-*   **CVE-2026-26118 (Score 8.8) :** Falsification de requête côté serveur (SSRF) dans *Azure Model Context Protocol*, permettant de détourner des jetons d'identité.
-*   **CVE-2026-26144 (Score 7.5) :** Divulgation d'informations dans Excel, exploitable via une attaque "zero-click" pour exfiltrer des données via Copilot.
+*   **CVE-2026-21536 (Score 9.8) :** RCE critique dans le *Microsoft Devices Pricing Program* (déjà atténué).
+*   **CVE-2026-25187 (Score 7.8) :** Élévation de privilèges dans Winlogon, permettant d'obtenir des droits SYSTEM sans interaction utilisateur.
+*   **CVE-2026-26118 (Score 8.8) :** Server-Side Request Forgery (SSRF) dans Azure Model Context Protocol (MCP) permettant l'exfiltration de jetons d'identité.
+*   **CVE-2026-26144 (Score 7.5) :** Divulgation d'informations critique dans Excel (Cross-site scripting) pouvant impacter Copilot Agent via une attaque "zero-click".
 
 **Recommandations :**
-*   **Application immédiate :** Déployer les mises à jour de sécurité de mars 2026 sur tous les systèmes Windows, SQL Server et environnements Azure concernés.
-*   **Gestion des accès :** Étant donné le nombre élevé de failles d'élévation de privilèges, limiter les droits des utilisateurs locaux et surveiller les processus système critiques.
-*   **Adoption des hotpatchs :** Pour les entreprises utilisant Microsoft Intune, préparer la transition vers le mode de mise à jour "hotpatch" activé par défaut à partir de mai 2026 pour réduire la fenêtre d'exposition.
+*   Appliquer les correctifs de sécurité de mars 2026 sans délai sur l'ensemble du parc informatique.
+*   Prioriser les correctifs pour les serveurs SQL et les systèmes exposant le protocole Azure MCP.
+*   Surveiller les systèmes utilisant des outils d'IA et des agents Copilot pour détecter d'éventuelles extractions non autorisées de données.
+*   Activer les mises à jour de sécurité de type "hotpatch" pour améliorer la réactivité face aux futures menaces.
 
 ---
 [Source](https://thehackernews.com/2026/03/microsoft-patches-84-flaws-in-march.html){:target="_blank"}

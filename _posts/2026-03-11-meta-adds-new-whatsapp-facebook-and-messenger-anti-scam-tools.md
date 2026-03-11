@@ -6,25 +6,23 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-# Renforcement de la lutte anti-arnaque sur les plateformes Meta
+### Renforcement de la lutte contre les arnaques sur les plateformes Meta
 
-Meta déploie de nouvelles protections par intelligence artificielle pour contrer la fraude et le piratage sur WhatsApp, Facebook et Messenger. Ces mesures interviennent dans un contexte de menaces accrues, notamment après le ciblage d'agents gouvernementaux par des pirates liés à des États.
+Meta déploie de nouvelles mesures de sécurité basées sur l'intelligence artificielle pour contrer les fraudes sur WhatsApp, Facebook et Messenger, suite à une recrudescence d'attaques ciblant notamment les comptes gouvernementaux.
 
-### Points clés
-*   **WhatsApp :** Lancement d'alertes de sécurité lors de tentatives de liaison d'appareil (QR code ou code de jumelage) suspectées d'être frauduleuses.
-*   **Facebook :** Test d'avertissements pour les demandes d'amis suspectes (basés sur la localisation ou le manque d'amis communs).
-*   **Messenger :** Extension globale de la détection par IA des arnaques liées aux offres d'emploi, incluant une option de signalement pour analyse.
-*   **Détection proactive :** Utilisation de l'IA pour identifier l'usurpation d'identité de célébrités, le spoofing de marques et les liens malveillants.
-*   **Bilan opérationnel :** Suppression de plus de 159 millions de publicités frauduleuses en 2025 et collaboration internationale avec les forces de l'ordre pour démanteler des réseaux criminels en Asie du Sud-Est.
+**Points clés :**
+*   **Sécurisation des appareils :** WhatsApp intègre désormais des alertes pour détecter les tentatives frauduleuses de couplage d'appareils, une technique utilisée par les pirates pour intercepter les conversations sans que la victime ne perde l'accès à son compte.
+*   **Détection proactive :** Facebook teste des avertissements sur les demandes d'amis suspectes (basés sur la localisation ou le manque de relations communes), tandis que Messenger étend son outil d'analyse par IA pour repérer les offres d'emploi frauduleuses.
+*   **Analyse contextuelle :** Meta utilise l'IA pour identifier l'usurpation d'identité de célébrités, le vol d'image de marque et les liens malveillants menant vers des sites de phishing.
+*   **Action répressive :** En 2025, plus de 159 millions de publicités frauduleuses ont été supprimées et 10,9 millions de comptes malveillants ont été fermés. Une opération internationale a également permis le démantèlement de réseaux criminels en Asie du Sud-Est.
 
-### Vulnérabilités ciblées
-*   **Détournement de session (Session Hijacking) :** Les attaquants manipulent les victimes pour qu'elles scannent un QR code ou partagent un code de liaison, permettant aux pirates d'accéder aux discussions en temps réel. Contrairement au vol de compte classique, la victime conserve l'accès, rendant l'intrusion particulièrement furtive.
-*   *Note : Aucune CVE spécifique n'est associée à ces campagnes, car il s'agit d'abus de fonctionnalités légitimes par ingénierie sociale.*
+**Vulnérabilités :**
+*   **Détournement de session via couplage QR code :** Bien qu'il ne s'agisse pas d'une vulnérabilité logicielle (CVE), cette méthode d'ingénierie sociale permet à un attaquant de synchroniser un compte WhatsApp sur un appareil tiers, lui donnant accès aux messages en temps réel sans alerter la victime par une déconnexion forcée.
 
-### Recommandations
-*   **Vigilance sur le couplage d'appareils :** Ne jamais partager de codes de liaison WhatsApp et ne scanner aucun QR code provenant d'une source inconnue ou douteuse.
-*   **Analyse des demandes :** Faire preuve de prudence face aux demandes d'amis provenant de profils ayant peu d'amis communs ou une localisation géographique incohérente.
-*   **Signalement :** Utiliser les outils intégrés de Meta pour soumettre les conversations suspectes à une analyse par IA, aidant ainsi à entraîner les modèles de détection contre les nouvelles tactiques d'arnaque.
+**Recommandations :**
+*   **Prudence avec les codes de couplage :** Ne partagez jamais votre numéro de téléphone suivi d'un code de couplage reçu par message, et évitez de scanner des QR codes fournis par des inconnus.
+*   **Vigilance sur les demandes d'amis :** Soyez sceptique face aux demandes de connexion provenant de comptes ayant peu ou pas d'amis en commun, surtout si la localisation semble incohérente.
+*   **Signaler les contenus suspects :** Utilisez les options de signalement intégrées à Messenger pour soumettre les conversations suspectes à une analyse automatisée par les systèmes de Meta.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/meta-adds-new-whatsapp-facebook-and-messenger-anti-scam-tools/){:target="_blank"}

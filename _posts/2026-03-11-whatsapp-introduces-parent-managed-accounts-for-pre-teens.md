@@ -6,24 +6,25 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### Sécurisation des mineurs : WhatsApp déploie les comptes sous contrôle parental
+### Sécurisation des mineurs : WhatsApp déploie les comptes gérés par les parents
 
-WhatsApp lance des comptes supervisés pour les pré-adolescents afin de renforcer la protection des mineurs sur la plateforme. Ce dispositif restreint l'accès aux fonctionnalités sociales (Meta AI, Channels, Status, partage de localisation) et limite les interactions aux seuls contacts enregistrés.
+WhatsApp a lancé une nouvelle fonctionnalité permettant aux parents de superviser les comptes de leurs enfants pré-adolescents. Ce dispositif restreint l'accès à certaines fonctionnalités (Meta AI, Channels, Statuts, partage de localisation) et renforce le contrôle sur les interactions sociales. La configuration nécessite un jumelage physique des appareils et est sécurisée par un code PIN parental, garantissant que seuls les parents peuvent modifier les paramètres de confidentialité.
 
 **Points clés :**
-*   **Contrôle parental :** Un code PIN à 6 chiffres permet aux parents de gérer les paramètres de confidentialité, les demandes de messages et les alertes d'activité sur le compte de l'enfant.
-*   **Protection de la vie privée :** Malgré la supervision, les conversations restent chiffrées de bout en bout ; les parents ne peuvent ni lire les messages ni écouter les appels.
-*   **Sécurité renforcée :** Des cartes de contexte s'affichent lors de tentatives de contact par des inconnus, et les parents sont notifiés en temps réel des changements dans les groupes ou les listes de contacts.
-*   **Transition :** À l'âge de 13 ans, l'utilisateur peut convertir son compte en profil standard, supprimant ainsi les restrictions parentales.
-*   **Détection de fraude :** Meta a parallèlement introduit des outils anti-arnaque signalant les comportements suspects lors des demandes de liaison d'appareils.
+* **Limitation des contacts :** Par défaut, les comptes gérés ne peuvent communiquer qu'avec les contacts enregistrés.
+* **Contrôle des groupes :** Seuls les parents sont autorisés à ajouter le compte de l'enfant dans des groupes.
+* **Alertes d'activité :** Les parents reçoivent des notifications en temps réel pour les demandes de nouveaux contacts ou l'ajout de membres dans les groupes de l'enfant.
+* **Protection de la vie privée :** Les messages restent protégés par le chiffrement de bout en bout ; les parents ne peuvent pas lire les conversations ou écouter les appels de leurs enfants.
+* **Cartes de contexte :** En cas de contact inconnu, une fiche informative indique l'origine géographique et les groupes communs, le cas échéant.
 
 **Vulnérabilités :**
-*   Aucune vulnérabilité logicielle (CVE) spécifique n'est identifiée dans cet article. Le dispositif vise à prévenir les risques sociaux (harcèlement, contacts indésirables, accès à des contenus inadaptés).
+* L'article ne mentionne aucune vulnérabilité technique spécifique (CVE). Il s'agit d'une mise à jour fonctionnelle de sécurité et de contrôle parental.
 
 **Recommandations :**
-*   **Initialisation physique :** La configuration nécessite la présence simultanée des appareils du parent et de l'enfant pour valider le numéro de téléphone et scanner le QR code de liaison.
-*   **Gestion du code PIN :** Il est impératif que les parents conservent leur code PIN de manière sécurisée pour éviter que l'enfant ne contourne les restrictions mises en place.
-*   **Surveillance active :** Bien que les outils soient automatisés, les parents doivent rester vigilants concernant les alertes d'activité reçues pour intervenir en cas de comportement suspect.
+* **Configuration physique :** Pour l'activation, assurez-vous d'avoir les deux appareils à portée de main pour valider le jumelage par QR code.
+* **Gestion du PIN :** Définissez un code PIN robuste que l'enfant ne peut pas deviner pour éviter toute altération non autorisée des paramètres de confidentialité.
+* **Suivi des alertes :** Configurez les notifications parentales afin de rester informé des interactions sociales de l'enfant, particulièrement lors des tentatives de contact par des profils inconnus.
+* **Transition à 13 ans :** Anticipez la bascule vers un compte standard lorsque l'enfant atteint l'âge requis, moment où les contrôles parentaux seront désactivés.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/whatsapp-introduces-parent-managed-accounts-for-pre-teens/){:target="_blank"}

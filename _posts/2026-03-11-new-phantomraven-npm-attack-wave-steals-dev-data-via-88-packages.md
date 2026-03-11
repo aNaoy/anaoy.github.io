@@ -6,21 +6,23 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### Campagne PhantomRaven : Recrudescence d'attaques par paquets NPM malveillants
+### Campagne PhantomRaven : Recrudescence d'attaques sur NPM
 
-La campagne « PhantomRaven » persiste et s'intensifie, ciblant les développeurs JavaScript via la publication massive de paquets malveillants sur le registre NPM. Depuis août 2025, plus de 200 paquets frauduleux ont été identifiés. Les attaquants utilisent le *typosquatting* (imitation de noms de bibliothèques populaires comme Babel ou GraphQL) pour tromper les utilisateurs, souvent en générant des noms de paquets via l'IA.
+La campagne malveillante « PhantomRaven » continue de viser l'écosystème NPM, ayant déployé 88 paquets suspects entre novembre 2025 et février 2026. Utilisant des techniques de « typosquatting » pour usurper des projets populaires (comme Babel ou GraphQL Codegen), les attaquants ciblent les développeurs JavaScript pour exfiltrer des données sensibles.
 
 **Points clés :**
-*   **Technique d'évasion :** Utilisation de dépendances dynamiques distantes (RDD). Le fichier `package.json` pointe vers une URL externe, permettant de télécharger le code malveillant à l'exécution et de contourner l'analyse automatisée des outils de sécurité.
-*   **Objectifs :** Exfiltration de données sensibles incluant les fichiers `.gitconfig`, `.npmrc`, les variables d'environnement, ainsi que les jetons d'accès CI/CD (GitHub, GitLab, Jenkins, CircleCI).
-*   **Infrastructures :** Les attaquants utilisent des domaines hébergés sur AWS EC2, sans certificat TLS, et conservent une structure de code quasi identique d'une vague à l'autre.
-*   **Vulnérabilités :** Aucune CVE spécifique n'est associée, car il s'agit d'une attaque par ingénierie sociale exploitant le mécanisme natif de gestion des dépendances de NPM pour exécuter du code arbitraire.
+* **Technique d'évasion :** Utilisation de dépendances dynamiques distantes (RDD). Le fichier `package.json` pointe vers une URL externe, permettant d'exécuter du code malveillant sans l'inclure directement dans le paquet, contournant ainsi les analyses automatisées.
+* **Données visées :** Configuration Git (`.gitconfig`), fichiers NPM (`.npmrc`), variables d'environnement, jetons CI/CD (GitHub, GitLab, Jenkins, CircleCI) et informations système (IP, OS, version de Node).
+* **Infrastructure :** Les attaquants utilisent des domaines contenant le mot "artifact" hébergés sur AWS EC2, sans certificat TLS.
+* **Persistance :** Malgré une faible sophistication technique, la campagne demeure active grâce à une rotation fréquente des comptes NPM et des modifications mineures des métadonnées.
+
+**Vulnérabilités :**
+* Aucune CVE spécifique n'est associée, car l'attaque repose sur une exploitation légitime du fonctionnement des dépendances NPM (Remote Dynamic Dependencies) plutôt que sur une faille logicielle classique.
 
 **Recommandations :**
-*   **Vérification rigoureuse :** Valider systématiquement la légitimité des paquets et la réputation des éditeurs avant toute installation.
-*   **Méfiance vis-à-vis de l'IA :** Ne pas copier-coller aveuglément les suggestions de noms de bibliothèques provenant de chatbots ou de sources non vérifiées.
-*   **Audit des dépendances :** Surveiller les fichiers `package.json` pour détecter des références suspectes vers des URLs externes inhabituelles.
-*   **Gestion des secrets :** Éviter de stocker des jetons d'accès ou des identifiants dans des fichiers de configuration locale.
+* **Vérification rigoureuse :** Valider systématiquement la légitimité et la réputation des bibliothèques avant toute installation.
+* **Prudence avec l'IA :** Éviter de copier-coller aveuglément des recommandations de noms de paquets fournies par des outils d'IA ou des sources non vérifiées.
+* **Contrôle des dépendances :** Auditer régulièrement les fichiers `package.json` pour identifier des dépendances suspectes pointant vers des sources externes non reconnues.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/new-phantomraven-npm-attack-wave-steals-dev-data-via-88-packages/){:target="_blank"}
