@@ -6,20 +6,21 @@ tags:
 - veille-cyber
 - sans-isc
 ---
-### Compte-rendu du SANS Internet Stormcast – 19 mars 2026
+### Note sur l'épisode du 19 mars 2026 de l'ISC Stormcast
 
-L'épisode du 19 mars 2026 du podcast quotidien *ISC Stormcast* du SANS Internet Storm Center traite des dernières actualités en cybersécurité.
+Cet article fait référence au podcast **ISC Stormcast** du jeudi 19 mars 2026, produit par le SANS Internet Storm Center.
 
 **Points clés :**
-*   Le podcast constitue une veille technique quotidienne sur les menaces émergentes, les vulnérabilités découvertes et les tendances en matière de sécurité informatique.
-*   L'édition du jour se concentre sur les enjeux actuels liés à la sécurité des applications, des API et des microservices, thématiques qui seront également au cœur d'une session de formation SANS prévue à Orlando fin mars 2026.
+*   Le contenu est une édition quotidienne du podcast d'actualité en cybersécurité du SANS.
+*   L'article sert de page de référence pour accéder à l'enregistrement audio et aux notes associées.
+*   Le niveau de menace actuel est classé « vert » (faible).
+*   L'article mentionne également une opportunité de formation à Orlando (fin mars/début avril 2026) portant sur la sécurisation des applications web, des API et des microservices.
 
-**Vulnérabilités et CVE :**
-*   Le contenu fourni dans l'article source ne détaille pas de vulnérabilités spécifiques ni de codes CVE pour cette date précise, le document servant principalement de portail d'accès au flux audio (podcast).
+**Vulnérabilités :**
+*   Aucune vulnérabilité spécifique (CVE) n'est listée ou détaillée dans cette page de redirection.
 
 **Recommandations :**
-*   Il est conseillé aux auditeurs de consulter régulièrement les archives du *Diary* sur le site de l'ISC SANS pour obtenir des analyses techniques détaillées et des conseils de remédiation sur les vulnérabilités traitées quotidiennement.
-*   Pour les professionnels du secteur, le suivi des podcasts *Stormcast* est recommandé pour maintenir une veille opérationnelle constante sur les vecteurs d'attaque en constante évolution.
+*   Les auditeurs sont invités à écouter l'épisode via le lien officiel fourni sur le site du [SANS Internet Storm Center](https://isc.sans.edu/podcastdetail/9856) pour obtenir les détails techniques et les analyses sur les menaces récentes discutées par l'intervenant.
 
 ---
 [Source](https://isc.sans.edu/diary/rss/32812){:target="_blank"}

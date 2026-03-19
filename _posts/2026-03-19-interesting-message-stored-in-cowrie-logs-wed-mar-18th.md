@@ -6,24 +6,24 @@ tags:
 - veille-cyber
 - sans-isc
 ---
-### Analyse d'une campagne de compromission par botnet "iranbot"
+### Incursion botnet « iranbot » détectée via les logs Cowrie
 
-Des sondes DShield ont détecté une activité malveillante significative le 19 février 2026, impliquant des tentatives d'exploitation de systèmes Linux 64 bits et d'appareils IoT. Les attaquants ont utilisé l'adresse IP `64.89.161.198` pour effectuer des scans de ports et des connexions Telnet (TCP/23) réussies.
+Une activité malveillante a été identifiée le 19 février 2026 par des capteurs DShield, révélant une campagne visant les systèmes Linux 64 bits et les objets connectés (IoT). Un acteur malveillant, utilisant l'adresse IP `64.89.161.198`, a réussi des connexions via le protocole Telnet (TCP/23) pour déployer un script d'exploitation. La présence d'une signature spécifique, « MAGIC_PAYLOAD_KILLER_HERE_OR_LEAVE_EMPTY_iranbot_was_here », dans les journaux d'exécution, suggère une signature caractéristique de ce botnet.
 
 **Points clés :**
-* **Signature de l'attaque :** Les logs du honeypot Cowrie ont révélé l'exécution d'une commande contenant la chaîne `MAGIC_PAYLOAD_KILLER_HERE_OR_LEAVE_EMPTY_iranbot_was_here`.
-* **Mode opératoire :** Le botnet déploie des scripts shell après authentification via Telnet pour infecter les cibles.
-* **Ciblage :** La campagne vise spécifiquement les systèmes Linux 64 bits et les équipements IoT vulnérables aux accès Telnet non sécurisés.
+*   **Vecteur d'attaque :** Utilisation du protocole Telnet (non sécurisé) pour l'accès initial, suivi du téléchargement et de l'exécution d'un script shell malveillant.
+*   **Cibles :** Systèmes Linux 64 bits et dispositifs IoT vulnérables.
+*   **Trace :** L'attaquant a laissé une trace explicite dans les logs (« iranbot_was_here ») lors de l'exécution d'une commande `echo`.
+*   **Période d'activité :** Observée entre fin janvier et fin février 2026, avec un pic d'exploitation le 19 février.
 
 **Vulnérabilités :**
-* Utilisation du protocole Telnet (TCP/23) pour l'accès à distance, protocole non chiffré et notoirement vulnérable aux attaques par force brute.
-* Absence de CVE spécifique mentionnée, mais exploitation générique de services distants faiblement sécurisés sur des systèmes IoT et Linux.
+*   **Protocole non sécurisé :** Utilisation persistante de Telnet (TCP/23) pour l'accès aux équipements, ce qui facilite les attaques par force brute ou l'interception. Aucune CVE spécifique n'est mentionnée, l'attaque exploitant directement une mauvaise configuration d'accès distant.
 
 **Recommandations :**
-* **Désactivation de Telnet :** Remplacer systématiquement Telnet par SSH avec authentification par clé publique et désactivation de l'accès root à distance.
-* **Durcissement des équipements IoT :** Modifier les identifiants par défaut des appareils et limiter l'exposition de leurs interfaces de gestion sur Internet.
-* **Surveillance réseau :** Bloquer le trafic provenant de l'IP malveillante identifiée (`64.89.161.198`) et surveiller les logs pour détecter des tentatives de connexion suspectes sur le port 23.
-* **Analyse de fichiers :** Utiliser des outils comme VirusTotal pour vérifier l'intégrité des scripts ou binaires suspects trouvés sur les serveurs (Hachage SHA-256 du script identifié : `f1c0e109640d154246d27ff05074365740e994f142ef9846634bec7b18e3b715`).
+*   **Désactiver Telnet :** Remplacer immédiatement le protocole Telnet par SSH avec une authentification par clé publique et la désactivation de l'accès root à distance.
+*   **Durcissement IoT :** Mettre à jour les firmwares des appareils IoT et restreindre leur accès réseau via des pare-feu (isolation VLAN).
+*   **Surveillance :** Analyser les logs des serveurs (notamment via des outils comme Cowrie) pour détecter des tentatives d'upload ou d'exécution de scripts suspects.
+*   **Filtrage IP :** Bloquer les communications entrantes et sortantes vers les adresses IP suspectes identifiées, telles que `64.89.161.198`.
 
 ---
 [Source](https://isc.sans.edu/diary/rss/32810){:target="_blank"}
