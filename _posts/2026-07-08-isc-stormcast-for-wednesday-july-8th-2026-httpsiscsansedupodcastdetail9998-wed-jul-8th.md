@@ -6,11 +6,15 @@ tags:
 - veille-cyber
 - sans-isc
 ---
-### Indisponibilité du contenu technique
+Le contenu fourni ne contient aucune information technique ou détaillée concernant des vulnérabilités, des menaces ou des recommandations. Il s'agit uniquement d'une page de renvoi vers le podcast quotidien « ISC Stormcast » du 8 juillet 2026, sans transcription ni notes techniques associées.
 
-L'article fourni ne contient aucune information de sécurité exploitable, vulnérabilité ou conseil technique. Il s'agit d'une page de renvoi vers un podcast (ISC Stormcast du 8 juillet 2026) dont le contenu textuel est absent de la source fournie. 
+***
 
-En l'absence de données, aucun point clé ou recommandation ne peut être extrait.
+### Indisponibilité des données techniques
+
+*   **Points clés :** L'article source se limite à une redirection vers une archive de podcast.
+*   **Vulnérabilités :** Aucune CVE ou faille de sécurité n'est mentionnée.
+*   **Recommandations :** Aucune mesure corrective n'est suggérée par l'auteur.
 
 ---
 [Source](https://isc.sans.edu/diary/rss/33136){:target="_blank"}
