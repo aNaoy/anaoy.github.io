@@ -6,26 +6,25 @@ tags:
 - veille-cyber
 - hackernews
 ---
-### Campagnes de phishing Microsoft : Fraude aux factures et détournement de comptes via les passkeys
+### Menaces sur les environnements cloud : Phishing par Passkey et Fraude aux virements
 
-Microsoft a récemment identifié deux campagnes d'attaque majeures exploitant l'ingénierie sociale et les infrastructures légitimes pour compromettre des environnements cloud.
+Microsoft a mis en lumière deux campagnes d'attaques sophistiquées exploitant l'ingénierie sociale et les infrastructures de services tiers pour compromettre les environnements cloud et détourner des fonds.
 
-#### Points clés
-*   **Fraude financière (BEC) :** Utilisation de l'IA générative pour créer des emails personnalisés et des factures falsifiées, se faisant passer pour des dirigeants (CEO/CFO) afin de manipuler les départements comptables vers des virements ACH frauduleux.
-*   **Vol de comptes Cloud :** Utilisation de techniques d'ingénierie sociale basées sur les "passkeys" (clés d'accès). Les attaquants contactent les victimes par téléphone ou via Microsoft Teams en se faisant passer pour le support informatique, les incitant à "mettre à jour" leur configuration d'authentification sur des sites de phishing.
-*   **Persistance :** Une fois l'accès obtenu, les attaquants enregistrent leur propre méthode d'authentification MFA (téléphone ou application) pour maintenir un accès permanent, puis utilisent l'API Microsoft Graph pour exfiltrer massivement des données (SharePoint, OneDrive, Exchange).
+**Points clés :**
+*   **Fraude financière (BEC) :** Utilisation de l'IA générative pour créer des emails personnalisés et usurper l'identité de dirigeants (CEO/CFO). Les attaquants envoient de fausses factures (ex: ServiceNow) pour inciter les services comptables à effectuer des virements ACH.
+*   **Ingénierie sociale "Passkey" :** Les attaquants contactent les employés par téléphone ou SMS en se faisant passer pour le support informatique. Ils incitent les victimes à mettre à jour leur configuration de sécurité (passkey, MFA) sur des sites frauduleux pour capturer les jetons d'authentification ou mener des attaques par "adversary-in-the-middle" (AitM).
+*   **Persistance et exfiltration :** Une fois l'accès obtenu, les attaquants enregistrent leur propre méthode MFA pour maintenir une persistance, puis utilisent l'API Microsoft Graph pour explorer les données, extraire des documents de SharePoint/OneDrive et collecter des emails.
+*   **Tactiques d'évasion :** Rotation fréquente des adresses IP et des infrastructures pour éviter la détection réseau, couplée à une utilisation légitime mais malveillante des API cloud.
 
-#### Vulnérabilités exploitées
-*   **Techniques d'ingénierie sociale :** Ciblage humain via du "vishing" (phishing vocal) et l'usurpation d'identité pour contourner les contrôles de sécurité.
-*   **Attaques Adversary-in-the-Middle (AitM) et Device-Code :** Détournement des flux d'authentification légitimes pour capturer des jetons ou forcer l'approbation d'accès.
-*   **Abus de l'API Microsoft Graph :** Utilisation détournée d'outils légitimes d'administration pour la reconnaissance interne et l'exfiltration, rendant la détection difficile par les outils classiques basés sur des alertes isolées.
-*   **Note :** Aucune CVE spécifique n'est mentionnée, les attaques reposant sur des abus de fonctionnalités légitimes et non sur des failles logicielles.
+**Vulnérabilités :**
+L'attaque ne repose pas sur une CVE spécifique, mais sur l'exploitation des flux d'authentification (Device Code, AitM) et l'abus de l'API Microsoft Graph, qui, isolée, ne semble pas suspecte aux outils de surveillance classiques.
 
-#### Recommandations
-*   **Détection holistique :** Analyser l'activité de l'API Microsoft Graph de manière corrélée plutôt que par des appels isolés, afin de repérer les comportements anormaux (exfiltration massive, reconnaissance).
-*   **Sécurisation du processus d'assistance IT :** Sensibiliser les employés au fait que le support informatique ne demandera jamais de mettre à jour une passkey via un lien envoyé par SMS ou un appel non sollicité.
-*   **Gestion des accès :** Surveiller étroitement l'ajout de nouvelles méthodes MFA par les utilisateurs et appliquer des politiques de moindre privilège pour limiter l'impact en cas de compromission d'un compte.
-*   **Vigilance sur l'infrastructure :** Bloquer les domaines suspects utilisés pour le phishing (ex: `passkeyhelpdesk[.]com`, `setupmypasskey[.]com`) et surveiller l'usurpation de domaines d'entreprise.
+**Recommandations :**
+*   **Analyse comportementale :** Ne pas se fier à une détection basée sur un seul appel API, mais corréler les événements de manière holistique pour identifier des progressions anormales.
+*   **Renforcement de l'authentification :** Privilégier les clés de sécurité physiques FIDO2 qui résistent au phishing AitM, contrairement aux méthodes basées sur les SMS ou les OTP logiciels.
+*   **Sensibilisation :** Alerter les employés sur les appels téléphoniques non sollicités prétendant provenir du support informatique concernant la mise à jour des accès MFA.
+*   **Surveillance des logs :** Surveiller étroitement l'enregistrement de nouvelles méthodes MFA ou de nouveaux dispositifs d'authentification sur les comptes utilisateurs sensibles.
+*   **Zero Trust :** Appliquer le principe du moindre privilège, particulièrement pour l'accès aux API Graph, et auditer régulièrement les permissions d'applications et les accès externes.
 
 ---
 [Source](https://thehackernews.com/2026/09/attackers-use-passkey-phishing-to.html){:target="_blank"}
