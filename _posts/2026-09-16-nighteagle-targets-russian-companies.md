@@ -6,24 +6,25 @@ tags:
 - veille-cyber
 - securelist
 ---
-### Expansion des activités du groupe APT NightEagle vers la Russie
+### Expansion des opérations du groupe APT NightEagle vers la Russie
 
-Le groupe APT NightEagle (APT-Q-95) a étendu ses opérations, initialement concentrées en Asie, vers des organisations en Russie. Cette campagne repose sur l'utilisation de justificatifs d'identité compromis pour accéder aux VPN d'entreprise, suivie par le déploiement du backdoor *GhostContainer* sur des serveurs Microsoft Exchange.
+Le groupe APT NightEagle (APT-Q-95) a étendu ses activités depuis l'Asie vers des entreprises en Russie. Ce groupe utilise des tactiques sophistiquées reposant sur des outils légitimes détournés et l'exploitation de vulnérabilités connues pour maintenir sa persistance et se déplacer latéralement au sein des réseaux.
 
 **Points clés :**
-*   **Accès initial :** Utilisation de comptes VPN valides, souvent via des tunnels Cloudflare WARP ou des infrastructures virtuelles européennes.
-*   **Persistence et outils :** Le groupe utilise des outils légitimes détournés (Microsoft dev tunnels, *rdp2tcp*) et des exécutables maquillés (nommés *adobe_32.exe*, *1cbroker.exe*, etc.) hébergés sur GitHub pour le mouvement latéral et le tunneling.
-*   **Mouvement latéral :** Exploitation d'Active Directory, incluant l'utilisation de la technique DCSync pour usurper l'identité du contrôleur de domaine et extraire des secrets.
+*   **Accès initial :** Utilisation d'identifiants valides compromis pour accéder aux VPN d'entreprise, souvent via des tunnels Cloudflare WARP.
+*   **Backdoor GhostContainer :** Déploiement d'un backdoor sur les serveurs Microsoft Exchange, utilisant des composants open-source (Neo-reGeorg) et des techniques d'injection dans le paramètre `VIEWSTATE`.
+*   **Tunnelisation et mouvements latéraux :** Utilisation de Microsoft Dev Tunnels et de l'outil `rdp2tcp` pour créer des accès distants (RDP) persistants, dissimulés sous des noms de fichiers légitimes (ex: `adobe_32.exe`, `1cbroker.exe`).
+*   **Attaque Active Directory :** Exploitation de vulnérabilités pour élever les privilèges et exécution d'attaques de type DCSync pour compromettre les contrôleurs de domaine.
 
 **Vulnérabilités exploitées :**
-*   **CVE-2020-0688 :** Utilisée dans les composants de *GhostContainer* pour cibler Microsoft Exchange.
-*   **CVE-2019-0708 (BlueKeep) :** Exploitée pour obtenir des accès locaux et élever les privilèges sur les systèmes cibles.
+*   **CVE-2020-0688 :** Exploitation utilisée dans le cadre de la backdoor GhostContainer sur Microsoft Exchange.
+*   **CVE-2019-0708 (BlueKeep) :** Exploitation via le protocole RDP pour créer des comptes locaux et obtenir des accès privilégiés.
 
 **Recommandations :**
-*   **Surveillance Active Directory :** Surveiller étroitement les requêtes de tickets Kerberos (flags suspects) et détecter toute tentative de réplication non autorisée (DCSync).
-*   **Gestion des logs :** Auditer les journaux Windows, en particulier les événements liés aux services Bureau à distance (RDP) (IDs 132 et 148), pour détecter l'usage de canaux de communication anormaux associés à *rdp2tcp*.
-*   **Durcissement des accès :** Imposer une authentification multifacteur (MFA) sur tous les accès VPN et appliquer les correctifs de sécurité critiques sur les serveurs Exchange et les systèmes exposés.
-*   **Détection comportementale :** Utiliser des solutions EDR/NDR pour identifier les anomalies, telles que le chargement suspect d'assemblées .NET via PowerShell ou des connexions réseau vers des domaines de type `*.devtunnels.ms` initiées par des processus non autorisés.
+*   **Surveillance renforcée :** Détecter les anomalies dans les journaux Windows, notamment les événements RDP (IDs 132 et 148) indiquant l'utilisation de canaux suspects par `rdp2tcp`.
+*   **Gestion des accès :** Appliquer le principe du moindre privilège, sécuriser les accès VPN par une authentification multi-facteurs (MFA) robuste et réinitialiser les identifiants compromis.
+*   **Patch Management :** S'assurer que les correctifs pour les vulnérabilités critiques (en particulier CVE-2020-0688 et CVE-2019-0708) sont appliqués sur tous les serveurs exposés.
+*   **Détection :** Mettre en place des règles de détection EDR pour surveiller l'exécution de processus suspects, le chargement de DLL via PowerShell et les tentatives de réplication de données AD (DCSync).
 
 ---
 [Source](https://securelist.com/tr/nighteagle-apt-ghostcontainer-and-tunneling/121323/){:target="_blank"}

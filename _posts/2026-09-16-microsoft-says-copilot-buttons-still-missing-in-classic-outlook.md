@@ -6,22 +6,22 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### Dysfonctionnement de Microsoft Copilot dans l'Outlook classique
+### Dysfonctionnement des boutons Copilot dans Outlook Classique
 
-Microsoft enquête sur un bug persistant provoquant la disparition des boutons Copilot dans la version "classique" d'Outlook pour Windows (build 20026.20182 et supérieures). Ce dysfonctionnement empêche l'accès aux fonctionnalités d'IA, bien que le service reste opérationnel via le web ou l'application autonome.
+Microsoft enquête sur un bug persistant affectant les utilisateurs d'Outlook Classique (build 20026.20182 et supérieures), où les boutons Copilot disparaissent de l'interface. Le problème est lié à une incapacité d'Outlook à localiser la propriété MAPI `PR_PROFILE_USER_SMTP_EMAIL_ADDRESS_W` dans le profil utilisateur, empêchant la persistance des paramètres liés à Copilot.
 
 **Points clés :**
-* **Cause identifiée :** Outlook ne parvient pas à localiser la propriété MAPI `PR_PROFILE_USER_SMTP_EMAIL_ADDRESS_W`, empêchant le chargement correct des paramètres Copilot.
-* **Impact :** Disparition des boutons Copilot, icônes inactives ou commandes grisées dans le ruban.
-* **Problème connexe :** Des plantages d'Outlook ont été signalés sur les systèmes utilisant l'antivirus Kaspersky, liés au module `mcou.dll`.
+*   **Impact :** Les utilisateurs disposant d'une licence Copilot Chat ou M365 Copilot ne voient plus les accès rapides à Copilot (ruban, barre latérale).
+*   **Comportement :** L'outil peut apparaître comme disponible dans les options, mais reste non fonctionnel ou grisé.
+*   **Incidents connexes :** Un bug distinct provoque des plantages d'Outlook (Événement 1000) sur les systèmes utilisant l'antivirus Kaspersky via le module `mcou.dll`.
 
 **Vulnérabilités :**
-Aucune CVE n'est associée à ces dysfonctionnements. Il s'agit de problèmes de compatibilité logicielle et de configuration de profil.
+*   Aucune CVE associée à ce jour ; il s'agit d'un dysfonctionnement logiciel interne (bug applicatif).
 
 **Recommandations :**
-* **Contournement temporaire :** Dans Outlook, accédez à *Fichier > Options > Avancé* et cochez l'option "Afficher les applications dans Outlook" (Show Apps in Outlook).
-* **Alternatives :** Utiliser Outlook sur le web (OWA), la nouvelle version d'Outlook, ou créer un nouveau profil Outlook.
-* **Pour les plantages liés à Kaspersky :** Contacter directement le support technique de Kaspersky.
+*   **Contournement temporaire :** Activer l'option « Afficher les applications dans Outlook » via *Fichier > Options > Avancé > Volets Outlook*.
+*   **Alternatives :** Utiliser Outlook sur le web (OWA), la nouvelle version d'Outlook ou créer un nouveau profil Outlook.
+*   **Pour les plantages Kaspersky :** Contacter directement le support technique de Kaspersky.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/microsoft/microsoft-shares-workaround-for-missing-outlook-copilot-buttons/){:target="_blank"}

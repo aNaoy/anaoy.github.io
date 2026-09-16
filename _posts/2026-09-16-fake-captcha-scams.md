@@ -6,26 +6,22 @@ tags:
 - veille-cyber
 - schneier
 ---
-### Menace des faux CAPTCHAs : L'ingénierie sociale au service de l'exécution de code
+### La menace des faux CAPTCHAs : techniques et vecteurs d'attaque
 
-Les campagnes de « faux CAPTCHA » exploitent l'habitude des utilisateurs de valider des tests de sécurité pour les inciter à exécuter des commandes malveillantes sur leur système. Cette méthode, souvent répertoriée sous les noms de « ClickFix » ou « FileFix », détourne le processus de vérification pour installer des malwares.
+Les campagnes de « faux CAPTCHA » (notamment identifiées sous les noms « ClickFix » ou « FileFix ») exploitent la confiance des utilisateurs envers les outils de vérification humaine pour orchestrer des compromissions de systèmes.
 
 **Points clés :**
-*   **Techniques de dissimulation (TDS) :** Les attaquants utilisent des systèmes de routage sophistiqués qui analysent l'adresse IP et le profil de l'utilisateur (fingerprinting). Si la requête provient d'un centre de données ou d'un outil de scan, une page bénigne est affichée pour éviter la détection. Les cibles réelles (adresses résidentielles/mobiles) reçoivent la charge utile malveillante.
-*   **Mode opératoire :** L'attaque demande à l'utilisateur d'effectuer une manipulation manuelle, comme ouvrir la boîte de dialogue « Exécuter » (Win+R) et y coller une ligne de commande PowerShell ou `pcalua.exe`.
-*   **Exécution de code :** La commande force le téléchargement d'un script (ex: `.sct`) qui est ensuite exécuté via `regsvr32`, contournant ainsi les protections classiques par l'exécution de fichiers système légitimes.
+*   **Technique d'ingénierie sociale :** L'utilisateur est invité à effectuer une manipulation complexe (ex: `Win+R` suivi d'une commande) sous prétexte de valider une vérification de sécurité.
+*   **Détection évasive :** Les attaquants utilisent des *Traffic Direction Systems* (TDS) pour filtrer les connexions. Les adresses IP liées aux centres de données (utilisées par les outils d'analyse de menaces) reçoivent des pages bénignes, tandis que les IP résidentielles ou mobiles reçoivent la charge utile malveillante.
+*   **Exécution de code :** La manipulation demandée déclenche généralement l'exécution de `pcalua.exe` pour télécharger et exécuter des scripts distants (fichiers `.sct`) via `regsvr32`.
 
-**Vulnérabilités :**
-*   Il ne s'agit pas d'une vulnérabilité logicielle spécifique avec un identifiant CVE unique, mais plutôt d'une exploitation de l'**ingénierie sociale** couplée au détournement de composants légitimes de Windows (Living-off-the-Land) tels que :
-    *   `pcalua.exe` (Program Compatibility Assistant)
-    *   `regsvr32.exe` (outil d'enregistrement de composants COM)
-    *   `curl.exe` (pour le téléchargement de la charge utile)
+**Vulnérabilités exploitées :**
+*   L'attaque n'exploite pas une faille logicielle spécifique (CVE), mais abuse de fonctionnalités natives du système d'exploitation Windows (Living-off-the-Land) comme `pcalua.exe` et `regsvr32.exe` pour exécuter du code arbitraire avec l'autorisation de l'utilisateur.
 
 **Recommandations :**
-*   **Vigilance comportementale :** Aucun CAPTCHA légitime ne demande jamais de copier-coller du texte dans une console, d'exécuter des commandes système ou de télécharger des exécutables.
-*   **Formation des utilisateurs :** Sensibiliser au fait qu'une vérification humaine doit rester une interaction simple sur le navigateur (clics ou sélection d'images).
-*   **Fermeture immédiate :** En cas de demande suspecte sur une page web, fermez immédiatement l'onglet ou le navigateur sans suivre les instructions affichées.
-*   **Filtrage réseau :** Surveiller les communications sortantes vers des services de type `sslip.io` ou des domaines suspects utilisés pour héberger des scripts de test.
+*   **Vigilance comportementale :** Aucun CAPTCHA légitime ne demande à un utilisateur de copier-coller des commandes dans un terminal, de télécharger un logiciel ou de manipuler des fonctions système (`Win+R`).
+*   **Fermeture immédiate :** En cas de demande suspecte de manipulation système sur une page web, fermez immédiatement le navigateur sans exécuter les instructions.
+*   **Filtrage réseau :** Être conscient que les attaquants ciblent préférentiellement les réseaux résidentiels pour éviter la détection par les outils de sécurité automatisés.
 
 ---
 [Source](https://www.schneier.com/blog/archives/2026/09/fake-captcha-scams.html){:target="_blank"}

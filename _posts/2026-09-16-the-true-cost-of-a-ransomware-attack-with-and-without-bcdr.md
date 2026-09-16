@@ -6,25 +6,25 @@ tags:
 - veille-cyber
 - bleepingcomp
 ---
-### L'impact financier réel des ransomwares : Au-delà de la rançon
+### L'économie réelle du ransomware : au-delà de la rançon
 
-La rançon ne représente qu'une fraction minime du coût total d'une attaque par ransomware. Alors que le paiement médian s'élève à environ 140 000 $, le coût global moyen d'un incident atteint 5,08 millions de dollars lorsqu'on inclut l'interruption d'activité, les frais de remédiation, les enjeux juridiques et les amendes de conformité.
+Le paiement de la rançon ne représente qu'une fraction dérisoire du coût total d'une cyberattaque par ransomware. Alors que la rançon médiane avoisine les 140 000 $, le coût global moyen d'un incident atteint 5,08 millions de dollars. Ce différentiel s'explique par les conséquences indirectes qui suivent l'attaque : pertes d'exploitation liées à l'indisponibilité des systèmes, frais de remédiation, reconstruction des infrastructures, ainsi que les coûts juridiques et liés à la conformité (RGPD, SEC, HIPAA).
 
 **Points clés :**
-*   **Le coût du temps d'arrêt :** La productivité perdue est le facteur financier principal. Plus la restauration est lente, plus les coûts opérationnels explosent.
-*   **La fragilité des sauvegardes :** Les attaquants ciblent désormais activement les infrastructures de sauvegarde pour empêcher toute récupération, rendant les restaurations complexes et coûteuses.
-*   **Pression réglementaire :** Des délais stricts (ex: 72h pour le RGPD) imposent une gestion rapide de la notification et des aspects légaux, accentuant la pression sur les équipes IT.
-*   **L'équation du risque :** Le coût total = (Coût horaire de l'arrêt × Durée de rétablissement) + Frais de remédiation + Coûts juridiques/réglementaires.
+*   **La durée d'indisponibilité est le facteur de coût principal :** Plus le temps de rétablissement est long, plus l'impact financier est massif. 
+*   **Vulnérabilité des sauvegardes :** Les attaquants ciblent désormais prioritairement les infrastructures de sauvegarde pour empêcher toute restauration.
+*   **La contrainte temporelle réglementaire :** Les délais stricts de notification des autorités (ex: 72h pour le RGPD) imposent une gestion de crise rapide sous peine de lourdes sanctions.
 
 **Vulnérabilités :**
-*   **Attaques sur les sauvegardes :** La suppression ou le chiffrement des copies de secours par les attaquants prive l'entreprise de solutions de restauration immédiates.
-*   **Absence de tests de récupération :** La possession de sauvegardes ne garantit pas leur intégrité ou la capacité à restaurer rapidement les systèmes.
+L'article ne mentionne pas de CVE spécifiques, mais souligne deux faiblesses critiques exploitées par les attaquants :
+*   **L'altération des sauvegardes :** Les systèmes de sauvegarde non protégés contre l'effacement ou la modification.
+*   **L'accès aux systèmes via des vecteurs périphériques :** L'article cite en exemple une attaque facilitée par une imprimante compromise.
 
-**Recommandations (Stratégie BCDR) :**
-*   **Privilégier l'immuabilité :** Utiliser des stockages de type WORM (Write-Once-Read-Many) pour garantir que les sauvegardes ne puissent être ni modifiées ni supprimées.
-*   **Réduire l'RTO (Recovery Time Objective) :** Mettre en place des solutions permettant une virtualisation rapide des systèmes sur des serveurs de sauvegarde ou dans le cloud, afin de reprendre l'activité pendant que l'environnement principal est assaini.
-*   **Surveillance proactive :** Déployer des outils de détection d'anomalies basés sur l'apprentissage automatique pour identifier les comportements suspects au sein des sauvegardes.
-*   **Préparation opérationnelle :** Passer d'une simple sauvegarde de données à une stratégie de continuité d'activité (BCDR) testée régulièrement, transformant la récupération d'une crise prolongée en un processus IT maîtrisé.
+**Recommandations :**
+*   **Adopter une stratégie BCDR (Continuité d'Activité et Reprise après Sinistre) mature :** Ne pas se contenter de simples sauvegardes, mais tester régulièrement les procédures de reprise pour minimiser le temps d'interruption.
+*   **Utiliser le stockage immuable :** Recourir à des solutions de stockage WORM (*Write Once Read Many*) pour garantir que les sauvegardes ne puissent être ni modifiées ni supprimées par des ransomware.
+*   **Calculer le coût de l'indisponibilité (RTO/RPO) :** Évaluer précisément le coût financier par heure d'arrêt pour justifier les investissements en résilience cyber.
+*   **Virtualisation rapide :** Mettre en place des solutions permettant de virtualiser instantanément les systèmes critiques sur une appliance ou dans le cloud dès la détection d'une compromission, afin d'isoler l'environnement infecté tout en maintenant l'activité opérationnelle.
 
 ---
 [Source](https://www.bleepingcomputer.com/news/security/the-true-cost-of-a-ransomware-attack-with-and-without-bcdr/){:target="_blank"}

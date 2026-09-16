@@ -6,7 +6,7 @@ tags:
 - veille-cyber
 - sans-isc
 ---
-L'article fourni ne contient pas de contenu exploitable, le serveur ayant retourné une erreur de surcharge de la base de données (« High database load »). Par conséquent, aucune analyse, vulnérabilité ou recommandation ne peut être extraite.
+L'article fourni ne contient pas d'informations exploitables car la page web a rencontré une erreur technique (« High database load »). Par conséquent, aucun contenu relatif à la cybersécurité ne peut être extrait ou résumé.
 
 ---
 [Source](https://isc.sans.edu/diary/rss/33344){:target="_blank"}
